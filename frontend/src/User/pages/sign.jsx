@@ -1,14 +1,31 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { signData } from '../../service/api';
 
+const defaultValue = {
+    username: '',
+    email: '',
+    password: ''
+};
 
-export default function sign() {
-  return (
-    <>
-       <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen p-[100px] md:py-[50px] md:px-[200px]">
+export default function SignUp() {
+    const [user, setUser] = useState(defaultValue);
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        setUser({ ...user, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await signData(user);
+        navigate('/');
+    };
+
+    return (
+        <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen p-[100px] md:py-[50px] md:px-[200px]">
 
             {/* Right Side - Background Image */}
-            
             <div className="hidden md:block relative border-2 rounded-[10px] overflow-hidden">
                 <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRYd9_YKcG9vEGrWRfIKIK3xhZb5pYiw6nDw&s/800x600" // Replace with your desired image URL
@@ -17,20 +34,21 @@ export default function sign() {
                 />
             </div>
 
-            {/* Left Side - Login Card */}
-
+            {/* Left Side - Sign Up Card */}
             <div className="flex items-center bg-slate-100 justify-center border-2 rounded-[10px] mx-2">
-                <div className="card bg-white shadow-lg  p-8 w-full max-w-sm">
+                <div className="card bg-white shadow-lg p-8 w-full max-w-sm">
                     <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className="mb-4">
                             <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
                             <input
                                 type="text"
                                 id="username"
+                                name="username"
                                 placeholder="Enter your username"
                                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
                                 required
+                                onChange={handleChange}
                             />
                         </div>
                         <div className="mb-4">
@@ -38,9 +56,11 @@ export default function sign() {
                             <input
                                 type="email"
                                 id="email"
+                                name="email"
                                 placeholder="Enter your email"
                                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
                                 required
+                                onChange={handleChange}
                             />
                         </div>
                         <div className="mb-4">
@@ -48,9 +68,11 @@ export default function sign() {
                             <input
                                 type="password"
                                 id="password"
+                                name="password"
                                 placeholder="Enter your password"
                                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
                                 required
+                                onChange={handleChange}
                             />
                         </div>
                         <button
@@ -59,13 +81,12 @@ export default function sign() {
                         >
                             Sign Up
                         </button>
-                        <Link  to={'/login'}> <p className="text-sky-800 text-center my-2">Login ?</p></Link>
+                        <Link to={'/login'}>
+                            <p className="text-sky-800 text-center my-2">Already have an account? Login</p>
+                        </Link>
                     </form>
                 </div>
             </div>
-
-          
         </div>
-    </>
-  )
+    );
 }

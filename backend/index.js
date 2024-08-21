@@ -4,13 +4,15 @@ const dotenv = require('dotenv');
 dotenv.config();
 const mongodb = require('./connection/db');
 const Route  = require('./router/router');
-
+const cors = require('cors')
 
 const port = process.env.PORT || 5000
 
 mongodb();
+app.use(cors());
 
 app.use(express.json());
+
 
 app.get("/checkserver", (req,res)=>{
     res.send("welcome backend page")
