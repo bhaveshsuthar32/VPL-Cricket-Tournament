@@ -17,6 +17,24 @@ import Contactus from './User/pages/Contactus'
 import Home from './User/pages/Home'
 
 
+
+// Admin 
+import Dashboard from './Admin/Pages/Dashboard';
+import User from './Admin/Pages/User';
+import ATeam from './Admin/Pages/ATeam';
+import AAdvertiser from './Admin/Pages/AAdvertiser';
+import SType from './Admin/Pages/SType';
+import FSponser from './Admin/Pages/ASponser/FSponser';
+import OSponser from './Admin/Pages/ASponser/OSponser';
+import FSponserform from './Admin/Pages/ASponser/FSponserform';
+import OSponserform from './Admin/Pages/ASponser/OSponserform';
+import Advertiserform from './Admin/Pages/AAdvertiser/Advertiserform';
+import STypeform from './Admin/Pages/SType/STypeform';
+import AProfile from './Admin/Pages/AProfile';
+import AProfileform from './Admin/Pages/AProfile/AProfileform';
+
+
+
 function App() {
 
 
@@ -41,6 +59,24 @@ function App() {
         <Route path="/rules" element={<Rules />} />
         <Route path="/about" element={<Aboutus />} />
         <Route path="/contactus" element={<Contactus />} />
+
+
+         {/* Admin Route */}
+
+         <Route path="/admin" element={<Dashboard />} />
+        <Route path="/dashboard/users" element={<User />} />
+        <Route path="/dashboard/teams" element={<ATeam />} />
+        <Route path="/dashboard/advertisers" element={<AAdvertiser />} />
+        <Route path="/dashboard/advertiserform" element={<Advertiserform />} />
+        <Route path="/dashboard/sponsertype" element={<SType />} />
+        <Route path="/dashboard/sponsertypeform" element={<STypeform />} />
+        <Route path="/dashboard/fsponser" element={<FSponser />} />
+        <Route path="/dashboard/fsponserform" element={<FSponserform />} />
+        <Route path="/dashboard/osponser" element={<OSponser />} />
+        <Route path="/dashboard/osponserform" element={<OSponserform />} />
+        <Route path="/dashboard/profile" element={<AProfile />} />
+        <Route path="/dashboard/profileform" element={<AProfileform />} />
+
         </Routes>
       </BrowserRouter>
     </>
