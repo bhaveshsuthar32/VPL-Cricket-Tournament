@@ -69,7 +69,7 @@ export default function Footer() {
                 </nav> */}
             </footer>
             <div className='h-10 place-content-center text-center bg-slate-600 border-t-[1px] border-slate-300'>
-<h1 className='text-white'>Copyright © 2024, VPL Cricket Tournament  </h1>
+                <h1 className='text-white'>Copyright © 2024, VPL Cricket Tournament  </h1>
             </div>
         </div>
     )
