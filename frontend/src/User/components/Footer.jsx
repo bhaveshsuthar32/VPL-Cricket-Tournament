@@ -4,7 +4,7 @@ export default function Footer() {
     return (
         <div>
             <footer className="footer bg-base-200 text-base-content p-10">
-                <aside>
+                <aside className='flex sm:block'>
                     <svg
                         width="50"
                         height="50"
@@ -22,27 +22,55 @@ export default function Footer() {
                         Started From 2019
                     </p>
                 </aside>
-                <nav>
-                    <h6 className="footer-title">Services</h6>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
-                </nav>
-                <nav>
-                    <h6 className="footer-title">Company</h6>
-                    <a className="link link-hover">About us</a>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Jobs</a>
-                    <a className="link link-hover">Press kit</a>
-                </nav>
-                <nav>
+                <aside className='grid grid-cols-4  gap-10 sm:gap-20'>
+
+                    <div className='sm:leading-6 leading-5 mt-[-12px] sm:mt-0 col-span-2 sm:col-span-1'>
+                        <h6 className="footer-title">Services</h6>
+                        <ul className='text-slate-600'>
+                            <li><a className="link link-hover">Branding</a></li>
+                            <li><a className="link link-hover">Design</a></li>
+                            <li><a className="link link-hover">Marketing</a></li>
+                            <li><a className="link link-hover">Advertisement</a></li>
+                        </ul>
+                    </div>
+                    <div className='leading-5 mt-[-12px] sm:mt-0  col-span-2 sm:col-span-1'>
+                        <h6 className="footer-title">Company</h6>
+                        <ul className='text-slate-600'>
+                            <li><a className="link link-hover">About us</a></li>
+                            <li><a className="link link-hover">Contact</a></li>
+                            <li><a className="link link-hover">Jobs</a></li>
+                            <li><a className="link link-hover">Press kit</a></li>
+                        </ul>
+                    </div>
+                    <div className='sm:leading-6 leading-5 mt-[-12px] sm:mt-0 col-span-2 sm:col-span-1 '>
+                        <h6 className="footer-title">Legal</h6>
+                        <ul className='text-slate-600'>
+                            <li><a className="link link-hover">Branding</a></li>
+                            <li><a className="link link-hover">Design</a></li>
+                            <li><a className="link link-hover">Marketing</a></li>
+                            <li><a className="link link-hover">Advertisement</a></li>
+                        </ul>
+                    </div>
+                    <div className='leading-5 mt-[-12px] sm:mt-0  col-span-2 sm:col-span-1'>
+                        <h6 className="footer-title">Company</h6>
+                        <ul className='text-slate-600'>
+                            <li><a className="link link-hover">About us</a></li>
+                            <li><a className="link link-hover">Contact</a></li>
+                            <li><a className="link link-hover">Jobs</a></li>
+                            <li><a className="link link-hover">Press kit</a></li>
+                        </ul>
+                    </div>
+                </aside>
+                {/* <nav className='leading-4 sm:leading-5 mt-[-12px] sm:mt-0'>
                     <h6 className="footer-title">Legal</h6>
                     <a className="link link-hover">Terms of use</a>
                     <a className="link link-hover">Privacy policy</a>
                     <a className="link link-hover">Cookie policy</a>
-                </nav>
+                </nav> */}
             </footer>
+            <div className='h-10 place-content-center text-center bg-slate-600 border-t-[1px] border-slate-300'>
+<h1 className='text-white'>Copyright © 2024, VPL Cricket Tournament  </h1>
+            </div>
         </div>
     )
 }
