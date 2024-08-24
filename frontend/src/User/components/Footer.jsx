@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Footer() {
+    const [showHelloWorld, setShowHelloWorld] = useState(false); // State to manage visibility
+
+    // Function to toggle the visibility of "Hello World"
+    const toggleHelloWorld = () => {
+      setShowHelloWorld(!showHelloWorld);
+    };
     return (
         <div>
             <footer className="footer bg-base-200 text-base-content p-10">
@@ -68,9 +74,15 @@ export default function Footer() {
                     <a className="link link-hover">Cookie policy</a>
                 </nav> */}
             </footer>
-            <div className='h-10 place-content-center text-center bg-slate-600 border-t-[1px] border-slate-300'>
-                <h1 className='text-white'>Copyright © 2024, VPL Cricket Tournament  </h1>
-            </div>
+           
+            <div className='h-8 place-content-center text-center bg-slate-600 border-t-[1px]  border-slate-300'>
+      <h1 className='text-white text-[9px] sm:text-[12px]'>
+        Copyright <span onClick={toggleHelloWorld} className='cursor-pointer'>©</span> 2024, VPL Cricket Tournament
+        {showHelloWorld && <span className='text-white mx-[12px]'>[ Developed by :- Bhavesh & Dilip ]</span>}
+      </h1>
+     
+    </div>
+            
         </div>
     )
 }

@@ -44,13 +44,13 @@ function Home() {
       </section>
 
       {/* About us section  */}
-      <section className='bg-base-200 lg:h-[480px] h-[600px]'>
+      <section className='bg-base-200 lg:h-[480px] h-[650px]'>
         <div className="py-16   ">
           <div className="mx-auto max-w-6xl px-6 md:leading-5 leading-4 md:text-[16px] text-[11px] text-pretty">
             <h1 className="md:text-[40px] text-xl font-bold text-center sm:leading-9">Welcome to Vishwakarma Premier League</h1>
             <div className='grid grid-cols-3 border-2 md:mt-10 mt-6'>
               <div className='sm:col-span-1 col-span-3 border-2 '>
-                <div className="w-60 mx-auto">
+                <div className="sm:w-60 w-[230px] mx-auto">
                   <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/bodyeditor/201909/vishwakarma-x378.png?w3m5BcVLlkMOITAiy9dlWoXI4UIXpOpO" />
                 </div>
               </div>
@@ -320,8 +320,8 @@ function Home() {
       </section>
 
       {/* Rules and Regulation  */}
-      <section className='bg-base-200 lg:h-[480px] h-[600px]'>
-        <div className="py-16   ">
+      <section className='bg-base-200 lg:h-[440px] h-[600px]'>
+        <div className="sm:py-16 py-14 hidden sm:block">
           <div className="mx-auto max-w-6xl px-6 md:leading-5 leading-4 md:text-[16px] text-[11px] text-pretty">
             <h1 className="md:text-[40px] text-xl font-bold text-center">Rules & Regulation</h1>
             <div className='grid grid-cols-3 border-2 md:mt-10 mt-6'>
@@ -336,9 +336,31 @@ function Home() {
                
               </div>
               <div className='sm:col-span-1 col-span-3 border-2 '>
-                <div className="w-60 mx-auto">
-                  <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/bodyeditor/201909/vishwakarma-x378.png?w3m5BcVLlkMOITAiy9dlWoXI4UIXpOpO" />
+                <div className="sm:w-60 w-[230px] mx-auto">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkvQG3dC3PhHj_H1ybPG9GYc0GdftNb1qrQQ&s" />
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="sm:py-16 py-14 block sm:hidden">
+          <div className="mx-auto max-w-6xl px-6 md:leading-5 leading-4 md:text-[16px] text-[11px] text-pretty">
+            <h1 className="md:text-[40px] text-xl font-bold text-center">Rules & Regulation</h1>
+            <div className='grid grid-cols-3 border-2 md:mt-10 mt-6'>
+              <div className='sm:col-span-1 col-span-3 border-2 '>
+                <div className="sm:w-60 w-[230px] mx-auto">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkvQG3dC3PhHj_H1ybPG9GYc0GdftNb1qrQQ&s  " />
+                </div>
+              </div>
+              <div className='sm:col-span-2 col-span-3 border-2 sm:pl-3 lg:pl-0 lg:mt-4'>
+                <p className="">
+                  Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
+                  quasi. In deleniti eaque aut repudiandae et a id nisi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis maiores, suscipit quasi optio delectus cupiditate eius nesciunt fugit assumenda! Cum vero tenetur non!
+                </p>
+                <p className="md:my-3 my-2">
+                  The tournament not only aims to crown a champion but also to provide a platform for players to gain invaluable experience and exposure. With rigorous training and preparation, teams are set to compete fiercely, promising an entertaining and memorable event for players and spectators alike. Join us in celebrating the spirit of cricket and witness the emergence of future stars!
+                </p>
+               
               </div>
             </div>
           </div>
