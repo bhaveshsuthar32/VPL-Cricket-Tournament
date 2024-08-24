@@ -25,6 +25,7 @@ export default function FSponser() {
                             </Link>
                         </div>
                     </div>
+                    <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}
                         <thead className="bg-gray-300 sticky top-[65px] bg-white z-10">
@@ -38,6 +39,114 @@ export default function FSponser() {
                         </thead>
                         <tbody>
                             {/* row 1 */}
+                            <tr>
+                                <th>1</th>
+                                <td>
+                                    <div className="flex items-center gap-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle h-12 w-12">
+                                                <img
+                                                    src="https://img.daisyui.com/images/profile/demo/3@94.webp"
+                                                    alt="Avatar Tailwind CSS Component" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">Madan Suthar s/o Pratap ji Suthar</div>
+                                            <div className="text-sm opacity-50">Bagra</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    51,000 Rupee
+                                </td>
+                                <td>
+                                    Day 1
+                                </td>
+                                <th>
+                                    <button className="btn btn-ghost btn-xs">details</button>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>1</th>
+                                <td>
+                                    <div className="flex items-center gap-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle h-12 w-12">
+                                                <img
+                                                    src="https://img.daisyui.com/images/profile/demo/3@94.webp"
+                                                    alt="Avatar Tailwind CSS Component" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">Madan Suthar s/o Pratap ji Suthar</div>
+                                            <div className="text-sm opacity-50">Bagra</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    51,000 Rupee
+                                </td>
+                                <td>
+                                    Day 1
+                                </td>
+                                <th>
+                                    <button className="btn btn-ghost btn-xs">details</button>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>1</th>
+                                <td>
+                                    <div className="flex items-center gap-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle h-12 w-12">
+                                                <img
+                                                    src="https://img.daisyui.com/images/profile/demo/3@94.webp"
+                                                    alt="Avatar Tailwind CSS Component" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">Madan Suthar s/o Pratap ji Suthar</div>
+                                            <div className="text-sm opacity-50">Bagra</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    51,000 Rupee
+                                </td>
+                                <td>
+                                    Day 1
+                                </td>
+                                <th>
+                                    <button className="btn btn-ghost btn-xs">details</button>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>1</th>
+                                <td>
+                                    <div className="flex items-center gap-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle h-12 w-12">
+                                                <img
+                                                    src="https://img.daisyui.com/images/profile/demo/3@94.webp"
+                                                    alt="Avatar Tailwind CSS Component" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">Madan Suthar s/o Pratap ji Suthar</div>
+                                            <div className="text-sm opacity-50">Bagra</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    51,000 Rupee
+                                </td>
+                                <td>
+                                    Day 1
+                                </td>
+                                <th>
+                                    <button className="btn btn-ghost btn-xs">details</button>
+                                </th>
+                            </tr>
                             <tr>
                                 <th>1</th>
                                 <td>
@@ -131,6 +240,7 @@ export default function FSponser() {
                             </tr>
                         </tfoot>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>
