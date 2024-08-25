@@ -10,7 +10,7 @@ export default function SType() {
             <Sidebar />
             <div className="px-4 mt-3 sm:ml-64">
                 <div className="mx-auto my-4 max-w-7xl px-4 py-4 sm:px-6 lg:px-8 border-[1px] rounded-lg shadow-sm sticky top-20 bg-white z-9">
-                    <div className="mt-2 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 ">
+                    <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6 ">
                         <div className="sm:col-span-5">
                             <h1 className='font-bold text-lg text-gray-600'>
                                 Sponser Types
@@ -28,9 +28,9 @@ export default function SType() {
 
                     <table className="table">
                         {/* head */}
-                        <thead className="bg-gray-300 sticky top-[65px] bg-white z-10">
+                        <thead className="sticky top-0 sm:top-[65px] bg-white z-10">
                             <tr>
-                                <th></th>
+                                <th>S No.</th>
                                 <th>Sponser Type</th>
                                 <th>Action</th>
                             </tr>

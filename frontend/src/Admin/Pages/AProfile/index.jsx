@@ -19,7 +19,7 @@ export default function AProfile() {
                                 <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt="Profile" className="w-full h-auto rounded-full" />
                             </div>
                         </div>
-                        <div className="sm:col-span-4">
+                        <div className="sm:col-span-4 sm:px-24 lg:px-10">
                             <div className="mt-6">
                                 {/* <h1 className="text-4xl font-bold text-gray-900">Profile</h1> */}
                                 <h2 className="text-2xl font-bold text-gray-500">Dilip Suthar</h2>

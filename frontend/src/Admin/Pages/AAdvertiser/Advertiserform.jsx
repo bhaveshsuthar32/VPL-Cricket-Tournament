@@ -92,7 +92,7 @@ export default function Advertiserform() {
                                         />
                                     </div>
                                 </div>
-                                <div className="mt-6 flex items-center justify-end gap-x-6">
+                                <div className="mt-6  sm:ml-28 lg-ml-0  flex items-center justify-end gap-x-6">
                                 <Link to={'/dashboard/advertisers'} className="text-sm font-semibold leading-6 text-gray-900">
                                     Cancel
                                 </Link>
