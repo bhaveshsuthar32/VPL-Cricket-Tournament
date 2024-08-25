@@ -1,17 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import BackgroundSlider from '../components/backgroundSlider';
 import TeamComponent from '../components/TeamComponent';
 import SponserComponent from '../components/SponsorComponent';
+import HallofComponent from '../components/HallofComponent';
 
 function Home() {
   return (
@@ -155,43 +150,16 @@ function Home() {
 
       {/* sponser Section  */}
       <section className='bg-base-500 md:h-[550px] h-[400px] py-16'>
-          <SponserComponent />
+        <SponserComponent />
       </section>
 
       {/* Hall of fame */}
 
-      <section className='bg-sky-300 h-auto border-2'>
-        <div className="grid grid-cols-8 ml-16 border-2 border-black">
-          <div className="col-span-2 border-2 place-content-center ">
-            <h1 className='text-[40px] font-bold '>HALL OF Fame</h1>
-            <h1 className='text-[40px] font-bold '></h1>
-            <p className='font-bold text-[20px] '>VPL Cricket Tournament</p>
-            <p className='font-semibold text-[17px]'>Heros 2023</p>
-
-          </div>
-          <div className="col-span-6 grid grid-cols-8 border-2">
-            <div className="col-span-2 border-2 border-red-700 pt-14">
-              <div className='h-[190px] ml-2 border-2 rounded-l-[17px]  p-2 text-slate-800 '
-
-                style={{
-                  backgroundImage: 'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZINyY_ZxLMw8w7mjSJmPnQN4HMsuw36uo6XMS2iB_A1BGVnl7LiRRG2ovlazkh3ozGG0&usqp=CAU")',
-                  backgroundSize: 'cover', // Adjusts the size of the image
-                  backgroundPosition: 'center', // Centers the image
-                  backgroundRepeat: 'no-repeat' // Prevents the image from repeating
-                }}
-              >
-                {/* <p className='font-bold text-[20px] '>VPL Cricket Tournament</p>
-                <p className='font-semibold text-[17px]'>Heros 2023</p> */}
-              </div>
-            </div>
-            <div className="col-span-6 border-2 border-purple-600 pt-14">
-              <div className='h-[240px] border-2 '></div>
-            </div>
-          </div>
-        </div>
+      <section className='h-auto '>
+        <HallofComponent />
       </section>
 
-   
+
 
       {/* Advertise Section  */}
       <section className='bg-base-500 py-16'>
