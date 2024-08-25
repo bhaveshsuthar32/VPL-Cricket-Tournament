@@ -125,6 +125,78 @@ function Home() {
         </div>
         <div className="sm:py-16 py-14 block sm:hidden">
           <div className="mx-auto max-w-6xl px-6 md:leading-5 leading-4 md:text-[16px] text-[11px] text-pretty">
+            <h1 className="md:text-[40px] text-xl font-bold">RULES & REGULATION</h1>
+            <div className='grid grid-cols-4 md:mt-0 mt-6'>
+              <div className='sm:col-span-2 col-span-3 sm:pl-3 lg:pl-0 lg:mt-4'>
+              <div className="sm:w-[530px] w-[230px] ml-12 ">
+                  <img src="https://media.istockphoto.com/id/1434729638/photo/red-leather-cricket-ball-on-a-cricket-bat-front-view.jpg?s=1024x1024&w=is&k=20&c=lQpRqjn4SUZfgAOL73N6MFnqTgaITkIZVLn7VDGAXCY=" className="" />
+                </div>
+
+              </div>
+              <div className='sm:col-span-2 col-span-3'>
+          
+
+
+                <div className="px-2 py-5 grid grid-cols-9">
+                  <div className='col-span-2 my-2'>
+                    <div className="avatar">
+                      <div className="w-12 rounded-full">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5IbgBf-NJ0vZJLiSQmkbxuypYyl-B5K7C3g&s" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className='col-span-7 my-2  leading-1 ml-2 w-[270px]'>
+                    <h1 className='md:text-[20px] text-[12px] font-semibold'>
+                      Team
+                    </h1>
+                      <p className='text-[10px] '>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore </p>
+                  </div>
+
+
+                  <div className='col-span-2 my-2'>
+                    <div className="avatar">
+                      <div className="w-12 rounded-full">
+                        <img src="https://www.shutterstock.com/image-vector/cricket-stadium-audience-vector-background-600nw-2367285537.jpg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className='col-span-7 my-2  leading-1 ml-2 w-[270px]'>
+                    <h1  className='md:text-[20px] text-[12px] font-semibold'>
+                      Ground
+                    </h1>
+       
+                      <p className='text-[10px] '>Lorem ipsum, dolor sit amet consectetur adipisicing </p>
+
+                  </div>
+
+                  <div className='col-span-2 my-2 mb-6'>
+                    <div className="avatar">
+                      <div className="w-12 rounded-full">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlHmtFv-O4lGVu3GJxK5diDmk3EbP5_If-jg&s" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className='col-span-7 my-2  leading-1 ml-2 w-[270px]'>
+                    <h1 className='md:text-[20px] text-[12px] font-semibold'>
+                      Match
+                    </h1>
+                      <p className='text-[10px] '>Lorem ipsum, dolor sit amet consectetur adipisicing </p>
+                  </div>
+
+                </div>
+                <Link
+                  to={'#'}
+                  className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-black shadow-sm hover:bg-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-200"
+                >
+                  View Rules & Regulation &#11166;
+                </Link>
+              </div>
+            </div>
+          </div>
+
+
+
+          {/* <div className="mx-auto max-w-6xl px-6 md:leading-5 leading-4 md:text-[16px] text-[11px] text-pretty">
             <h1 className="md:text-[40px] text-xl font-bold text-center">Rules & Regulation</h1>
             <div className='grid grid-cols-3 border-2 md:mt-10 mt-6'>
               <div className='sm:col-span-1 col-span-3 border-2 '>
@@ -143,7 +215,7 @@ function Home() {
 
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
