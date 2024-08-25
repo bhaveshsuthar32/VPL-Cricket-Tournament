@@ -6,13 +6,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-export default function SponserComponent() {
+export default function SponsorComponent() {
     return (
         <>
 
         <div className='sm:mx-16 mx-8'>
             <div className="md:mb-8 mb-4 max-w-4xl">
-                <h1 className="md:text-[40px] text-xl font-bold">TEAMS</h1>
+                <h1 className="md:text-[40px] text-xl font-bold">SPONSOR</h1>
             </div>
             <Swiper
 
