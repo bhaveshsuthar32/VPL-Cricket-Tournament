@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-export default function profile() {
+export default function Profile() {
     return (
         <>
             <div className="md:tx-[200px] md:px-[350px] px-[100px]">

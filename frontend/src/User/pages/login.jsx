@@ -1,36 +1,8 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { loginData } from '../../service/api';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 export default function Login() {
-    // const [user, setUser] = useState(defaultValue);
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    // const [error, setError] = useState(''); // State to hold error messages
-    const navigate = useNavigate();
-
-    // const handleChange = (e) => {
-    //     setUser({ ...user, [e.target.name]: e.target.value });
-    // };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await loginData({ email, password });
-            if (response.data.success) {
-            //   toast.success(response.data.message);
-            console.log("successfull")
-              navigate("/"); // Navigate to home page on successful login
-            } else {
-            //   toast.error(response.data.message);
-            console.log("not successfull")
-            }
-          } catch (error) {
-            toast.error("Failed to login. Please check your credentials.");
-          }
-    };
-
     return (
         <>
             <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen p-[100px] md:py-[50px] md:px-[200px]">

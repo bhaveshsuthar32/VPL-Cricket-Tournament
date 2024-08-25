@@ -1,22 +1,21 @@
-import React, { Profiler } from 'react'
-import { BrowserRouter,  Routes, Route } from 'react-router-dom'
-import Login from './User/pages/login'
-import SignUp from './User/pages/sign'
-import Profile from './User/pages/profile/profile'
-import EditProfile from './User/pages/profile/editProfile'
-import AddTeam from './User/pages/addTeam'
-import Navbar from './User/components/Navbar'
-import Halloffame from './User/pages/Halloffame'
-import Teamview from './User/pages/Teamview'
-import Sponser from './User/pages/Sponser'
-import Team from './User/pages/Team'
-import Advertiser from './User/pages/Advertiser'
-import Rules from './User/pages/Rules'
-import Aboutus from './User/pages/Aboutus'
-import Contactus from './User/pages/Contactus'
-import Home from './User/pages/Home'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-
+import Home from './User/pages/Home';
+import Navbar from './User/components/Navbar';
+import Halloffame from './User/pages/Halloffame';
+import Teamview from './User/pages/Teamview';
+import Sponser from './User/pages/Sponser';
+import Team from './User/pages/Team';
+import Advertiser from './User/pages/Advertiser';
+import Rules from './User/pages/Rules';
+import Aboutus from './User/pages/Aboutus';
+import Contactus from './User/pages/Contactus';
+// import Profile from './User/pages/Profile';
+// import Profileform from './User/pages/Profileform';
+import Profile from './User/pages/Profile';
+import EditProfile from './User/pages/Profile/editProfile';
+import Teamform from './User/pages/Teamform';
 
 // Admin 
 import Dashboard from './Admin/Pages/Dashboard';
@@ -32,25 +31,17 @@ import Advertiserform from './Admin/Pages/AAdvertiser/Advertiserform';
 import STypeform from './Admin/Pages/SType/STypeform';
 import AProfile from './Admin/Pages/AProfile';
 import AProfileform from './Admin/Pages/AProfile/AProfileform';
-
-
+import Login from './User/pages/login';
+import SignUp from './User/pages/Signup';
 
 function App() {
-
-
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-         <Route path='/' element={<Home />} /> 
-         <Route path='/login' element = {<Login /> } />
-         <Route path='/signup' element = {<SignUp /> } />
-         <Route path='/profile' element = {<Profile /> } />
-         <Route path='/editProfile' element = {<EditProfile /> } />
-         <Route path='/addTeam' element = {<AddTeam /> } />
-
-
-         <Route path="/nav" element={<Navbar />} />
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/nav" element={<Navbar />} />
         <Route path="/halloffame" element={<Halloffame />} />
         <Route path="/teamview" element={<Teamview />} />
         <Route path="/sponser" element={<Sponser />} />
@@ -59,11 +50,13 @@ function App() {
         <Route path="/rules" element={<Rules />} />
         <Route path="/about" element={<Aboutus />} />
         <Route path="/contactus" element={<Contactus />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profileform" element={<EditProfile/>} />
+        <Route path="/addteam" element={<Teamform />} />
 
+        {/* Admin Route */}
 
-         {/* Admin Route */}
-
-         <Route path="/admin" element={<Dashboard />} />
+        <Route path="/admin" element={<Dashboard />} />
         <Route path="/dashboard/users" element={<User />} />
         <Route path="/dashboard/teams" element={<ATeam />} />
         <Route path="/dashboard/advertisers" element={<AAdvertiser />} />
@@ -77,10 +70,9 @@ function App() {
         <Route path="/dashboard/profile" element={<AProfile />} />
         <Route path="/dashboard/profileform" element={<AProfileform />} />
 
-        </Routes>
-      </BrowserRouter>
-    </>
-  )
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

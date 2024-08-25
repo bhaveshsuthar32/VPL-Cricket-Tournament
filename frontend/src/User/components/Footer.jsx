@@ -31,7 +31,7 @@ export default function Footer() {
                 <aside className='grid grid-cols-4  gap-10 sm:gap-20'>
 
                     <div className='sm:leading-6 leading-5 mt-[-12px] sm:mt-0 col-span-2 sm:col-span-1'>
-                        <h6 className="footer-title">Services</h6>
+                        <h6 className="footer-title">Features</h6>
                         <ul className='text-slate-600'>
                             <li><a className="link link-hover">Branding</a></li>
                             <li><a className="link link-hover">Design</a></li>

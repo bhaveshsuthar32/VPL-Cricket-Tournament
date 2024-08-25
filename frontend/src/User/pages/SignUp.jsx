@@ -1,27 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { signData } from '../../service/api';
-
-const defaultValue = {
-    username: '',
-    email: '',
-    password: ''
-};
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function SignUp() {
-    const [user, setUser] = useState(defaultValue);
-    const navigate = useNavigate();
-
-    const handleChange = (e) => {
-        setUser({ ...user, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        await signData(user);
-        navigate('/');
-    };
-
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen p-[100px] md:py-[50px] md:px-[200px]">
 
@@ -47,8 +27,6 @@ export default function SignUp() {
                                 name="username"
                                 placeholder="Enter your username"
                                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
-                                required
-                                onChange={handleChange}
                             />
                         </div>
                         <div className="mb-4">
@@ -59,8 +37,6 @@ export default function SignUp() {
                                 name="email"
                                 placeholder="Enter your email"
                                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
-                                required
-                                onChange={handleChange}
                             />
                         </div>
                         <div className="mb-4">
@@ -71,8 +47,6 @@ export default function SignUp() {
                                 name="password"
                                 placeholder="Enter your password"
                                 className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
-                                required
-                                onChange={handleChange}
                             />
                         </div>
                         <button
