@@ -20,7 +20,7 @@ function Home() {
     <>
       <BackgroundSlider />
       <Navbar />
-      <section className='main page h-[550px]'>
+      <section className='main page h-[360px] sm:h-[550px]'>
         {/* <div
           className="hero min-h-screen relative"
           style={{
@@ -41,33 +41,33 @@ function Home() {
             <h2 className="text-4xl font-bold">VPL</h2>
           </div>
         </div> */}
-        <div className="absolute sm:bottom-8 bottom-80 sm:left-8 text-slate-200 sm:text-white">
+        <div className="absolute lg:bottom-8 sm:bottom-[500px] bottom-80 lg:left-8 text-slate-200 sm:text-white">
           <p className="sm:text-[80px] text-[40px] font-bold p-0">VPL SEASON-3</p>
-          <div className='sm:ms-[20px] ms-[8px] sm:mt-[-20px]'>
-            <h3 className='text-[20px] font-bold'>VENUE - BAGRA</h3>
-            <h3 className='text-[18px] font-bold'>FROM 02-11-2024 TO 06-11-2024</h3>
+          <div className='sm:ms-[20px] ms-[8px]'>
+            <h3 className='text-[20px] sm:[30px] font-bold'>VENUE - BAGRA</h3>
+            <h3 className='text-[18px] lg:[50px] font-bold'>FROM 02-11-2024 TO 06-11-2024</h3>
           </div>
         </div>
       </section>
 
       {/* Register section  */}
-      <section className='lg:h-[420px] h-[650px]'>
-        <div className="py-2">
+      <section className='lg:h-[420px] h-[190px] sm:mt-0 mt-[70px]  '>
+        <div className="py-2 border-2 border-black">
           <div className="mx-auto max-w-6xl px-6 md:leading-5 leading-4 md:text-[16px] text-[11px] text-pretty">
             {/* <h1 className="md:text-[40px] text-xl font-bold sm:leading-9">Welcome to Vishwakarma Premier League</h1> */}
             <div className='grid grid-cols-5 md:mt-10 mt-6'>
-              <div className='sm:col-span-3 col-span-3'>
-                <div className="sm:w-[600px] w-[230px] mx-auto">
+              <div className='sm:col-span-3 col-span-2'>
+                <div className="sm:w-[600px] w-[180px] mx-auto">
                   <img src="https://as2.ftcdn.net/v2/jpg/03/10/60/17/1000_F_310601729_qiwUg48OztkDTVrTPJBIHVpUlXerujqb.jpg" />
                 </div>
               </div>
-              <div className='sm:col-span-2 col-span-3 text-center sm:pl-3 lg:pl-0 lg:mt-8'>
-                <h1 className="md:text-[60px] text-xl font-bold sm:leading-9">PARTICIPATE</h1>
-                <h1 className="md:text-[60px] text-xl mt-10 font-bold sm:leading-9">YOUR TEAM</h1>
-                <h1 className="md:text-[60px] text-xl mt-10 mb-16 font-bold sm:leading-9">NOW</h1>
+              <div className='sm:col-span-2 col-span-3 text-center sm:pl-3 lg:pl-0 lg:mt-8 text-[16px] leading-[25px] sm:leading-[70px] ml-6 sm:ml-0'>
+                <h1 className="md:text-[60px]  font-bold ">PARTICIPATE</h1>
+                <h1 className="md:text-[60px]  font-bold ">YOUR TEAM</h1>
+                <h1 className="md:text-[60px]  font-bold mb-2 sm:mb-6 ">NOW</h1>
                 <Link
                   to={'#'}
-                  className="rounded-md bg-slate-800 mt-6 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600"
+                  className="rounded-md bg-slate-800 mt-6 sm:px-6 px-3 sm:py-3 py-[5px] lg:text-lg text-[12px] font-semibold text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600"
                 >
                   Register Now
                 </Link>
