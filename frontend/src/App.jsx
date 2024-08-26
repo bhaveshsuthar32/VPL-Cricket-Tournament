@@ -2,15 +2,15 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Home from './User/pages/Home';
-import Navbar from './User/components/Navbar';
-import Halloffame from './User/pages/Halloffame';
-import Teamview from './User/pages/Teamview';
+// import Navbar from './User/components/Navbar';
+import HallOfFame from './User/pages/HallOfFame';
+import TeamView from './User/pages/TeamView';
 import Sponser from './User/pages/Sponser';
 import Team from './User/pages/Team';
 import Advertiser from './User/pages/Advertiser';
 import Rules from './User/pages/Rules';
-import Aboutus from './User/pages/Aboutus';
-import Contactus from './User/pages/Contactus';
+import AboutUs from './User/pages/AboutUs';
+import ContactUs from './User/pages/ContactUs';
 // import Profile from './User/pages/Profile';
 // import Profileform from './User/pages/Profileform';
 import Profile from './User/pages/Profile';
@@ -41,17 +41,17 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/nav" element={<Navbar />} />
-        <Route path="/halloffame" element={<Halloffame />} />
-        <Route path="/teamview" element={<Teamview />} />
+        {/* <Route path="/nav" element={<Navbar />} /> */}
+        <Route path="/halloffame" element={<HallOfFame />} />
+        <Route path="/teamview" element={<TeamView />} />
         <Route path="/sponser" element={<Sponser />} />
         <Route path="/team" element={<Team />} />
         <Route path="/advertiser" element={<Advertiser />} />
         <Route path="/rules" element={<Rules />} />
-        <Route path="/about" element={<Aboutus />} />
-        <Route path="/contactus" element={<Contactus />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/contactus" element={<ContactUs />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/profileform" element={<EditProfile/>} />
+        <Route path="/editprofile" element={<EditProfile/>} />
         <Route path="/addteam" element={<Teamform />} />
 
         {/* Admin Route */}

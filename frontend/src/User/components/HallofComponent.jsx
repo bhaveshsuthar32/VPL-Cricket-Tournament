@@ -6,23 +6,23 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-export default function HallofComponent() {
+export default function HallOfComponent() {
   return (
-    <>
-        <div className="grid grid-cols-8 ml-16 ">
-          <div className="col-span-2  place-content-center ">
-            <h1 className='text-[40px] font-bold '>HALL OF Fame</h1>
+    <section className='h-auto py-14'>
+        <div className="grid grid-cols-8 ml-16">
+          <div className="col-span-2 place-content-center">
+            <h1 className='text-[33px] font-bold '>HALL OF FAME</h1>
             <h1 className='text-[40px] font-bold '></h1>
-            <p className='font-bold text-[20px] '>VPL Cricket Tournament</p>
-            <p className='font-semibold text-[17px]'>Heros 2023</p>
+            <p className='font-bold text-slate-700 text-[20px] '>Heroes Of 2023</p>
+            {/* <p className='font-semibold text-[17px]'>Heros 2023</p> */}
 
           </div>
           <div className="col-span-6 grid grid-cols-8">
             <div className="col-span-2 pt-14">
-              <div className='h-[218px] ml-2  rounded-l-[17px]  p-2 text-slate-800 '
+              <div className='h-[218px] ml-2  rounded-l-[17px]  p-2 text-slate-400 border-2'
 
                 style={{
-                  backgroundImage: 'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZINyY_ZxLMw8w7mjSJmPnQN4HMsuw36uo6XMS2iB_A1BGVnl7LiRRG2ovlazkh3ozGG0&usqp=CAU")',
+                  backgroundImage: 'url("https://www.shutterstock.com/image-vector/sport-cricket-indian-premier-league-600nw-2051585033.jpg")',
                   backgroundSize: 'cover', // Adjusts the size of the image
                   backgroundPosition: 'center', // Centers the image
                   backgroundRepeat: 'no-repeat' // Prevents the image from repeating
@@ -76,7 +76,7 @@ export default function HallofComponent() {
                       </div>
                       <div className='h-[70px] bg-slate-700 leading-4 p-2 text-slate-200 text-[12px]'>
                         <p className='font-semibold'>Player of the tournament</p>
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-2 mt-2">
                           <p className='block'>Bhavesh Suthar</p>
                           <p className='text-right px-2 '>Bagra</p>
                           <p className='block'>M Dhandar 11</p>
@@ -97,7 +97,7 @@ export default function HallofComponent() {
                       </div>
                       <div className='h-[70px] bg-slate-700 leading-4 p-2 text-slate-200 text-[12px]'>
                         <p className='font-semibold'>Best Batsman </p>
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-2 mt-2">
                           <p className='block'>Madan Suthar</p>
                           <p className='text-right px-2 '>Bagra</p>
                           <p className='block'>M Dhandar 11</p>
@@ -118,7 +118,7 @@ export default function HallofComponent() {
                       </div>
                       <div className='h-[70px] bg-slate-700 leading-4 p-2 text-slate-200 text-[12px]'>
                         <p className='font-semibold'>Best Bowler </p>
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-2 mt-2">
                           <p className='block'>Arjun Suthar</p>
                           <p className='text-right px-2 '>Bagra</p>
                           <p className='block'>M Dhandar 11</p>
@@ -139,7 +139,7 @@ export default function HallofComponent() {
                       </div>
                       <div className='h-[70px] bg-slate-700 leading-4 p-2 text-slate-200 text-[12px]'>
                         <p className='font-semibold'>Best Filder</p>
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-2 mt-2">
                           <p className='block'>Dilip Suthar</p>
                           <p className='text-right px-2 '>Bagra</p>
                           <p className='block'>M Dhandar 11</p>
@@ -160,7 +160,7 @@ export default function HallofComponent() {
                       </div>
                       <div className='h-[70px] bg-slate-700 leading-4 p-2 text-slate-200 text-[12px]'>
                         <p className='font-semibold'>Best Filder</p>
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-2 mt-2">
                           <p className='block'>Dilip Suthar</p>
                           <p className='text-right px-2 '>Bagra</p>
                           <p className='block'>M Dhandar 11</p>
@@ -176,6 +176,6 @@ export default function HallofComponent() {
             </div>
           </div>
         </div>
-    </>
+    </section>
   )
 }

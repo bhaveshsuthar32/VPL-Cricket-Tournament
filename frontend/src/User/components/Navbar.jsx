@@ -5,7 +5,11 @@ export default function Navbar() {
     return (
         <div className="navbar bg-slate-700 text-white sticky top-0 mx-auto w-[95%] rounded-b-lg z-10">
             <div className="flex-1">
-                <a className="btn btn-ghost md:text-xl">VPL - 3</a>
+                <div className='w-12 ms-5'>
+                    <img src="https://png.pngtree.com/png-clipart/20221229/original/pngtree-cricket-logo-png-image_8823326.png" alt="" />
+                </div>
+                <a className="ms-5 md:text-xl font-semibold">
+                    VPL Cricket Tournament</a>
             </div>
             <div className="flex-none">
                 <div className="navbar-start">

@@ -31,7 +31,7 @@ export default function Profile() {
                             </div>
 
                             <div className="mt-6 text-center">
-                            <Link  to={'/editProfile'}>
+                            <Link  to={'/editprofile'}>
 
                                 <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold md:py-2 md:px-4 py-1 px-2  text-[11px] md:text-[15px] rounded">
                                     Edit Profile

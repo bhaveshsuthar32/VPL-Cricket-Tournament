@@ -2,11 +2,9 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-export default function Contactus() {
+export default function ContactUs() {
     return (
         <>
-
-
             <Navbar />
             <div
                 className="hero lg:min-h-screen sm:h-[600px] h-[800px] relative top-0"
