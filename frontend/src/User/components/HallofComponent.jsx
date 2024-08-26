@@ -8,16 +8,16 @@ import 'swiper/css/pagination';
 
 export default function HallOfComponent() {
   return (
-    <section className='h-auto py-14'>
-        <div className="grid grid-cols-8 ml-16">
-          <div className="col-span-2 place-content-center">
+    <section className='h-auto py-14 border-2'>
+        <div className="grid sm:grid-cols-8 grid-cols-2 sm:ml-16 ml-0">
+          <div className="sm:col-span-2 col-span-2 place-content-center">
             <h1 className='text-[33px] font-bold '>HALL OF FAME</h1>
             <h1 className='text-[40px] font-bold '></h1>
             <p className='font-bold text-slate-700 text-[20px] '>Heroes Of 2023</p>
             {/* <p className='font-semibold text-[17px]'>Heros 2023</p> */}
 
           </div>
-          <div className="col-span-6 grid grid-cols-8">
+          <div className="sm:col-span-6 col-span-2 border-2 border-black grid grid-cols-8">
             <div className="col-span-2 pt-14">
               <div className='h-[218px] ml-2  rounded-l-[17px]  p-2 text-slate-400 border-2'
 
