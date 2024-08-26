@@ -41,9 +41,9 @@ function Home() {
             <h2 className="text-4xl font-bold">VPL</h2>
           </div>
         </div> */}
-        <div className="absolute bottom-8 left-8 text-white">
-          <p className="text-[80px] font-bold p-0">VPL SEASON-3</p>
-          <div className='ms-[20px] mt-[-20px]'>
+        <div className="absolute sm:bottom-8 bottom-80 sm:left-8 text-slate-200 sm:text-white">
+          <p className="sm:text-[80px] text-[40px] font-bold p-0">VPL SEASON-3</p>
+          <div className='sm:ms-[20px] ms-[8px] sm:mt-[-20px]'>
             <h3 className='text-[20px] font-bold'>VENUE - BAGRA</h3>
             <h3 className='text-[18px] font-bold'>FROM 02-11-2024 TO 06-11-2024</h3>
           </div>
