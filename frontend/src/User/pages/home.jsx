@@ -51,20 +51,20 @@ function Home() {
       </section>
 
       {/* Register section  */}
-      <section className='lg:h-[420px] h-[190px] sm:mt-0 mt-[70px]  '>
-        <div className="py-2 border-2 border-black">
+      <section className='lg:h-[420px] sm:h-[220px] h-[120px] sm:mt-0 mt-[70px] mb-4 '>
+        <div className="py-2 ">
           <div className="mx-auto max-w-6xl px-6 md:leading-5 leading-4 md:text-[16px] text-[11px] text-pretty">
             {/* <h1 className="md:text-[40px] text-xl font-bold sm:leading-9">Welcome to Vishwakarma Premier League</h1> */}
             <div className='grid grid-cols-5 md:mt-10 mt-6'>
               <div className='sm:col-span-3 col-span-2'>
-                <div className="sm:w-[600px] w-[180px] mx-auto">
+                <div className="lg:w-[600px] sm:w-[350px] w-[180px] mx-auto">
                   <img src="https://as2.ftcdn.net/v2/jpg/03/10/60/17/1000_F_310601729_qiwUg48OztkDTVrTPJBIHVpUlXerujqb.jpg" />
                 </div>
               </div>
-              <div className='sm:col-span-2 col-span-3 text-center sm:pl-3 lg:pl-0 lg:mt-8 text-[16px] leading-[25px] sm:leading-[70px] ml-6 sm:ml-0'>
-                <h1 className="md:text-[60px]  font-bold ">PARTICIPATE</h1>
-                <h1 className="md:text-[60px]  font-bold ">YOUR TEAM</h1>
-                <h1 className="md:text-[60px]  font-bold mb-2 sm:mb-6 ">NOW</h1>
+              <div className='sm:col-span-2 col-span-3 text-center lg:pl-0 lg:mt-8 text-[16px] sm:text-[33px] leading-[25px] sm:leading-[40px] lg:leading-[70px] ml-6 sm:ml-0'>
+                <h1 className="lg:text-[60px]  font-bold ">PARTICIPATE</h1>
+                <h1 className="lg:text-[60px]  font-bold ">YOUR TEAM</h1>
+                <h1 className="lg:text-[60px]  font-bold mb-2  lg:mb-6 ">NOW</h1>
                 <Link
                   to={'#'}
                   className="rounded-md bg-slate-800 mt-6 sm:px-6 px-3 sm:py-3 py-[5px] lg:text-lg text-[12px] font-semibold text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600"
