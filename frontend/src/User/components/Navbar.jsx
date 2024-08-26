@@ -8,8 +8,10 @@ export default function Navbar() {
                 <div className='w-12 ms-5'>
                     <img src="https://png.pngtree.com/png-clipart/20221229/original/pngtree-cricket-logo-png-image_8823326.png" alt="" />
                 </div>
-                <a className="ms-5 md:text-xl font-semibold">
-                    VPL Cricket Tournament</a>
+                <Link to={"/"} className="ms-5 md:text-xl font-semibold hidden sm:block">
+                    VPL Cricket Tournament</Link>
+                <Link to={"/"} className="ms-5 text-[25px] font-semibold sm:hidden block">
+                    VPL</Link>
             </div>
             <div className="flex-none">
                 <div className="navbar-start">
