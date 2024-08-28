@@ -8,17 +8,17 @@ import 'swiper/css/pagination';
 
 export default function HallOfComponent() {
   return (
-    <section className='h-auto py-14 border-2'>
-        <div className="grid sm:grid-cols-8 grid-cols-2 sm:ml-16 ml-0">
-          <div className="sm:col-span-2 col-span-2 place-content-center">
+    <section className='h-auto py-14 '>
+        <div className="grid sm:grid-cols-8 grid-cols-2 sm:ml-16 ml-0 ">
+          <div className="sm:col-span-2 col-span-2 place-content-center ml-2 sm:ml-0">
             <h1 className='text-[33px] font-bold '>HALL OF FAME</h1>
             <h1 className='text-[40px] font-bold '></h1>
             <p className='font-bold text-slate-700 text-[20px] '>Heroes Of 2023</p>
             {/* <p className='font-semibold text-[17px]'>Heros 2023</p> */}
 
           </div>
-          <div className="sm:col-span-6 col-span-2 border-2 border-black grid grid-cols-8">
-            <div className="col-span-2 pt-14">
+          <div className="sm:col-span-6 col-span-2 grid grid-cols-8">
+            <div className="sm:col-span-2 col-span-3 pt-14">
               <div className='h-[218px] ml-2  rounded-l-[17px]  p-2 text-slate-400 border-2'
 
                 style={{
@@ -32,21 +32,22 @@ export default function HallOfComponent() {
                 <p className='font-semibold text-[17px]'>Heros 2023</p> */}
               </div>
             </div>
-            <div className="col-span-6  pt-14 bg-slate-300 rounded-tl-[30px]">
-              <div className='h-[282px] '>
+            <div className="sm:col-span-6 col-span-5 pt-14 bg-slate-300 rounded-tl-[30px]">
+              <div className='sm:h-[282px] h-[200px] '>
                 <Swiper
 
                   modules={[Navigation, Pagination, Autoplay]}
                   spaceBetween={100}
                   // navigation
-                  speed={1500}
+                  speed={2000}
                   autoplay={{
-                    delay: 1000,
+                    delay: 2000,
                     disableOnInteraction: false,
                   }}
                   className="mySwiper"
                   breakpoints={{
          
+             
                     640: {
                       slidesPerView: 1,
                       slidesPerGroup: 3,
@@ -66,7 +67,7 @@ export default function HallOfComponent() {
                   }}
                 >
                   <SwiperSlide className=''>
-                    <div className=" bg-base-100 w-[230px] sm:35 shadow-lg ">
+                    <div className=" bg-base-100 w-[230px]  shadow-lg ">
                       <div>
                         <img
                           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLcrUF1ECOSc6-xd9PKRVOpl1mk-md15_ajw&usqp=CAU"
@@ -81,13 +82,12 @@ export default function HallOfComponent() {
                           <p className='text-right px-2 '>Bagra</p>
                           <p className='block'>M Dhandar 11</p>
                           <p className='text-right px-2 '>Run : 392</p>
-
                         </div>
                       </div>
                     </div>
                   </SwiperSlide>
                   <SwiperSlide className=''>
-                    <div className=" bg-base-100 w-[230px] sm:35">
+                    <div className=" bg-base-100 w-[230px] ">
                       <div>
                         <img
                           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw0TKzq3dSSCEriaxhoDg_rfz2U8bMsFHqVw&usqp=CAU"
@@ -108,7 +108,7 @@ export default function HallOfComponent() {
                     </div>
                   </SwiperSlide>
                   <SwiperSlide className=''>
-                    <div className=" bg-base-100 w-[230px] sm:35">
+                    <div className=" bg-base-100 w-[230px] ">
                       <div>
                         <img
                           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShsi4Pxp0bIIs679AUTHJO6iZ5nRGacmPOjg&usqp=CAU"
@@ -129,7 +129,7 @@ export default function HallOfComponent() {
                     </div>
                   </SwiperSlide>
                   <SwiperSlide className=''>
-                    <div className=" bg-base-100 w-[230px] sm:35">
+                    <div className=" bg-base-100 w-[230px] ">
                       <div>
                         <img
                           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWmBXZ6n6lDE409Hl8kPt6R7zUCijaiLslIw&usqp=CAU"
@@ -150,7 +150,7 @@ export default function HallOfComponent() {
                     </div>
                   </SwiperSlide>
                   <SwiperSlide className=''>
-                    <div className=" bg-base-100 w-[230px] sm:35">
+                    <div className=" bg-base-100 w-[230px] ">
                       <div>
                         <img
                           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShsi4Pxp0bIIs679AUTHJO6iZ5nRGacmPOjg&usqp=CAU"
