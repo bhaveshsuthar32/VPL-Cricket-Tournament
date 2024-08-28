@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function SponserComponent() {
     return (
-        <section className=' h-auto py-8'>
+        <section className=' h-auto py-8 mb-12'>
             <div className='mx-8'>
                 <div className="pb-4 max-w-4xl">
                     <h1 className="md:text-[40px] text-xl font-bold">SPONSERS</h1>

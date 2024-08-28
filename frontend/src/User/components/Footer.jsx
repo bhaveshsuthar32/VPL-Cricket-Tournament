@@ -9,7 +9,7 @@ export default function Footer() {
     };
     return (
         <div>
-            <footer className="footer bg-base-200 text-base-content px-10 py-5">
+            <footer className="footer bg-base-300 text-base-content px-10 py-5">
                 <aside className='flex sm:block'>
                 <div className="w-20 rounded-full mx-aut">
                             <img
