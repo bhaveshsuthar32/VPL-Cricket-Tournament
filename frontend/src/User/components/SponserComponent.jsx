@@ -3,7 +3,7 @@ import React from 'react'
 export default function SponserComponent() {
     return (
         <section className=' h-auto py-8 mb-12'>
-            <div className='mx-8'>
+            <div className='sm:mx-8 mx-2'>
                 <div className="pb-4 max-w-4xl">
                     <h1 className="md:text-[40px] text-xl font-bold">SPONSERS</h1>
                 </div>
@@ -36,7 +36,7 @@ export default function SponserComponent() {
                                 <p className="text-gray-400">Bagra</p>
                             </div>
                         </div>
-                        <div className="card card-compact bg-transparent md:w-40">
+                        <div className="card card-compact bg-transparent md:w-40 hidden sm:block">
                             <figure>
                                 <img
                                     src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
@@ -49,7 +49,7 @@ export default function SponserComponent() {
                                 <p className="text-gray-400">Noon</p>
                             </div>
                         </div>
-                        <div className="card card-compact bg-transparent md:w-40">
+                        <div className="card card-compact bg-transparent md:w-40 hidden lg:block">
                             <figure>
                                 <img
                                     src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
@@ -62,7 +62,7 @@ export default function SponserComponent() {
                                 <p className="text-gray-400">Akoli</p>
                             </div>
                         </div>
-                        <div className="card card-compact bg-transparent md:w-40">
+                        <div className="card card-compact bg-transparent md:w-40 hidden lg:block">
                             <figure>
                                 <img
                                     src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
