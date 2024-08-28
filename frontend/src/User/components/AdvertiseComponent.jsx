@@ -18,11 +18,11 @@ export default function AdvertiseComponent() {
   ];
 
   return (
-    <section className='h-auto py-8'>
+    <section className='h-auto py-8 mt-14 sm:mt-0'>
       <div className="pb-16 max-w-4xl">
         <h1 className="md:text-[40px] mx-8 text-xl font-bold">ADVERTISERS</h1>
       </div>
-      <div className='mx-8'>
+      <div className='sm:mx-8 mx-4'>
         <div>
           <Swiper
             modules={[Autoplay]}
@@ -34,8 +34,11 @@ export default function AdvertiseComponent() {
               disableOnInteraction: false,
             }}
             breakpoints={{
-              640: {
+              360: {
                 slidesPerView: 2,
+              },
+              640: {
+                slidesPerView: 3,
               },
               768: {
                 slidesPerView: 3,
@@ -47,7 +50,7 @@ export default function AdvertiseComponent() {
           >
             {images.map((image, index) => (
               <SwiperSlide key={index}>
-                <div className="card card-compact bg-transparent md:w-40">
+                <div className="card card-compact bg-transparent w-[150px] md:w-40 border-2">
                   <img
                     src={image}
                     alt={`Img ${index + 1}`}
