@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 
 export default function TeamComponent() {
   return (
-    <section className='md:h-[500px] h-[400px] py-16 z-0'>
+    <section className='lg:h-[500px] h-[400px] py-16 z-0 mt-12 '>
       <div className='sm:mx-16 mx-8'>
         <div className="md:mb-8 mb-4 max-w-4xl">
           <h1 className="md:text-[40px] text-xl font-bold">TEAMS</h1>

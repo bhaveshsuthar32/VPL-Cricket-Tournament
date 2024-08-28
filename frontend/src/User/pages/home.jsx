@@ -82,7 +82,7 @@ function Home() {
       <TeamComponent />
 
       {/* Rules and Regulation  */}
-      <section className='bg-black text-white lg:h-[460px] h-[600px]'>
+      <section className='bg-black text-white lg:h-[460px] sm:h-[450px] h-[600px]'>
 
         {/* for desktop */}
         <div className="sm:py-6 py-18 hidden sm:block">

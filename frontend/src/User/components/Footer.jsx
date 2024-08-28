@@ -9,7 +9,7 @@ export default function Footer() {
     };
     return (
         <div>
-            <footer className="footer bg-base-300 text-base-content px-10 py-5">
+            <footer className="footer bg-base-300 text-base-content px-2 sm:px-10 py-5">
                 <aside className='flex sm:block'>
                 <div className="w-20 rounded-full mx-aut">
                             <img
@@ -17,10 +17,10 @@ export default function Footer() {
                                 src="https://i.pinimg.com/736x/9d/e3/f9/9de3f928d76f012aebbc4faa0b19f92d.jpg" />
                         </div>
                         <h6 className="mt-3 font-bold text-slate-600">Vishwakarma Premier Lague</h6>
-                        <h6 className=" font-semibold text-slate-600">Season - 3</h6>
+                        <h6 className="sm:mt-0 mt-3 font-semibold text-slate-600">Season - 3</h6>
 
                 </aside>
-                <aside className='grid grid-cols-4  gap-10 sm:gap-20'>
+                <aside className='grid grid-cols-4 px-2 sm:px-0 gap-10 sm:gap-20'>
 
                     <div className='sm:leading-6 leading-5 mt-[-12px] sm:mt-0 col-span-2 sm:col-span-1'>
                         <h6 className="footer-title">Features</h6>
