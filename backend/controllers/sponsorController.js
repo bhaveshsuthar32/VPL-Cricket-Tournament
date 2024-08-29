@@ -1,4 +1,6 @@
 const spType = require("../models/sponsor"); 
+const Upload = require("../middlewares/upload")
+const foodSpon = require("../models/addSponsor")
 
 const addSponsorType = async (req, res) => {
     const spdata = req.body;
@@ -24,8 +26,37 @@ const getSponsorType = async (req,res) => {
     }
 }
 
+const addFoodSpon = async (req, res) => {
+    try {
+        // Check if the file is uploaded
+        // if (!req.file) {
+        //     return res.status(400).json({ error: "Image file is required" });
+        // }
+
+        // Upload image to Cloudinary
+        const result = await uploadFile(req.file.path);
+
+        // Create a new food sponsor entry
+        const newFoodSpon = new foodSpon({
+            sponDay: req.body.sponDay,
+            fullName: req.body.fullName,
+            Village: req.body.Village,
+            Amount: req.body.Amount,
+            spImage: result.secure_url, // Store the Cloudinary image URL
+        });
+
+        // Save the new food sponsor to the database
+        const savedFoodSpon = await newFoodSpon.save();
+        res.status(201).json(savedFoodSpon); // Return the saved document
+    } catch (error) {
+        console.error("Error adding food sponsor:", error);
+        res.status(500).json({ error: error.message });
+    }
+};
+
 
 module.exports = {
     addSponsorType,
     getSponsorType,
+    addFoodSpon,
 };
