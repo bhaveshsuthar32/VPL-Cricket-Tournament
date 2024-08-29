@@ -13,6 +13,19 @@ const addSponsorType = async (req, res) => {
     }
 };
 
+
+const getSponsorType = async (req,res) => {
+    try {
+        const spData = await spType.find();  
+        res.status(200).json(spData);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Internal server error" });
+    }
+}
+
+
 module.exports = {
     addSponsorType,
+    getSponsorType,
 };
