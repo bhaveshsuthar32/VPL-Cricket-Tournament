@@ -10,10 +10,12 @@ export const signData = async(data)=>{
     }
 }
 
-export const loginData = async(data)=>{
+export const loginData = async (data) => {
     try {
-        return await axios.post(`${URL}/login`, data)
+      const response = await axios.post(`${URL}/login`, data);
+      return response; // Return the response
     } catch (error) {
-        console.log("Error :- " , error);
+      console.error("Error:", error.response ? error.response.data : error.message);
+      throw error; // Re-throw the error for further handling
     }
-}
+  };

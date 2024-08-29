@@ -31,8 +31,8 @@ import Advertiserform from './Admin/Pages/AAdvertiser/Advertiserform';
 import STypeform from './Admin/Pages/SType/STypeform';
 import AProfile from './Admin/Pages/AProfile';
 import AProfileform from './Admin/Pages/AProfile/AProfileform';
-import Login from './User/pages/login';
 import SignUp from './User/pages/Signup';
+import Login from './User/pages/Login';
 
 function App() {
   return (
