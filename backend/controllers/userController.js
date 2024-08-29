@@ -1,9 +1,8 @@
-const signSchema = require("../model/signModel")
+const signSchema = require("../models/signUp")
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 const JWT_SECRET = process.env.JWT_SECRET;
-
 
 
 const signUser = async (req, res) => {
@@ -46,7 +45,7 @@ const signUser = async (req, res) => {
   
       // Generate JWT token
       const token = jwt.sign({ userId: user._id, username: user.username, email : user.email }, JWT_SECRET, {
-        expiresIn: "2M",
+        expiresIn: "30M",
       });
       user.token = token;
       await user.save();
