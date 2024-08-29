@@ -1,7 +1,6 @@
-const cloudinary = require("cloudinary").v2 ;
+const cloudinary = require("cloudinary").v2;
 const dotenv = require('dotenv');
 dotenv.config();
-
 
 cloudinary.config({ 
     cloud_name: process.env.CLOUD_NAME, 
@@ -9,17 +8,17 @@ cloudinary.config({
     api_secret: process.env.API_SECRET 
 });
 
-
 const uploadFile = async (filePath) => {
     try {
-        const result = await cloudinary.uploader.upload(filePath)
+        const result = await cloudinary.uploader.upload(filePath);
         console.log(result);
-        return result ;
+        return result;
     } catch (error) {
-        console.log(error.message)
+        console.log(error.message);
+        throw error; // Ensure errors are thrown so they can be handled in the controller
     }
 }
 
-exports.module = {
+module.exports = {
     uploadFile
-}
+};

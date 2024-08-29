@@ -9,11 +9,11 @@
             type : String,
             required : false,
         },
-        Village : {
+        village : {
             type : String,
             required : false,
         },
-        Amount : {
+        amount : {
             type : String,
             required : false,
         },
@@ -25,35 +25,35 @@
 
     const foodSpon = mongoose.model('foodSponsor', foodSponsor);
 
+    module.exports = foodSpon; 
 
 
+    // const otherSponsor = new mongoose.Schema({
+    //     sponType : {
+    //         type : String,
+    //         required : false,
+    //     },
+    //     fullName : {
+    //         type : String,
+    //         required : false,
+    //     },
+    //     Village : {
+    //         type : String,
+    //         required : false,
+    //     },
+    //     Amount : {
+    //         type : String,
+    //         required : false,
+    //     },
+    //     spImage : {
+    //         type : String,
+    //         required : false,
+    //     },
+    // })
 
-    const otherSponsor = new mongoose.Schema({
-        sponType : {
-            type : String,
-            required : false,
-        },
-        fullName : {
-            type : String,
-            required : false,
-        },
-        Village : {
-            type : String,
-            required : false,
-        },
-        Amount : {
-            type : String,
-            required : false,
-        },
-        spImage : {
-            type : String,
-            required : false,
-        },
-    })
+    // const otherSpon = mongoose.model('otherSponsor', otherSponsor);
 
-    const otherSpon = mongoose.model('otherSponsor', otherSponsor);
-
-    exports.model = {
-        foodSpon,
-        otherSpon,
-    }
+    // exports.model = {
+    //     foodSpon,
+    //     // otherSpon,
+    // }
