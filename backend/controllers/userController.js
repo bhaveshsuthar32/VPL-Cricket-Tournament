@@ -54,10 +54,26 @@ const signUser = async (req, res) => {
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
-  };                       
+  };              
   
+  const getUser = async (req, res) => {
+
+    try {
+      let userData = await signSchema.find();
+  
+      if (userData.length === 0) {
+        return res.status(404).json({ message: "User not found" });
+      }
+  
+      res.status(200).json(userData);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  };
 
   module.exports = {
     signUser,
     loginUser,
+    getUser
   }

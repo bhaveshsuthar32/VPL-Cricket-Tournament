@@ -3,7 +3,7 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 const mongodb = require('./config/db');
-const Route  = require('./router/routes');
+const Route  = require('./routes/router');
 const cors = require('cors')
 
 const port = process.env.PORT || 5000
