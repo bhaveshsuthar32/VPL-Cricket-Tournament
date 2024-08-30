@@ -20,7 +20,7 @@ function Home() {
     <>
       <BackgroundSlider />
       <Navbar />
-      <section className='main page h-[360px] sm:h-[550px]'>
+      <section className='main page h-[360px] sm:h-[570px]'>
         {/* <div
           className="hero min-h-screen relative"
           style={{
@@ -41,7 +41,7 @@ function Home() {
             <h2 className="text-4xl font-bold">VPL</h2>
           </div>
         </div> */}
-        <div className="absolute lg:bottom-8 sm:bottom-[500px] bottom-80 lg:left-8 text-slate-200 sm:text-white">
+        <div className="absolute lg:bottom-20 sm:bottom-[500px] bottom-[230px] lg:left-8 text-slate-200 sm:text-white">
           <p className="sm:text-[80px] text-[40px] font-bold p-0">VPL SEASON-3</p>
           <div className='sm:ms-[20px] ms-[8px]'>
             <h3 className='text-[20px] sm:[30px] font-bold'>VENUE - BAGRA</h3>

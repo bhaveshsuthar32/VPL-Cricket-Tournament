@@ -86,7 +86,7 @@ export default function HallOfComponent() {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide className=''>
+                  <SwiperSlide className='lg:ml-[-26px] sm:ml-4 ml-[-100px]'>
                     <div className=" bg-base-100 w-[230px] ">
                       <div>
                         <img
@@ -107,7 +107,7 @@ export default function HallOfComponent() {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide className=''>
+                  <SwiperSlide className='lg:ml-[-26px] sm:ml-4 ml-[-100px]'>
                     <div className=" bg-base-100 w-[230px] ">
                       <div>
                         <img
@@ -128,7 +128,7 @@ export default function HallOfComponent() {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide className=''>
+                  <SwiperSlide className='lg:ml-[-26px] sm:ml-4 ml-[-100px]'>
                     <div className=" bg-base-100 w-[230px] ">
                       <div>
                         <img
@@ -149,7 +149,7 @@ export default function HallOfComponent() {
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide className=''>
+                  <SwiperSlide className='lg:ml-[-26px] sm:ml-4 ml-[-100px]'>
                     <div className=" bg-base-100 w-[230px] ">
                       <div>
                         <img
