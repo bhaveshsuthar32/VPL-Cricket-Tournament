@@ -1,6 +1,7 @@
 const spType = require("../models/sponsor");
 const { uploadFile } = require("../middlewares/upload");
-const foodSpon = require("../models/addSponsor")
+const foodSpon = require("../models/foodSponsor");
+const otherSpon = require("../models/otherSponsor") 
 
 const addSponsorType = async (req, res) => {
     const spdata = req.body;
@@ -34,16 +35,37 @@ const addFoodSpon = async (req, res) => {
         // Upload image to Cloudinary
         const result = await uploadFile(req.file.path);
         const spImage = result.secure_url
-
-        // Create a new food sponsor entry
+        
         const newFoodSpon = new foodSpon({
             sponDay, fullName, village, amount, spImage
         });
-
-        // Save the new food sponsor to the database
+       
         const savedFoodSpon = await newFoodSpon.save();
         console.log(newFoodSpon)
-        res.status(201).json(savedFoodSpon); // Return the saved document
+        res.status(201).json(savedFoodSpon); 
+    } catch (error) {
+        console.error("Error adding food sponsor:", error);
+        res.status(500).json({ error: error.message });
+    }
+};
+
+const addOtherSpon = async (req, res) => {
+
+    try {
+
+        const { sponType, fullName, village, amount } = req.body;
+
+        // Upload image to Cloudinary
+        const result = await uploadFile(req.file.path);
+        const spOtherImage = result.secure_url
+
+        const newOtherSpon = new otherSpon({
+            sponType, fullName, village, amount, spOtherImage
+        });
+
+        const savedSpon = await newOtherSpon.save();
+        console.log(newOtherSpon)
+        res.status(201).json(savedSpon); 
     } catch (error) {
         console.error("Error adding food sponsor:", error);
         res.status(500).json({ error: error.message });
@@ -54,4 +76,5 @@ module.exports = {
     addSponsorType,
     getSponsorType,
     addFoodSpon,
+    addOtherSpon,
 };

@@ -12,7 +12,7 @@ const upload = multer({
 
 
 const { signUser, loginUser, getUser } = require('../controllers/userController');
-const { addSponsorType, getSponsorType, addFoodSpon } = require('../controllers/sponsorController');
+const { addSponsorType, getSponsorType, addFoodSpon, addOtherSpon } = require('../controllers/sponsorController');
 
 router.post("/sign", signUser);
 router.post("/login", loginUser);
@@ -24,6 +24,7 @@ router.get("/getSponsorType", getSponsorType)
 
 
 router.post('/addFoodSpon', upload.single('spImage'), addFoodSpon);
+router.post('/addOtherSpon', upload.single('spOtherImage'), addOtherSpon);
 
 
 
