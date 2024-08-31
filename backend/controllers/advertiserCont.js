@@ -25,6 +25,19 @@ const addAdvertise = async (req, res) => {
     }
 };
 
+
+const getAdvertiser = async (req,res)=>{
+    try {
+        const adverData = await advertiser.find();
+        console.log(adverData)
+        res.status(202).json(adverData);
+    } catch (error) {
+        console.error("Error:", error);
+        res.status(500).json({ error: error.message });
+    }
+}
+
 module.exports = {
     addAdvertise,
+    getAdvertiser,
 };
