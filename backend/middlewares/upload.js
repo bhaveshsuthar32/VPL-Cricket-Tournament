@@ -15,7 +15,7 @@ const uploadFile = async (filePath) => {
         return result;
     } catch (error) {
         console.log(error.message);
-        throw error; // Ensure errors are thrown so they can be handled in the controller
+        throw error; 
     }
 }
 
