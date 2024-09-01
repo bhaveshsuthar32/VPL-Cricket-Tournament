@@ -3,6 +3,9 @@ const { uploadFile } = require("../middlewares/upload");
 const foodSpon = require("../models/foodSponsor");
 const otherSpon = require("../models/otherSponsor") 
 
+
+
+            // ----- Sponsor Type ------
 const addSponsorType = async (req, res) => {
     const spdata = req.body;
     try {
@@ -27,6 +30,9 @@ const getSponsorType = async (req, res) => {
     }
 }
 
+
+                // ----- Food Sponsor -----
+
 const addFoodSpon = async (req, res) => {
 
     try {
@@ -48,6 +54,21 @@ const addFoodSpon = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
+
+const getFoodSpon = async (req,res)=>{
+    try {
+        const foodData = await foodSpon.find();
+        console.log(foodData)
+        res.status(202).json(foodData);
+    } catch (error) {
+        console.error("Error:", error);
+        res.status(500).json({ error: error.message });
+    }
+}
+
+
+                    // ---- other sponsor ----
 
 const addOtherSpon = async (req, res) => {
 
@@ -72,9 +93,27 @@ const addOtherSpon = async (req, res) => {
     }
 };
 
+
+
+const getOtherSpon = async (req,res)=>{
+    try {
+        const otherData = await otherSpon.find();
+        console.log(otherData)
+        res.status(202).json(otherData);
+    } catch (error) {
+        console.error("Error:", error);
+        res.status(500).json({ error: error.message });
+    }
+}
+
+
+
+
 module.exports = {
     addSponsorType,
     getSponsorType,
     addFoodSpon,
+    getFoodSpon,
     addOtherSpon,
+    getOtherSpon,
 };
