@@ -19,10 +19,28 @@ export default function SignUp() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await signData(user);
-        navigate('/');
+        try {
+            await signData(user);
+            // If the signup is successful, navigate to the home page
+            navigate('/');
+        } catch (error) {
+            if (error.response) {
+                switch (error.response.status) {
+                    case 409:
+                        alert("Email already exists. Please sign up with another email.");
+                        break;
+                    case 400:
+                        alert("Invalid input. Please check your details and try again.");
+                        break;
+                    default:
+                        alert("An error occurred. Please try again later.");
+                }
+            } else {
+                alert("Network error. Please check your internet connection and try again.");
+            }
+        }
     };
-
+    
     return (
         <>
             <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen p-[100px] md:py-[50px] md:px-[200px]">
