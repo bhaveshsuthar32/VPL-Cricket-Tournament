@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { signData } from '../../service/api';
 
@@ -9,8 +9,8 @@ const defaultValue = {
 };
 
 export default function SignUp() {
-
     const [user, setUser] = useState(defaultValue);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -20,35 +20,27 @@ export default function SignUp() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await signData(user);
-            // If the signup is successful, navigate to the home page
-            navigate('/');
+            const response = await signData(user);
+            if (response.status === 201) {
+                alert('Sign-up successful!');
+                navigate('/login');
+            }
         } catch (error) {
-            if (error.response) {
-                switch (error.response.status) {
-                    case 409:
-                        alert("Email already exists. Please sign up with another email.");
-                        break;
-                    case 400:
-                        alert("Invalid input. Please check your details and try again.");
-                        break;
-                    default:
-                        alert("An error occurred. Please try again later.");
-                }
+            if (error.response && error.response.status === 409) {
+                alert('Email already exists. Please sign up with another email.'); // Show alert for existing email
             } else {
-                alert("Network error. Please check your internet connection and try again.");
+                alert('An error occurred during sign-up. Please try again.'); // General error alert
             }
         }
     };
-    
+
     return (
         <>
-            <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen p-[100px] md:py-[50px] md:px-[200px]">
-
+            <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen lg:p-[100px] lg:py-[50px] lg:px-[200px]">
                 {/* Right Side - Background Image */}
-                <div className="hidden md:block relative border-2 rounded-[10px] overflow-hidden">
+                <div className="hidden lg:block relative border-2 rounded-[10px] overflow-hidden">
                     <img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRYd9_YKcG9vEGrWRfIKIK3xhZb5pYiw6nDw&s/800x600" // Replace with your desired image URL
+                        src="https://res.cloudinary.com/dsp9kw0cm/image/upload/v1725359277/vpl_Logo_lkwalg.jpg"
                         alt="Background"
                         className="absolute inset-0 w-full h-full object-cover"
                     />
@@ -58,6 +50,7 @@ export default function SignUp() {
                 <div className="flex items-center bg-slate-100 justify-center border-2 rounded-[10px] mx-2">
                     <div className="card bg-white shadow-lg p-8 w-full max-w-sm">
                         <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
+                        {error && <div className="text-red-500 text-center mb-4">{error}</div>}
                         <form onSubmit={handleSubmit}>
                             <div className="mb-4">
                                 <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>

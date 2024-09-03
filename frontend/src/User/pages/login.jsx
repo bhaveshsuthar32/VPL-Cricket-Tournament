@@ -55,7 +55,7 @@ export default function Login() {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen p-[100px] md:py-[50px] md:px-[200px]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen lg:p-[100px] lg:py-[50px] lg:px-[200px]">
         {/* Left Side - Login Card */}
         <div className="flex items-center bg-slate-100 justify-center border-2 rounded-[10px] mx-2">
           <div className="card bg-white shadow-lg p-8 w-full max-w-sm">
@@ -105,9 +105,9 @@ export default function Login() {
         </div>
 
         {/* Right Side - Background Image */}
-        <div className="hidden md:block relative border-2 rounded-[10px] overflow-hidden">
+        <div className="hidden lg:block relative border-2 rounded-[10px] overflow-hidden">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRYd9_YKcG9vEGrWRfIKIK3xhZb5pYiw6nDw&s/800x600"
+            src="https://res.cloudinary.com/dsp9kw0cm/image/upload/v1725359277/vpl_Logo_lkwalg.jpg"
             alt="Background"
             className="absolute inset-0 w-full h-full object-cover"
           />
