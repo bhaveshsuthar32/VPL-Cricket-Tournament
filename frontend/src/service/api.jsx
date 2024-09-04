@@ -30,6 +30,18 @@ export const userData = async () => {
   };
 
   export const updateCaptain = async (data) => {
-    return await axios.patch(`${URL}/editCaptain`, data); // Adjust the endpoint as necessary
+    try {
+      return await axios.patch(`${URL}/editCaptain`, data); 
+    } catch (error) {
+      console.log("Error :- ", error)
+    }
 };
 
+
+export const addFoodSP = async(data) => {
+  try {
+    return await axios.post(`${URL}/addFoodSpon`, data);
+  } catch (error) {
+    console.log("Error :- ", error);
+  }
+}
