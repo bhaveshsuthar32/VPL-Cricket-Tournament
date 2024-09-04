@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../Layouts/Header';
 import Sidebar from '../../Layouts/Sidebar';
-import { userData, updateCaptain } from '../../../service/api'; // Import the updateCaptain function
+import { userData, updateCaptain } from '../../../service/api';
 
 export default function User() {
     const [user, setUser] = useState([]);
 
-    // Fetch users from the backend
     const getUser = async () => {
         const response = await userData();
         setUser(response.data);
     };
 
-    // Handle checkbox change event
+    
     const handleCaptainChange = async (userId, currentCaptain) => {
         try {
-            const newCaptainStatus = !currentCaptain; // Toggle the captain status
-            const response = await updateCaptain({ userId, captainStatus: newCaptainStatus }); // Call the API to update captain
-            
-            // Update the user state locally
+            const newCaptainStatus = !currentCaptain;
+            const response = await updateCaptain({ userId, captainStatus: newCaptainStatus }); 
+
             setUser((prevUsers) =>
                 prevUsers.map((u) => (u._id === userId ? { ...u, captain: newCaptainStatus } : u))
             );

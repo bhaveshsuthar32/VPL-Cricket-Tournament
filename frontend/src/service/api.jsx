@@ -45,3 +45,12 @@ export const addFoodSP = async(data) => {
     console.log("Error :- ", error);
   }
 }
+
+
+export const getFoodSP = async () => {
+  try {
+    return await axios.get(`${URL}/getFoodSpon`);   
+  } catch (error) {
+    console.log("Error :- " , error);
+  }
+};
