@@ -54,3 +54,20 @@ export const getFoodSP = async () => {
     console.log("Error :- " , error);
   }
 };
+
+export const addOtherSP = async(data) => {
+  try {
+    return await axios.post(`${URL}/addOtherSpon`, data);
+  } catch (error) {
+    console.log("Error :- ", error);
+  }
+}
+
+
+export const getOtherSP = async () => {
+  try {
+    return await axios.get(`${URL}/getOtherSpon`);   
+  } catch (error) {
+    console.log("Error :- " , error);
+  }
+};
