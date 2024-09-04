@@ -1,9 +1,22 @@
-import React, {  useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../../Layouts/Header';
 import Sidebar from '../../Layouts/Sidebar';
+import { userData } from '../../../service/api';
+
+
 
 export default function User() {
-    
+
+    const [user, setUser] = useState([]);
+
+    const getUser = async () => {
+        const response = await userData();
+        setUser(response.data);
+    }
+
+    useEffect(() => {
+        getUser()
+    }, [])
 
 
     return (
@@ -17,7 +30,7 @@ export default function User() {
                             Users
                         </h1>
                     </div>
-           
+
 
                     <div className='overflow-x-auto '>
                         <table className="table sm:w-full  w-[600px]">
@@ -33,232 +46,47 @@ export default function User() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* row 1 */}
-                                <tr className='hover px-0'>
-                                    <td>1</td>
-                                    <td  className='sm:px-4 px-0 w-[50px]'>
-                                        <div className="flex items-center">
-                                            <div className="avatar px-0">
-                                                <div className="mask mask-squircle h-12 w-12">
-                                                    <img
-                                                        src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                                                        alt="Avatar Tailwind CSS Component" />
+
+
+                                {user.map((userInfo, index) => (
+
+                                    <tr className='hover px-0' key={userInfo._id} >
+                                        <td>{index + 1}</td>
+                                        <td className='sm:px-4 px-0 w-[50px]'>
+                                            <div className="flex items-center">
+                                                <div className="avatar px-0">
+                                                    <div className="mask mask-squircle h-12 w-12">
+                                                        <img
+                                                            src={userInfo.image}
+                                                            alt="No image" />
+                                                    </div>
                                                 </div>
                                             </div>
-                                           
-                                        </div>
-                                    </td>
-                                    <td className='leading-4'>
-                                       
-                                                <h1 className="font-bold text-[11px] sm:text-[14px] ">Hart Hagerty</h1>
-                                                <p className="opacity-70 text-[11px] sm:text-sm ">United States</p>
-                                           
-                                    </td>
-                                    <td>
-                                                <p className=" text-[12px] sm:text-sm ">United123@gmail.com</p>
-                                     
-                                       
-                                       
-                                    </td>
-                                    <td><input type="checkbox" className="toggle toggle-sm toggle-success" /></td>
-                                    <td>
-                                        <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                    </td>
-                                </tr>
-                          
-                                <tr className='hover px-0'>
-                                    <td>1</td>
-                                    <td  className='sm:px-4 px-0 w-[50px]'>
-                                        <div className="flex items-center">
-                                            <div className="avatar px-0">
-                                                <div className="mask mask-squircle h-12 w-12">
-                                                    <img
-                                                        src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                                                        alt="Avatar Tailwind CSS Component" />
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                    </td>
-                                    <td className='leading-4'>
-                                       
-                                                <h1 className="font-bold text-[11px] sm:text-[14px] ">Hart Hagerty</h1>
-                                                <p className="opacity-70 text-[11px] sm:text-sm ">United States</p>
-                                           
-                                    </td>
-                                    <td>
-                                                <p className=" text-[12px] sm:text-sm ">United123@gmail.com</p>
-                                     
-                                       
-                                       
-                                    </td>
-                                    <td><input type="checkbox" className="toggle toggle-sm toggle-success" /></td>
-                                    <td>
-                                        <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                    </td>
-                                </tr>
-                          
-                                <tr className='hover px-0'>
-                                    <td>1</td>
-                                    <td  className='sm:px-4 px-0 w-[50px]'>
-                                        <div className="flex items-center">
-                                            <div className="avatar px-0">
-                                                <div className="mask mask-squircle h-12 w-12">
-                                                    <img
-                                                        src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                                                        alt="Avatar Tailwind CSS Component" />
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                    </td>
-                                    <td className='leading-4'>
-                                       
-                                                <h1 className="font-bold text-[11px] sm:text-[14px] ">Hart Hagerty</h1>
-                                                <p className="opacity-70 text-[11px] sm:text-sm ">United States</p>
-                                           
-                                    </td>
-                                    <td>
-                                                <p className=" text-[12px] sm:text-sm ">United123@gmail.com</p>
-                                     
-                                       
-                                       
-                                    </td>
-                                    <td><input type="checkbox" className="toggle toggle-sm toggle-success" /></td>
-                                    <td>
-                                        <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                    </td>
-                                </tr>
-                          
-                                <tr className='hover px-0'>
-                                    <td>1</td>
-                                    <td  className='sm:px-4 px-0 w-[50px]'>
-                                        <div className="flex items-center">
-                                            <div className="avatar px-0">
-                                                <div className="mask mask-squircle h-12 w-12">
-                                                    <img
-                                                        src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                                                        alt="Avatar Tailwind CSS Component" />
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                    </td>
-                                    <td className='leading-4'>
-                                       
-                                                <h1 className="font-bold text-[11px] sm:text-[14px] ">Hart Hagerty</h1>
-                                                <p className="opacity-70 text-[11px] sm:text-sm ">United States</p>
-                                           
-                                    </td>
-                                    <td>
-                                                <p className=" text-[12px] sm:text-sm ">United123@gmail.com</p>
-                                     
-                                       
-                                       
-                                    </td>
-                                    <td><input type="checkbox" className="toggle toggle-sm toggle-success" /></td>
-                                    <td>
-                                        <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                    </td>
-                                </tr>
-                          
-                                <tr className='hover px-0'>
-                                    <td>1</td>
-                                    <td  className='sm:px-4 px-0 w-[50px]'>
-                                        <div className="flex items-center">
-                                            <div className="avatar px-0">
-                                                <div className="mask mask-squircle h-12 w-12">
-                                                    <img
-                                                        src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                                                        alt="Avatar Tailwind CSS Component" />
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                    </td>
-                                    <td className='leading-4'>
-                                       
-                                                <h1 className="font-bold text-[11px] sm:text-[14px] ">Hart Hagerty</h1>
-                                                <p className="opacity-70 text-[11px] sm:text-sm ">United States</p>
-                                           
-                                    </td>
-                                    <td>
-                                                <p className=" text-[12px] sm:text-sm ">United123@gmail.com</p>
-                                     
-                                       
-                                       
-                                    </td>
-                                    <td><input type="checkbox" className="toggle toggle-sm toggle-success" /></td>
-                                    <td>
-                                        <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                    </td>
-                                </tr>
-                          
-                                <tr className='hover px-0'>
-                                    <td>1</td>
-                                    <td  className='sm:px-4 px-0 w-[50px]'>
-                                        <div className="flex items-center">
-                                            <div className="avatar px-0">
-                                                <div className="mask mask-squircle h-12 w-12">
-                                                    <img
-                                                        src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                                                        alt="Avatar Tailwind CSS Component" />
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                    </td>
-                                    <td className='leading-4'>
-                                       
-                                                <h1 className="font-bold text-[11px] sm:text-[14px] ">Hart Hagerty</h1>
-                                                <p className="opacity-70 text-[11px] sm:text-sm ">United States</p>
-                                           
-                                    </td>
-                                    <td>
-                                                <p className=" text-[12px] sm:text-sm ">United123@gmail.com</p>
-                                     
-                                       
-                                       
-                                    </td>
-                                    <td><input type="checkbox" className="toggle toggle-sm toggle-success" /></td>
-                                    <td>
-                                        <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                    </td>
-                                </tr>
-                          
-                                <tr className='hover px-0'>
-                                    <td>1</td>
-                                    <td  className='sm:px-4 px-0 w-[50px]'>
-                                        <div className="flex items-center">
-                                            <div className="avatar px-0">
-                                                <div className="mask mask-squircle h-12 w-12">
-                                                    <img
-                                                        src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                                                        alt="Avatar Tailwind CSS Component" />
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                    </td>
-                                    <td className='leading-4'>
-                                       
-                                                <h1 className="font-bold text-[11px] sm:text-[14px] ">Hart Hagerty</h1>
-                                                <p className="opacity-70 text-[11px] sm:text-sm ">United States</p>
-                                           
-                                    </td>
-                                    <td>
-                                                <p className=" text-[12px] sm:text-sm ">United123@gmail.com</p>
-                                     
-                                       
-                                       
-                                    </td>
-                                    <td><input type="checkbox" className="toggle toggle-sm toggle-success" /></td>
-                                    <td>
-                                        <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                    </td>
-                                </tr>
-                          
-                       
+                                        </td>
+                                        <td className='leading-4'>
+                                            <h1 className="font-bold text-[11px] sm:text-[14px] ">{userInfo.username}</h1>
+                                            <p className="opacity-70 text-[11px] sm:text-sm ">{userInfo.village}</p>
+                                        </td>
+                                        <td>
+                                            <p className=" text-[12px] sm:text-sm ">{userInfo.email}</p>
+                                        </td>
+                                        <td>
+                                            <input
+                                                type="checkbox"
+                                                className="toggle toggle-sm toggle-success"
+                                                checked={userInfo.caption}
+                                                // disabled={!userInfo.caption}
+                                            />
+                                            {userInfo.caption}
+                                        </td>
+
+                                        <td>
+                                            <button className="btn btn-sm btn-outline btn-error">Delete</button>
+                                        </td>
+                                    </tr>
+                                ))}
+
+
                             </tbody>
                             {/* foot */}
                             {/* <tfoot>
@@ -271,7 +99,7 @@ export default function User() {
                                 </tr>
                             </tfoot> */}
                         </table>
-                  </div>
+                    </div>
                 </div>
             </div>
         </div>
