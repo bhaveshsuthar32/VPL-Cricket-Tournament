@@ -48,6 +48,32 @@ const signUser = async (req, res) => {
 };
 
 
+
+
+// Edit user captain status
+const editUserCaptain = async (req, res) => {
+  const { userId, captainStatus } = req.body;
+
+  try {
+      const user = await signSchema.findByIdAndUpdate(
+          userId,
+          { captain: captainStatus }, // Update the captain field
+          { new: true } // Return the updated document
+      );
+
+      if (!user) {
+          return res.status(404).json({ error: "User not found" });
+      }
+
+      res.status(200).json(user); // Return the updated user
+  } catch (error) {
+      console.error('Error during database update:', error); 
+      res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+
+
    const loginUser = async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -93,5 +119,6 @@ const signUser = async (req, res) => {
   module.exports = {
     signUser,
     loginUser,
-    getUser
+    getUser,
+    editUserCaptain,
   }

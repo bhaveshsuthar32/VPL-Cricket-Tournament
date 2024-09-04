@@ -11,13 +11,15 @@ const upload = multer({
 }); // Temporary storage for uploaded files
 
 
-const { signUser, loginUser, getUser } = require('../controllers/userController');
+const { signUser, loginUser, getUser, editUserCaptain } = require('../controllers/userController');
 const { addSponsorType, getSponsorType, addFoodSpon, addOtherSpon, getFoodSpon, getOtherSpon } = require('../controllers/sponsorController');
 const { addAdvertise, getAdvertiser } = require('../controllers/advertiserCont');
 
 router.post("/sign", signUser);
 router.post("/login", loginUser);
 router.get("/user", getUser);
+router.patch('/editCaptain', editUserCaptain);
+
 
 router.post("/sponsorType", addSponsorType); 
 router.get("/getSponsorType", getSponsorType)

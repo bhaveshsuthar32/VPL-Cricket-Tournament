@@ -29,4 +29,7 @@ export const userData = async () => {
     }
   };
 
+  export const updateCaptain = async (data) => {
+    return await axios.patch(`${URL}/editCaptain`, data); // Adjust the endpoint as necessary
+};
 

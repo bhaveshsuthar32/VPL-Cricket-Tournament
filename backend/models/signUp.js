@@ -16,7 +16,7 @@ const signSchema = mongoose.Schema({
         type : String,
         required : false,
     },
-    captian :{
+    captain :{
         type : Boolean,
         required : false,
         default : false
