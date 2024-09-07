@@ -13,7 +13,7 @@ import BackgroundSlider from '../components/BackgroundSlider';
 import TeamComponent from '../components/TeamComponent';
 import SponserComponent from '../components/SponserComponent';
 import AdvertiseComponent from '../components/AdvertiseComponent';
-import HallOfComponent from '../components/HallofComponent';
+import HallOfComponent from '../components/HallOfComponent';
 
 function Home() {
   return (
