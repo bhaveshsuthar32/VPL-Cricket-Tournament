@@ -61,7 +61,7 @@ export default function Navbar() {
                         <li>
                             <Link to={"/profile"} className="justify-between">Profile</Link>
                         </li>
-                        <li><a>Logout</a></li>
+                        <li><Link to={"/admin"}>Logout</Link></li>
                     </ul>
                 </div>
             </div>

@@ -26,7 +26,7 @@ export default function Footer() {
                 </aside>
                 <aside className='grid grid-cols-4 gap-10 sm:gap-4 px-2 lg:px-[80px] '>
 
-                    <div className='sm:leading-6 leading-5 mt-[-12px] sm:mt-0 col-span-2 sm:col-span-1'>
+                    <div className=' leading-5 mt-[-12px] sm:mt-0 col-span-2 sm:col-span-1'>
                         <h6 className="footer-title">Features</h6>
                         <ul className='text-slate-600'>
                             <li><Link to={"/sponsor"} className="link link-hover">Sponsers</Link></li>
