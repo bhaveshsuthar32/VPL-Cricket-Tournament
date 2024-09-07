@@ -45,7 +45,7 @@ function App() {
         {/* <Route path="/nav" element={<Navbar />} /> */}
         <Route path="/halloffame" element={<HallOfFame />} />
         <Route path="/teamview" element={<TeamView />} />
-        <Route path="/sponser" element={<Sponser />} />
+        <Route path="/sponsor" element={<Sponser />} />
         <Route path="/team" element={<Team />} />
         <Route path="/advertiser" element={<Advertiser />} />
         <Route path="/rules" element={<Rules />} />

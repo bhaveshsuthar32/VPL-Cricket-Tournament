@@ -66,7 +66,7 @@ function Home() {
                 <h1 className="lg:text-[60px]  font-bold ">YOUR TEAM</h1>
                 <h1 className="lg:text-[60px]  font-bold mb-2  lg:mb-6 ">NOW</h1>
                 <Link
-                  to={'#'}
+                  to={'/addteam'}
                   className="rounded-md bg-slate-800 mt-6 sm:px-6 px-3 sm:py-3 py-[5px] lg:text-lg text-[12px] font-semibold text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-600"
                 >
                   Register Now

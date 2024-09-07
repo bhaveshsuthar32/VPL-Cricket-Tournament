@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
     const [showHelloWorld, setShowHelloWorld] = useState(false); // State to manage visibility
@@ -9,10 +10,10 @@ export default function Footer() {
     };
     return (
         <div>
-            <footer className="footer bg-base-200 text-base-content sm:px-10 px-6 py-8">
+            <footer className="footer bg-slate-300 text-base-content sm:px-10 px-6 py-8">
                 <aside className='flex sm:block'>
-                <div className="w-14 rounded-full mt-[-12px]">
-                            <img
+                <div className="w-14  mt-[-12px]">
+                            <img className="rounded-full"
                                 alt="Tailwind CSS Navbar component"
                                 src="https://i.pinimg.com/736x/9d/e3/f9/9de3f928d76f012aebbc4faa0b19f92d.jpg" />
                         </div>
@@ -23,41 +24,41 @@ export default function Footer() {
                         </div>
 
                 </aside>
-                <aside className='grid grid-cols-4 gap-10 sm:gap-4 px-2 lg:px-[80px] border-2'>
+                <aside className='grid grid-cols-4 gap-10 sm:gap-4 px-2 lg:px-[80px] '>
 
                     <div className='sm:leading-6 leading-5 mt-[-12px] sm:mt-0 col-span-2 sm:col-span-1'>
                         <h6 className="footer-title">Features</h6>
                         <ul className='text-slate-600'>
-                            <li><a className="link link-hover">Sponsers</a></li>
-                            <li><a className="link link-hover">Advertisers</a></li>
-                            <li><a className="link link-hover">Hall Of Fame</a></li>
-                            {/* <li><a className="link link-hover">Advertisement</a></li> */}
+                            <li><Link to={"/sponsor"} className="link link-hover">Sponsers</Link></li>
+                            <li><Link to={"/advertiser"} className="link link-hover">Advertisers</Link></li>
+                            <li><Link to={"/halloffame"} className="link link-hover">Hall Of Fame</Link></li>
+                            {/* <li><Link to={"/"} className="link link-hover">Advertisement</Link></li> */}
                         </ul>
                     </div>
                     <div className='leading-5 mt-[-12px] sm:mt-0  col-span-2 sm:col-span-1'>
                         <h6 className="footer-title">Teams</h6>
                         <ul className='text-slate-600'>
-                            <li><a className="link link-hover">Add Team</a></li>
-                            <li><a className="link link-hover">Team Profile</a></li>
-                            <li><a className="link link-hover">Team View</a></li>
-                            {/* <li><a className="link link-hover">Press kit</a></li> */}
+                            <li><Link to={"/addteam"} className="link link-hover">Add Team</Link></li>
+                            <li><Link to={"/team"} className="link link-hover">Team Profile</Link></li>
+                            <li><Link to={"/teamview"} className="link link-hover">Team View</Link></li>
+                            {/* <li><Link to={"/"} className="link link-hover">Press kit</Link></li> */}
                         </ul>
                     </div>
                     <div className='sm:leading-5 leading-5 mt-[-12px] sm:mt-0 col-span-2 sm:col-span-1 '>
                         <h6 className="footer-title">Legal</h6>
                         <ul className='text-slate-600'>
-                            <li><a className="link link-hover">Rules & Regulation</a></li>
-                            <li><a className="link link-hover">About Us</a></li>
-                            <li><a className="link link-hover">Contact Us</a></li>
-                            {/* <li><a className="link link-hover">Advertisement</a></li> */}
+                            <li><Link to={"/rules"} className="link link-hover">Rules & Regulation</Link></li>
+                            <li><Link to={"/aboutus"} className="link link-hover">About Us</Link></li>
+                            <li><Link to={"/contactus"} className="link link-hover">Contact Us</Link></li>
+                            {/* <li><Link to={"/"} className="link link-hover">Advertisement</Link></li> */}
                         </ul>
                     </div>
                     <div className='leading-5 mt-[-12px] sm:mt-0  col-span-2 sm:col-span-1'>
                         <h6 className="footer-title"></h6>
                         <ul className='text-slate-600'>
 
-                        <li className='lg:leading-4  leading-3'><a className="link link-hover text-[11px] sm:text-[13px]">Address : Vishwakarma Colony, Railway Station Road, Bagra(Jalore)</a></li>
-                        <li><a className="link link-hover text-[11px] sm:text-[13px]">Email : vpl2024@gmail.com</a></li>
+                        <li className='lg:leading-4  leading-3'><Link to={"/"} className="link link-hover text-[11px] sm:text-[13px]">Address : Vishwakarma Colony, Railway Station Road, Bagra(Jalore)</Link></li>
+                        <li><Link to={"/"} className="link link-hover text-[11px] sm:text-[13px]">Email : vpl2024@gmail.com</Link></li>
                      
                             <li className='flex '>
 
