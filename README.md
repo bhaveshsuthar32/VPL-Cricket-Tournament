@@ -1,7 +1,7 @@
 # VPL-Cricket_Tournament
 
 <div align="center">
-    <img src="https://via.placeholder.com/800x200?text=VPL-Cricket+Tournament" alt="VPL-Cricket_Tournament Banner" style="width:80%; border-radius:10px;">
+    <img src="https://res.cloudinary.com/dsp9kw0cm/image/upload/v1725712709/Screenshot_114_zspmii.png" alt="VPL-Cricket_Tournament Banner" style="width:80%; border-radius:10px;">
 </div>
 
 ## Overview
