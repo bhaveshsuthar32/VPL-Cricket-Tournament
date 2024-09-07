@@ -14,8 +14,9 @@ import ContactUs from './User/pages/ContactUs';
 // import Profile from './User/pages/Profile';
 // import Profileform from './User/pages/Profileform';
 import Profile from './User/pages/Profile';
-import EditProfile from './User/pages/Profile/editProfile';
+import EditProfile from './User/pages/Profile/EditProfile';
 import Teamform from './User/pages/Teamform';
+
 
 // Admin 
 import Dashboard from './Admin/Pages/Dashboard';
