@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import BackgroundSlider from '../components/backgroundSlider';
+import BackgroundSlider from '../components/BackgroundSlider';
 import TeamComponent from '../components/TeamComponent';
 import SponserComponent from '../components/SponserComponent';
 import AdvertiseComponent from '../components/AdvertiseComponent';
