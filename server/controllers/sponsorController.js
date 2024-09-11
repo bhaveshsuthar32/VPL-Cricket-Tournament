@@ -66,7 +66,7 @@ const addFoodSpon = async (req, res) => {
 const getFoodSpon = async (req,res)=>{
     try {
         const foodData = await foodSpon.find();
-        console.log(foodData)
+        // console.log(foodData)
         res.status(202).json(foodData);
     } catch (error) {
         console.error("Error:", error);
@@ -105,7 +105,7 @@ const addOtherSpon = async (req, res) => {
 const getOtherSpon = async (req,res)=>{
     try {
         const otherData = await otherSpon.find();
-        console.log(otherData)
+        // console.log(otherData)
         res.status(202).json(otherData);
     } catch (error) {
         console.error("Error:", error);
