@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import Header from '../../Layouts/Header';
 import Sidebar from '../../Layouts/Sidebar';
+import { getSponsorType } from '../../../service/api';
+
 
 export default function SType() {
+
+    const [user, setUser] = useState([]);
+
+    const getSponrorTypeData = async () =>{
+        try {
+            const response = await getSponsorType();
+            setUser(response.data)
+        } catch (error) {
+            console.log("Error :- ", error);
+        }
+    }
+
+    useEffect(() =>{
+        getSponrorTypeData();
+    }, []);
+
     return (
         <div className="">
             <Header />
@@ -36,107 +54,25 @@ export default function SType() {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* row 1 */}
-                            <tr className="hover">
-                                <th>1</th>
-                                <td>Cy Ganderton</td>
+                           {user.length > 0 ? (
+                            user.map((userData , index) => (
+                                <tr className="hover" key={userData._id}>
+                                <th>{index + 1}</th>
+                                <td>{userData.sponsorType}</td>
                                 <td>
                                     <button className="btn btn-sm btn-outline btn-error">Delete</button>
                                 </td>
                             </tr>
-                            {/* row 2 */}
-                            <tr className="hover">
-                                <th>2</th>
-                                <td>Hart Hagerty</td>
-                                <td>
-                                    <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                </td>
-                            </tr>
-                            {/* row 2 */}
-                            <tr className="hover">
-                                <th>2</th>
-                                <td>Hart Hagerty</td>
-                                <td>
-                                    <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                </td>
-                            </tr>
-                            {/* row 2 */}
-                            <tr className="hover">
-                                <th>2</th>
-                                <td>Hart Hagerty</td>
-                                <td>
-                                    <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                </td>
-                            </tr>
-                            {/* row 2 */}
-                            <tr className="hover">
-                                <th>2</th>
-                                <td>Hart Hagerty</td>
-                                <td>
-                                    <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                </td>
-                            </tr>
-                            {/* row 2 */}
-                            <tr className="hover">
-                                <th>2</th>
-                                <td>Hart Hagerty</td>
-                                <td>
-                                    <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                </td>
-                            </tr>
-                            {/* row 2 */}
-                            <tr className="hover">
-                                <th>2</th>
-                                <td>Hart Hagerty</td>
-                                <td>
-                                    <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                </td>
-                            </tr>
-                            {/* row 2 */}
-                            <tr className="hover">
-                                <th>2</th>
-                                <td>Hart Hagerty</td>
-                                <td>
-                                    <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                </td>
-                            </tr>
-                            {/* row 2 */}
-                            <tr className="hover">
-                                <th>2</th>
-                                <td>Hart Hagerty</td>
-                                <td>
-                                    <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                </td>
-                            </tr>
-                            {/* row 3 */}
-                            <tr className="hover">
-                                <th>3</th>
-                                <td>Brice Swyre</td>
-                                <td>
-                                    <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                </td>
-                            </tr>
-                            <tr className="hover">
-                                <th>3</th>
-                                <td>Brice Swyre</td>
-                                <td>
-                                    <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                </td>
-                            </tr>
-                            <tr className="hover">
-                                <th>3</th>
-                                <td>Brice Swyre</td>
-                                <td>
-                                    <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                </td>
-                            </tr>
-                            <tr className="hover">
-                                <th>3</th>
-                                <td>Brice Swyre</td>
-                                <td>
-                                    <button className="btn btn-sm btn-outline btn-error">Delete</button>
-                                </td>
-                            </tr>
+                            ))
+                           ) : (
+                            <tr>
+                                        <td colSpan="5" className="text-center text-gray-500">
+                                            No Sponsors Available
+                                        </td>
+                                    </tr>
+                           )}
+                           
+                           
                         </tbody>
                     </table>
                 </div>

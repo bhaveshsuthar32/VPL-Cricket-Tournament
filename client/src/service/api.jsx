@@ -90,6 +90,15 @@ export const getAdvertiser = async () => {
 };
 
 
+
+export const addSponsorType = async(data) => {
+  try {
+    return await axios.post(`${URL}/sponsorType`, data);
+  } catch (error) {
+    console.log("Error :- ", error);
+  }
+}
+
 export const getSponsorType = async () => {
   try {
     return await axios.get(`${URL}/getSponsorType`);   
