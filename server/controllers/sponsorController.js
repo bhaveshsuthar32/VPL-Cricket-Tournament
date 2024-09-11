@@ -5,13 +5,20 @@ const otherSpon = require("../models/otherSponsor")
 
 
 
-            // ----- Sponsor Type ------
 const addSponsorType = async (req, res) => {
-    const spdata = req.body;
+    const { sponsorType } = req.body;
+    
     try {
-        const newSponType = new spType(spdata);
+       
+        const existingSponsorType = await spType.findOne({ sponsorType });
+        
+        if (existingSponsorType) {
+            return res.status(400).json({ message: "This sponsor type already exists" });
+        }
+
+        const newSponType = new spType({ sponsorType });
         const saveSpon = await newSponType.save();
-        console.log(saveSpon);
+
         res.status(201).json(saveSpon);
     } catch (error) {
         console.error("Error:", error);

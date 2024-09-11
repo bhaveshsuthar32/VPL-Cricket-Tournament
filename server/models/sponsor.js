@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 
-const sponsorType = new mongoose.Schema({
-    spnosorType : {
-        type : String,
-        required : false,
-        unique: true,
-       
+const sponsorTypeSchema = new mongoose.Schema({
+    sponsorType: {
+        type: String,
+        required: true,
+        unique: true, // Ensure uniqueness for this field
     }
-})
+});
 
-const Sponsor = mongoose.model('sponsorType', sponsorType); 
+const Sponsor = mongoose.model('SponsorType', sponsorTypeSchema); 
 
-module.exports = Sponsor; 
+module.exports = Sponsor;
