@@ -71,3 +71,20 @@ export const getOtherSP = async () => {
     console.log("Error :- " , error);
   }
 };
+
+export const addAdvertise = async(data) => {
+  try {
+    return await axios.post(`${URL}/addAdvertise`, data);
+  } catch (error) {
+    console.log("Error :- ", error);
+  }
+}
+
+
+export const getAdvertiser = async () => {
+  try {
+    return await axios.get(`${URL}/getAdvertise`);   
+  } catch (error) {
+    console.log("Error :- " , error);
+  }
+};

@@ -93,7 +93,7 @@ export default function FSponserform() {
                                             autoComplete="profile-name"
                                             className="file-input file-input-bordered file-input-sm w-full max-w-xs"
                                             required
-                                            onChange={handleFileChange} // Update to handleFileChange
+                                            onChange={handleFileChange} 
                                         />
                                     </div>
                                 </div>
