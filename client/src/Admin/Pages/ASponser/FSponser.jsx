@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'; // Import useState and useEffect
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import Header from '../../Layouts/Header';
 import Sidebar from '../../Layouts/Sidebar';
-import { getFoodSP } from '../../../service/api'; // Make sure this import matches your service function
+import { getFoodSP } from '../../../service/api';
 
 export default function FSponser() {
     const [user, setUser] = useState([]);
@@ -55,7 +55,7 @@ export default function FSponser() {
                             <tbody>
                                 {user.length > 0 ? (
                                     user.map((userInfo, index) => (
-                                        <tr key={userInfo._id}> {/* Adding unique key */}
+                                        <tr key={userInfo._id}> 
                                             <th>{index + 1}</th>
                                             <td>
                                                 <div className="flex items-center gap-3">

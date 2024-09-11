@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import Header from '../../Layouts/Header';
 import Sidebar from '../../Layouts/Sidebar';
+import { getOtherSP } from '../../../service/api';
 
 export default function OSponser() {
+    const [user, setUser] = useState([]);
+
+    const getOtherData = async () => {
+        try {
+            const response = await getOtherSP();
+            setUser(response.data);
+        } catch (error) {
+            console.log("Error :- ", error);
+        }
+    };
+
+    useEffect(() => {
+        getOtherData();
+    }, []);
+
     return (
         <div className="">
             <Header />
@@ -13,7 +29,7 @@ export default function OSponser() {
                     <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6 ">
                         <div className="sm:col-span-5 mb-5">
                             <h1 className='font-bold text-lg text-gray-600'>
-                                Other Sponsers
+                                Other Sponsors
                             </h1>
                         </div>
                         <div className="flex items-center justify-end gap-x-6">
@@ -26,227 +42,56 @@ export default function OSponser() {
                         </div>
                     </div>
                     <div className='overflow-x-auto'>
-
-                
-                    <table className="table sm:w-full  w-[600px]">
-                        {/* head */}
-                        <thead className="sticky bg-white z-9 ">
-                            <tr>
-                                <th>S.No</th>
-                                <th>Name</th>
-                                <th>Amount</th>
-                                <th>Sponser Type</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {/* row 1 */}
-                            <tr>
-                                <th>1</th>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle h-12 w-12">
-                                                <img
-                                                    src="https://img.daisyui.com/images/profile/demo/3@94.webp"
-                                                    alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-bold">Madan Suthar s/o Pratap ji Suthar</div>
-                                            <div className="text-sm opacity-50">Bagra</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    51,000 Rupee
-                                </td>
-                                <td>
-                                    Ground Management
-                                </td>
-                                <th>
-                                    <button className="btn btn-ghost btn-xs">details</button>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle h-12 w-12">
-                                                <img
-                                                    src="https://img.daisyui.com/images/profile/demo/3@94.webp"
-                                                    alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-bold">Madan Suthar s/o Pratap ji Suthar</div>
-                                            <div className="text-sm opacity-50">Bagra</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    51,000 Rupee
-                                </td>
-                                <td>
-                                    Ground Management
-                                </td>
-                                <th>
-                                    <button className="btn btn-ghost btn-xs">details</button>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle h-12 w-12">
-                                                <img
-                                                    src="https://img.daisyui.com/images/profile/demo/3@94.webp"
-                                                    alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-bold">Madan Suthar s/o Pratap ji Suthar</div>
-                                            <div className="text-sm opacity-50">Bagra</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    51,000 Rupee
-                                </td>
-                                <td>
-                                    Ground Management
-                                </td>
-                                <th>
-                                    <button className="btn btn-ghost btn-xs">details</button>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle h-12 w-12">
-                                                <img
-                                                    src="https://img.daisyui.com/images/profile/demo/3@94.webp"
-                                                    alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-bold">Madan Suthar s/o Pratap ji Suthar</div>
-                                            <div className="text-sm opacity-50">Bagra</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    51,000 Rupee
-                                </td>
-                                <td>
-                                    Ground Management
-                                </td>
-                                <th>
-                                    <button className="btn btn-ghost btn-xs">details</button>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle h-12 w-12">
-                                                <img
-                                                    src="https://img.daisyui.com/images/profile/demo/3@94.webp"
-                                                    alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-bold">Madan Suthar s/o Pratap ji Suthar</div>
-                                            <div className="text-sm opacity-50">Bagra</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    51,000 Rupee
-                                </td>
-                                <td>
-                                    Ground Management
-                                </td>
-                                <th>
-                                    <button className="btn btn-ghost btn-xs">details</button>
-                                </th>
-                            </tr>
-                            {/* row 2 */}
-                            <tr>
-                                <th>2</th>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle h-12 w-12">
-                                                <img
-                                                    src="https://img.daisyui.com/images/profile/demo/3@94.webp"
-                                                    alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-bold">Brice Swyre</div>
-                                            <div className="text-sm opacity-50">China</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    Carroll Group
-                                    <br />
-                                    <span className="badge badge-ghost badge-sm">Tax Accountant</span>
-                                </td>
-                                <th>
-                                    <button className="btn btn-ghost btn-xs">details</button>
-                                </th>
-                            </tr>
-                            {/* row 3 */}
-                            <tr>
-                                <th>3</th>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle h-12 w-12">
-                                                <img
-                                                    src="https://img.daisyui.com/images/profile/demo/3@94.webp"
-                                                    alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-bold">Brice Swyre</div>
-                                            <div className="text-sm opacity-50">China</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    Carroll Group
-                                    <br />
-                                    <span className="badge badge-ghost badge-sm">Tax Accountant</span>
-                                </td>
-                                <th>
-                                    <button className="btn btn-ghost btn-xs">details</button>
-                                </th>
-                            </tr>
-                        </tbody>
-                        {/* foot */}
-                        {/* <tfoot>
-                            <tr>
-                                <th></th>
-                                <th>Name</th>
-                                <th>Job</th>
-                                <th>Favorite Color</th>
-                                <th></th>
-                            </tr>
-                        </tfoot> */}
-                    </table>
+                        <table className="table sm:w-full  w-[600px]">
+                            <thead className="sticky bg-white z-9 ">
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Name</th>
+                                    <th>Amount</th>
+                                    <th>Sponsor Type</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {user.length > 0 ? (
+                                    user.map((userInfo, index) => (
+                                        <tr key={userInfo._id}>
+                                            <th>{index + 1}</th>
+                                            <td>
+                                                <div className="flex items-center gap-3">
+                                                    <div className="avatar ">
+                                                        <div className="mask mask-squircle h-12 w-12 border-[1px] border-slate-600">
+                                                            <img className='border-[1px] border-slate-600'
+                                                                src={userInfo.spOtherImage}
+                                                                alt={userInfo.fullName}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div className="font-bold">{userInfo.fullName}</div>
+                                                        <div className="text-sm opacity-50">{userInfo.village}</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>{userInfo.amount}</td>
+                                            <td>{userInfo.sponType}</td>
+                                            <th>
+                                                <button className="btn btn-ghost btn-xs">details</button>
+                                            </th>
+                                        </tr>
+                                    ))
+                                ) : (
+                                    <tr>
+                                        <td colSpan="5" className="text-center text-gray-500">
+                                            No Sponsors Available
+                                        </td>
+                                    </tr>
+                                )}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
-
-
