@@ -88,3 +88,12 @@ export const getAdvertiser = async () => {
     console.log("Error :- " , error);
   }
 };
+
+
+export const getSponsorType = async () => {
+  try {
+    return await axios.get(`${URL}/getSponsorType`);   
+  } catch (error) {
+    console.log("Error :- " , error);
+  }
+};

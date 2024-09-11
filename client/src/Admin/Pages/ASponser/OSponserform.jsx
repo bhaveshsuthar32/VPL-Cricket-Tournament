@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../../Layouts/Header';
 import Sidebar from '../../Layouts/Sidebar';
 import { Link, useNavigate } from 'react-router-dom';
-import { addOtherSP } from '../../../service/api';
+import { addOtherSP, getSponsorType } from '../../../service/api';
 
 const defaultValue = {
     sponType: '',
@@ -14,8 +14,24 @@ const defaultValue = {
 
 export default function OSponserform() {
     const [otherSp, setOtherSp] = useState(defaultValue);
+    const [sponsorTypes, setSponsorTypes] = useState([]); // State for storing sponsor types
     const navigate = useNavigate();
 
+    // Fetch sponsor types
+    const getSpTypeData = async () => {
+        try {
+            const response = await getSponsorType();
+            setSponsorTypes(response.data); // Store sponsor types from the API response
+        } catch (error) {
+            console.log("Error :- ", error);
+        }
+    };
+
+    useEffect(() => {
+        getSpTypeData();
+    }, []);
+
+    // Handle form data change
     const handleChange = (e) => {
         const { name, value } = e.target;
         setOtherSp({ ...otherSp, [name]: value });
@@ -67,17 +83,16 @@ export default function OSponserform() {
                                         <select
                                             id="sponType"
                                             name="sponType"
-                                            autoComplete="sponType"
                                             className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                                             onChange={handleChange}
                                             value={otherSp.sponType}
                                         >
                                             <option value="">Select Type</option>
-                                            <option value="Water Sponsor">Water Sponsor</option>
-                                            <option value="Tea Sponsor">Tea Sponsor</option>
-                                            <option value="Day-3">Day-3</option>
-                                            <option value="Day-4">Day-4</option>
-                                            <option value="Day-5">Day-5</option>
+                                            {sponsorTypes.length > 0 && sponsorTypes.map((sponsor) => (
+                                                <option key={sponsor._id} value={sponsor.sponsorType}>
+                                                    {sponsor.sponsorType}
+                                                </option>
+                                            ))}
                                         </select>
                                     </div>
                                 </div>
@@ -107,7 +122,6 @@ export default function OSponserform() {
                                             id="fullName"
                                             name="fullName"
                                             type="text"
-                                            autoComplete="given-name"
                                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                             onChange={handleChange}
                                             value={otherSp.fullName}
@@ -124,7 +138,6 @@ export default function OSponserform() {
                                             id="village"
                                             name="village"
                                             type="text"
-                                            autoComplete="village-name"
                                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                             onChange={handleChange}
                                             value={otherSp.village}
@@ -141,7 +154,6 @@ export default function OSponserform() {
                                             id="amount"
                                             name="amount"
                                             type="text"
-                                            autoComplete="amount"
                                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                             onChange={handleChange}
                                             value={otherSp.amount}
@@ -155,7 +167,7 @@ export default function OSponserform() {
                                 </Link>
                                 <button
                                     type="submit"
-                                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
                                 >
                                     Save
                                 </button>
