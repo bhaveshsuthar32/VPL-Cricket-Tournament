@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import Header from '../../Layouts/Header';
 import Sidebar from '../../Layouts/Sidebar';
-import { getAdvertiser } from '../../../service/api';
+import { getAdvertiser } from '../../../../api';
 
 export default function AAdvertiser() {
     const [user, setUser] = useState([]);

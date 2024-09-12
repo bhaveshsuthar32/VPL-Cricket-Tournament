@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import Header from '../../Layouts/Header';
 import Sidebar from '../../Layouts/Sidebar';
-import { getOtherSP } from '../../../service/api';
+import { getOtherSP } from '../../../../api';
 
 export default function OSponser() {
     const [user, setUser] = useState([]);

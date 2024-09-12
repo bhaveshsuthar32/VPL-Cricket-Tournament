@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Header from '../../Layouts/Header';
 import Sidebar from '../../Layouts/Sidebar';
 import { Link, useNavigate } from 'react-router-dom';
-import { addSponsorType } from '../../../service/api';
+import { addSponsorType } from '../../../../api';
 
 const defaultValue = {
     sponsorType: '',

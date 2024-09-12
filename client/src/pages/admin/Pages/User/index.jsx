@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../Layouts/Header';
 import Sidebar from '../../Layouts/Sidebar';
-import { userData, updateCaptain } from '../../../service/api';
+import { userData, updateCaptain } from '../../../../api';
 
 export default function User() {
     const [user, setUser] = useState([]);

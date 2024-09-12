@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../../Layouts/Header';
 import Sidebar from '../../Layouts/Sidebar';
 import { Link, useNavigate } from 'react-router-dom';
-import { addOtherSP, getSponsorType } from '../../../service/api';
+import { addOtherSP, getSponsorType } from '../../../../api';
 
 const defaultValue = {
     sponType: '',

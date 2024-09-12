@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from '../../Layouts/Header';
 import Sidebar from '../../Layouts/Sidebar';
 import { Link, useNavigate } from 'react-router-dom';
-import { addFoodSP } from '../../../service/api';
+import { addFoodSP } from '../../../../api';
 
 const defaultValue = {
     sponDay: '',

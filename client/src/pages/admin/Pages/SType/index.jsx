@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import Header from '../../Layouts/Header';
 import Sidebar from '../../Layouts/Sidebar';
-import { getSponsorType } from '../../../service/api';
+import { getSponsorType } from '../../../../api';
 
 
 export default function SType() {

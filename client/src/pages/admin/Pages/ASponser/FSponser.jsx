@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import Header from '../../Layouts/Header';
 import Sidebar from '../../Layouts/Sidebar';
-import { getFoodSP } from '../../../service/api';
+import { getFoodSP } from '../../../../api';
 
 export default function FSponser() {
     const [user, setUser] = useState([]);
