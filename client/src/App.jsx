@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Home from './pages/user/pages/Home';
 // import Navbar from './pages/user/components/Navbar';
-import HallOfFame from './pages/pages/user/pages/HallOfFame';
+import HallOfFame from './pages/user/pages/HallOfFame';
 import TeamView from './pages/user/pages/TeamView';
 import Sponser from './pages/user/pages/Sponser';
 import Team from './pages/user/pages/Team';
@@ -19,7 +19,7 @@ import Teamform from './pages/user/pages/Teamform';
 
 
 // Admin 
-import Dashboard from './pages/pages/admin/pages/Dashboard';
+import Dashboard from './pages/admin/pages/Dashboard';
 import User from './pages/admin/pages/User';
 import ATeam from './pages/admin/pages/ATeam';
 import AAdvertiser from './pages/admin/pages/AAdvertiser';
