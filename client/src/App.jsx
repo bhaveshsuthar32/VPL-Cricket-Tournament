@@ -19,7 +19,7 @@ import Teamform from './pages/user/pages/Teamform';
 
 
 // Admin 
-// import Dashboard from './pages/admin/pages/Dashboard';
+import Dashboard from './pages/admin/pages/Dashboard';
 import User from './pages/admin/pages/User';
 import ATeam from './pages/admin/pages/ATeam';
 import AAdvertiser from './pages/admin/pages/AAdvertiser';
@@ -58,7 +58,7 @@ function App() {
 
         {/* Admin Route */}
 
-        {/* <Route path="/admin" element={<Dashboard />} /> */}
+        <Route path="/admin" element={<Dashboard />} />
         <Route path="/dashboard/users" element={<User />} />
         <Route path="/dashboard/teams" element={<ATeam />} />
         <Route path="/dashboard/advertisers" element={<AAdvertiser />} />
