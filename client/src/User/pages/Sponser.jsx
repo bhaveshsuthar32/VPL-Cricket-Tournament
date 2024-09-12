@@ -51,7 +51,7 @@ export default function Sponser() {
                                     <img
                                         src={foodData.spImage}
                                         alt={foodData.fullName}
-                                        className=' lg:w-[120px] lg:h-[150px] sm:w-[100px] w-[80px]  rounded-md '
+                                        className=' lg:w-[120px] lg:h-[150px] sm:w-[100px] h-[130px] w-[80px]  rounded-md '
                                     />
                                 </figure>
                                 <div className="card-body px-4 py-[2px] lg:py-[14px]">
