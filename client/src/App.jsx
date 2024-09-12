@@ -1,21 +1,21 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Home from './User/pages/Home';
-// import Navbar from './User/components/Navbar';
-import HallOfFame from './User/pages/HallOfFame';
-import TeamView from './User/pages/TeamView';
-import Sponser from './User/pages/Sponser';
-import Team from './User/pages/Team';
-import Advertiser from './User/pages/Advertiser';
-import Rules from './User/pages/Rules';
-import AboutUs from './User/pages/AboutUs';
-import ContactUs from './User/pages/ContactUs';
-// import Profile from './User/pages/Profile';
-// import Profileform from './User/pages/Profileform';
-import Profile from './User/pages/Profile';
-import EditProfile from './User/pages/Profile/EditProfile';
-import Teamform from './User/pages/Teamform';
+import Home from './pages/user/pages/Home';
+// import Navbar from './pages/user/components/Navbar';
+import HallOfFame from './pages/pages/user/pages/HallOfFame';
+import TeamView from './pages/user/pages/TeamView';
+import Sponser from './pages/user/pages/Sponser';
+import Team from './pages/user/pages/Team';
+import Advertiser from './pages/user/pages/Advertiser';
+import Rules from './pages/user/pages/Rules';
+import AboutUs from './pages/user/pages/AboutUs';
+import ContactUs from './pages/user/pages/ContactUs';
+// import Profile from './pages/user/pages/Profile';
+// import Profileform from './pages/user/pages/Profileform';
+import Profile from './pages/user/pages/Profile';
+import EditProfile from './pages/user/pages/Profile/EditProfile';
+import Teamform from './pages/user/pages/Teamform';
 
 
 // Admin 
@@ -32,8 +32,8 @@ import Advertiserform from './Admin/Pages/AAdvertiser/Advertiserform';
 import STypeform from './Admin/Pages/SType/STypeform';
 import AProfile from './Admin/Pages/AProfile';
 import AProfileform from './Admin/Pages/AProfile/AProfileform';
-import Login from './User/pages/Login';
-import SignUp from './User/pages/SignUp';
+import Login from './pages/user/pages/Login';
+import SignUp from './pages/user/pages/SignUp';
 
 
 function App() {
