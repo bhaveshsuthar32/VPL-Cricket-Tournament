@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import { getFoodSP, getOtherSP } from '../../service/api'
+import { getFoodSP, getOtherSP } from '../../../api'
 
 
 export default function Sponser() {

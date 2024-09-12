@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { signData } from '../../service/api';
+import { signData } from '../../../api';
 
 const defaultValue = {
     username: '',
