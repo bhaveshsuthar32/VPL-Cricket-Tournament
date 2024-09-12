@@ -19,19 +19,19 @@ import Teamform from './pages/user/pages/Teamform';
 
 
 // Admin 
-import Dashboard from './Admin/Pages/Dashboard';
-import User from './Admin/Pages/User';
-import ATeam from './Admin/Pages/ATeam';
-import AAdvertiser from './Admin/Pages/AAdvertiser';
-import SType from './Admin/Pages/SType';
-import FSponser from './Admin/Pages/ASponser/FSponser';
-import OSponser from './Admin/Pages/ASponser/OSponser';
-import FSponserform from './Admin/Pages/ASponser/FSponserform';
-import OSponserform from './Admin/Pages/ASponser/OSponserform';
-import Advertiserform from './Admin/Pages/AAdvertiser/Advertiserform';
-import STypeform from './Admin/Pages/SType/STypeform';
-import AProfile from './Admin/Pages/AProfile';
-import AProfileform from './Admin/Pages/AProfile/AProfileform';
+import Dashboard from './pages/pages/admin/pages/Dashboard';
+import User from './pages/admin/pages/User';
+import ATeam from './pages/admin/pages/ATeam';
+import AAdvertiser from './pages/admin/pages/AAdvertiser';
+import SType from './pages/admin/pages/SType';
+import FSponser from './pages/admin/pages/ASponser/FSponser';
+import OSponser from './pages/admin/pages/ASponser/OSponser';
+import FSponserform from './pages/admin/pages/ASponser/FSponserform';
+import OSponserform from './pages/admin/pages/ASponser/OSponserform';
+import Advertiserform from './pages/admin/pages/AAdvertiser/Advertiserform';
+import STypeform from './pages/admin/pages/SType/STypeform';
+import AProfile from './pages/admin/pages/AProfile';
+import AProfileform from './pages/admin/pages/AProfile/AProfileform';
 import Login from './pages/user/pages/Login';
 import SignUp from './pages/user/pages/SignUp';
 
