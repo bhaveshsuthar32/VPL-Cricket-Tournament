@@ -55,6 +55,7 @@ function App() {
         <Route path="/editprofile" element={<EditProfile/>} />
         <Route path="/addteam" element={<Teamform />} />
         <Route path="/error/*" element={<ErrorFallback />} />
+        <Route path="*" element={<PageNotFound />} />
         {/* Admin Route */}
 
         <Route path="/admin" element={<Dashboard />} />
