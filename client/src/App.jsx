@@ -20,21 +20,21 @@ import { ErrorFallback, PageNotFound } from "./components";
 
 
 // Admin 
-import Dashboard from './pages/admin/pages/Dashboard';
-import User from './pages/admin/pages/User';
-import ATeam from './pages/admin/pages/ATeam';
-import AAdvertiser from './pages/admin/pages/AAdvertiser';
-import SType from './pages/admin/pages/SType';
-import FSponser from './pages/admin/pages/ASponser/FSponser';
-import OSponser from './pages/admin/pages/ASponser/OSponser';
-import FSponserform from './pages/admin/pages/ASponser/FSponserform';
-import OSponserform from './pages/admin/pages/ASponser/OSponserform';
-import Advertiserform from './pages/admin/pages/AAdvertiser/Advertiserform';
-import STypeform from './pages/admin/pages/SType/STypeform';
-import AProfile from './pages/admin/pages/AProfile';
-import AProfileform from './pages/admin/pages/AProfile/AProfileform';
-import Login from './pages/user/pages/Login';
-import SignUp from './pages/user/pages/SignUp';
+import Dashboard from './pages/admin/Pages/Dashboard';
+import User from './pages/admin/Pages/User';
+import ATeam from './pages/admin/Pages/ATeam';
+import AAdvertiser from './pages/admin/Pages/AAdvertiser';
+import SType from './pages/admin/Pages/SType';
+import FSponser from './pages/admin/Pages/ASponser/FSponser';
+import OSponser from './pages/admin/Pages/ASponser/OSponser';
+import FSponserform from './pages/admin/Pages/ASponser/FSponserform';
+import OSponserform from './pages/admin/Pages/ASponser/OSponserform';
+import Advertiserform from './pages/admin/Pages/AAdvertiser/Advertiserform';
+import STypeform from './pages/admin/Pages/SType/STypeform';
+import AProfile from './pages/admin/Pages/AProfile';
+import AProfileform from './pages/admin/Pages/AProfile/AProfileform';
+import Login from './pages/user/Pages/Login';
+import SignUp from './pages/user/Pages/SignUp';
 
 
 function App() {
