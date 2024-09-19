@@ -56,7 +56,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/editprofile" element={<EditProfile/>} />
         <Route path="/addteam" element={<Teamform />} />
-
+<Route path="/error/*" element={<ErrorFallback />} />
         {/* Admin Route */}
 
         <Route path="/admin" element={<Dashboard />} />
