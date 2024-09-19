@@ -8,7 +8,9 @@ export default function Dashboard() {
       <div className="">
         <Sidebar />
         <Header />
-
+<div>
+Dashboard
+</div>
       </div>
     </>
   );
