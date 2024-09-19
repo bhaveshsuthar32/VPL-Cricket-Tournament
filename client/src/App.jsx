@@ -16,6 +16,7 @@ import ContactUs from './pages/user/pages/ContactUs';
 import Profile from './pages/user/pages/Profile';
 import EditProfile from './pages/user/pages/Profile/EditProfile';
 import Teamform from './pages/user/pages/Teamform';
+import { ErrorFallback, PageNotFound } from "./components";
 
 
 // Admin 
