@@ -61,7 +61,7 @@ export default function AAdvertiser() {
             </div>
             <div className="flex items-center justify-end gap-x-6">
               <Link
-                to={"/admin/advertiserform"}
+                to={"/dashboard/advertiserform"}
                 className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
               >
                 ADD
