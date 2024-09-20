@@ -91,6 +91,13 @@ export const getAdvertiser = async () => {
   }
 };
 
+export const deleteAdvertiser = async (id) => {
+  try {
+    return await axios.delete(`${URL}/advertiser/${id}`);
+  } catch (error){
+    console.log("Error : ", error);
+  }
+}
 
 
 export const addSponsorType = async(data) => {
