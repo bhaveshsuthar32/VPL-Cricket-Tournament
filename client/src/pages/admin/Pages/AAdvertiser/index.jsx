@@ -84,7 +84,26 @@ export default function AAdvertiser() {
                   user.map((userInfo, index) => (
                     <tr key={userInfo._id}>
                       <th>{index + 1}</th>
-                      <td>{userInfo.ownerName}</td>
+                      <td>
+                        <div className="flex items-center gap-3">
+                          <div className="avatar">
+                            <div className="mask mask-squircle h-12 w-12">
+                              <img
+                                src={userInfo.shopLogo}
+                                alt={userInfo.ownerName}
+                              />
+                            </div>
+                          </div>
+                          <div>
+                            <div className="font-bold">
+                              {userInfo.ownerName}
+                            </div>
+                            <div className="text-sm opacity-50">
+                              {userInfo.village}
+                            </div>
+                          </div>
+                        </div>
+                      </td>
                       <td>{userInfo.shopName}</td>
                       <td>{userInfo.amount}</td>
                       <td>
