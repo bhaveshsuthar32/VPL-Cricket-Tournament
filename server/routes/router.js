@@ -13,7 +13,7 @@ const upload = multer({
 
 const { signUser, loginUser, getUser, editUserCaptain } = require('../controllers/userController');
 const { addSponsorType, getSponsorType, addFoodSpon, addOtherSpon, getFoodSpon, getOtherSpon } = require('../controllers/sponsorController');
-const { addAdvertise, getAdvertiser } = require('../controllers/advertiserCont');
+const { addAdvertise, getAdvertiser,  deleteAdvertiser } = require('../controllers/advertiserCont');
 
 router.post("/sign", signUser);
 router.post("/login", loginUser);
@@ -33,7 +33,7 @@ router.get('/getOtherSpon', getOtherSpon);
 
 router.post('/addAdvertise', upload.single('shopLogo'), addAdvertise);
 router.get('/getAdvertise',  getAdvertiser);
-
+router.delete('/advertiser/:id', deleteAdvertiser);
 
 
 
