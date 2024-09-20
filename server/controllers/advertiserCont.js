@@ -37,7 +37,33 @@ const getAdvertiser = async (req,res)=>{
     }
 }
 
+const deleteAdvertiser = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const sponsor = await advertiser.findById(id);
+
+        if (!sponsor) {
+            return res.status(404).json({ message: "Advertiser not found" });
+        }
+
+        const publicId = sponsor.shopLogo.split('/').pop().split('.')[0];
+        const cloudinaryResult = await deleteFile(publicId);
+
+        if (cloudinaryResult.result !== 'ok') {
+            throw new Error('Failed to delete image from Cloudinary');
+        }
+        await advertiser.findByIdAndDelete(id);
+
+        res.status(200).json({ message: "Advertiser and associated image deleted successfully" });
+    } catch (error) {
+        console.error("Error deleting advertiser:", error);
+        res.status(500).json({ error: error.message });
+    }
+};
+
 module.exports = {
     addAdvertise,
     getAdvertiser,
+    deleteAdvertiser,
 };
