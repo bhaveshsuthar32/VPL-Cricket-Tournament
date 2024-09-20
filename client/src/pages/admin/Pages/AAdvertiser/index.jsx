@@ -99,7 +99,8 @@ export default function AAdvertiser() {
                                             <td>{userInfo.shopName}</td>
                                             <td>{userInfo.amount}</td>
                                             <td>
-                                                <td>
+                        <tr>
+                          <td>
                             <button
                               onClick={() => handleDeleteClick(userInfo._id)}
                             >
@@ -177,8 +178,8 @@ export default function AAdvertiser() {
                             </button>
                           </td>
                         </tr>
-                                            </td>
-                                        </tr>
+                      </td>
+                    </tr>
                                     ))
                                 ) : (
                                     <tr>
