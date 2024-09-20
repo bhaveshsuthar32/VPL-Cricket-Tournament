@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from '../../Layouts/Header';
 import Sidebar from '../../Layouts/Sidebar';
 import { getAdvertiser, deleteAdvertiser } from '../../../../api';
-import { toast } from 'react-toastify'; // Assuming you use toast for notifications
+// Assuming you use toast for notifications
 
 export default function AAdvertiser() {
   const [user, setUser] = useState([]);
@@ -35,12 +35,12 @@ export default function AAdvertiser() {
   const handleConfirmDelete = async () => {
     try {
       await deleteAdvertiser(selectedAdvertiserId);
-      toast.success("Advertiser deleted successfully!");
+   //   toast.success("Advertiser deleted successfully!");
       setShowConfirmation(false);
       getAdvertiseData(); // Refresh the list after deletion
     } catch (error) {
       console.log("Error deleting the Advertiser: ", error);
-      toast.error("Failed to delete Advertiser. Please try again.");
+     // toast.error("Failed to delete Advertiser. Please try again.");
     }
   };
 
