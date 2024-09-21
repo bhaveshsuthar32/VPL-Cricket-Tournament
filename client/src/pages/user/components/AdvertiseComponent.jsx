@@ -8,7 +8,7 @@ import 'swiper/css/autoplay';
 
 export default function AdvertiseComponent() {
   const images = [
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeCGX-gGlBC-M5bgq0vlctCNG5AfcuV1UOCA&s",
+    
     "https://png.pngtree.com/png-clipart/20210717/ourmid/pngtree-icc-cricket-world-cup-motion-png-image_3606302.jpg",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAQQNYD0y1RGIeDromFg0KbjpLmAC2OLg1CA&s",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQva1HfjXhcvvHtXe6tgf_mIXj5mJLypf63Kw&s",
