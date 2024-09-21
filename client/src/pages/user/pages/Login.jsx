@@ -49,7 +49,7 @@ export default function Login() {
     const token = localStorage.getItem('token');
     if (token) {
       // If token exists, navigate to home page
-      navigate('/');
+    //  navigate('/');
     }
   }, [navigate]);
 
