@@ -16,7 +16,7 @@ app.use(cors(
     }
  ))
 
-// app.use(cors()); // local server
+// app.use(cors()); 
 
 app.use(express.json());
 
