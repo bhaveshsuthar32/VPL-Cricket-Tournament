@@ -9,17 +9,16 @@ export default function AAdvertiser() {
   const [selectedAdvertiserId, setSelectedAdvertiserId] = useState(null);
   const [showConfirmation, setShowConfirmation] = useState(false);
 
-  // Fetch the Advertisers data
   const getAdvertiseData = async () => {
     try {
       const response = await getAdvertiser();
-      if (response.data) {
+      if (response?.data) {
         setUser(response.data);
       } else {
         console.error("No data returned from API.");
       }
     } catch (error) {
-      console.error("Error fetching advertisers data:", error);
+      console.error("Error fetching advertisers: ", error);
     }
   };
 
@@ -27,28 +26,32 @@ export default function AAdvertiser() {
     getAdvertiseData();
   }, []);
 
-  // Delete an advertiser by ID
   const handleDeleteClick = (advertiserId) => {
     setSelectedAdvertiserId(advertiserId);
     setShowConfirmation(true);
   };
 
   const handleConfirmDelete = async () => {
+    if (!selectedAdvertiserId) return;
+
     try {
-      if (selectedAdvertiserId) {
-        await deleteAdvertiser(selectedAdvertiserId);  // Call delete API
-        setShowConfirmation(false);                   // Hide confirmation popup
-        setSelectedAdvertiserId(null);                // Clear selected advertiser ID
-        getAdvertiseData();                           // Refresh the data
+      const response = await deleteAdvertiser(selectedAdvertiserId);
+
+      if (response?.status === 200) {
+        console.log("Advertiser deleted successfully");
+        setShowConfirmation(false);
+        getAdvertiseData(); // Refresh the list after deletion
+      } else {
+        console.log("Failed to delete advertiser");
       }
     } catch (error) {
-      console.error("Error deleting the advertiser:", error);
+      console.error("Error deleting the Advertiser: ", error);
     }
   };
 
   const handleCancelDelete = () => {
     setShowConfirmation(false);
-    setSelectedAdvertiserId(null);  // Clear selected advertiser ID
+    setSelectedAdvertiserId(null);
   };
 
   return (
@@ -70,7 +73,7 @@ export default function AAdvertiser() {
               </Link>
             </div>
           </div>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto ">
             <table className="table sm:w-full w-[600px]">
               <thead className="sticky bg-white z-9">
                 <tr>
@@ -97,28 +100,22 @@ export default function AAdvertiser() {
                             </div>
                           </div>
                           <div>
-                            <div className="font-bold">{userInfo.ownerName}</div>
-                            <div className="text-sm opacity-50">{userInfo.village}</div>
+                            <div className="font-bold">
+                              {userInfo.ownerName}
+                            </div>
+                            <div className="text-sm opacity-50">
+                              {userInfo.village}
+                            </div>
                           </div>
                         </div>
                       </td>
                       <td>{userInfo.shopName}</td>
                       <td>{userInfo.amount}</td>
                       <td>
-                        <button onClick={() => handleDeleteClick(userInfo._id)}>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            x="0px"
-                            y="0px"
-                            width="25"
-                            height="25"
-                            viewBox="0 0 30 30"
-                          >
-                            <path
-                              fill="#FF7474"
-                              d="M 14.984375 2.4863281 A 1.0001 1.0001 0 0 0 14 3.5 L 14 4 L 8.5 4 A 1.0001 1.0001 0 0 0 7.4863281 5 L 6 5 A 1.0001 1.0001 0 1 0 6 7 L 24 7 A 1.0001 1.0001 0 1 0 24 5 L 22.513672 5 A 1.0001 1.0001 0 0 0 21.5 4 L 16 4 L 16 3.5 A 1.0001 1.0001 0 0 0 14.984375 2.4863281 z M 6 9 L 7.7929688 24.234375 C 7.9109687 25.241375 8.7633438 26 9.7773438 26 L 20.222656 26 C 21.236656 26 22.088031 25.241375 22.207031 24.234375 L 24 9 L 6 9 z"
-                            ></path>
-                          </svg>
+                        <button
+                          onClick={() => handleDeleteClick(userInfo._id)}
+                        >
+                          Delete
                         </button>
                       </td>
                     </tr>
@@ -136,7 +133,6 @@ export default function AAdvertiser() {
         </div>
       </div>
 
-      {/* Confirmation Dialog */}
       {showConfirmation && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
           <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
