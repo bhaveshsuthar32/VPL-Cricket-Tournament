@@ -36,16 +36,16 @@ export default function AAdvertiser() {
   };
 
   const handleConfirmDelete = async () => {
-    try {
-      await deleteAdvertiser(selectedAdvertiserId);
-      toast.success("Advertiser deleted successfully!");
-      setShowConfirmation(false);
-      getAdvertiseData(); // Refresh the list after deletion
-    } catch (error) {
-      console.log("Error deleting the Advertiser: ", error);
-      toast.error("Failed to delete advertiser. Please try again.");
-    }
-  };
+  try {
+    await deleteAdvertiser(selectedAdvertiserId);
+    toast.success("Advertiser deleted successfully!");
+    setShowConfirmation(false);
+    getAdvertiser(); // Refresh the list after deletion
+  } catch (error) {
+    console.error("Error deleting advertiser: ", error.response || error);
+    toast.error("Failed to delete advertiser. Please try again.");
+  }
+};
 
   const handleCancelDelete = () => {
     setShowConfirmation(false);
