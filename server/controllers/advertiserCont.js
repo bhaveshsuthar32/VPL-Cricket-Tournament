@@ -38,28 +38,32 @@ const getAdvertiser = async (req,res)=>{
 }
 
 const deleteAdvertiser = async (req, res) => {
-    try {
-        const { id } = req.params;
+  try {
+    const { id } = req.params;
+    console.log("Advertiser ID received for deletion:", id); // Log ID here
 
-        const sponsor = await advertiser.findById(id);
-
-        if (!sponsor) {
-            return res.status(404).json({ message: "Advertiser not found" });
-        }
-
-        const publicId = sponsor.shopLogo.split('/').pop().split('.')[0];
-        const cloudinaryResult = await deleteFile(publicId);
-
-        if (cloudinaryResult.result !== 'ok') {
-            throw new Error('Failed to delete image from Cloudinary');
-        }
-        await advertiser.findByIdAndDelete(id);
-
-        res.status(200).json({ message: "Advertiser and associated image deleted successfully" });
-    } catch (error) {
-        console.error("Error deleting advertiser:", error);
-        res.status(500).json({ error: error.message });
+    const sponsor = await advertiser.findById(id);
+    if (!sponsor) {
+      return res.status(404).json({ message: "Advertiser not found" });
     }
+
+    console.log("Deleting from Cloudinary..."); // Log before Cloudinary delete
+    const publicId = sponsor.shopLogo.split('/').pop().split('.')[0];
+    const cloudinaryResult = await deleteFile(publicId);
+
+    if (cloudinaryResult.result !== 'ok') {
+      console.log("Failed to delete from Cloudinary");
+      throw new Error('Failed to delete image from Cloudinary');
+    }
+
+    console.log("Deleting from database..."); // Log before DB delete
+    await advertiser.findByIdAndDelete(id);
+
+    res.status(200).json({ message: "Advertiser and associated image deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting advertiser:", error);
+    res.status(500).json({ error: error.message });
+  }
 };
 
 module.exports = {
