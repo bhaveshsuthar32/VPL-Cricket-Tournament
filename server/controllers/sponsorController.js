@@ -38,6 +38,24 @@ const getSponsorType = async (req, res) => {
 }
 
 
+const deleteSponsorType = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deletedSponsor = await Sponsor.findByIdAndDelete(id);
+        
+        if (!deletedSponsor) {
+            return res.status(404).json({ message: "Sponsor type not found" });
+        }
+        
+        res.status(200).json({ message: "Sponsor type deleted successfully", deletedSponsor });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+};
+
+
+
                 // ----- Food Sponsor -----
 
 const addFoodSpon = async (req, res) => {
