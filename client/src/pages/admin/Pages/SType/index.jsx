@@ -1,25 +1,88 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Header from '../../Layouts/Header';
 import Sidebar from '../../Layouts/Sidebar';
 import { getSponsorType, deleteSponsorType } from '../../../../api';
 
-const SponsorTable = ({ sponsors, onDeleteClick }) => (
-    <table className="table">
-        <thead className="sticky top-0 sm:top-[65px] bg-white z-10">
-            <tr>
-                <th>S No.</th>
-                <th>Sponsor Type</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            {sponsors.length > 0 ? (
-                sponsors.map((sponsorData, index) => (
-                    <tr className="hover" key={sponsorData._id}>
-                        <th>{index + 1}</th>
-                        <td>{sponsorData.sponsorType}</td>
-                        <td>
+
+export default function SType() {
+
+    const [user, setUser] = useState([]);
+
+    const getSponrorTypeData = async () =>{
+        try {
+            const response = await getSponsorType();
+            setUser(response.data)
+        } catch (error) {
+            console.log("Error :- ", error);
+        }
+    }
+
+    useEffect(() =>{
+        getSponrorTypeData();
+    }, []);
+
+const handleDeleteClick = (sponserId) => {
+    setSelectedSponserId(sponserId);
+    setShowConfirmation(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    try {
+      await deleteSponsorType(selectedSponserId);
+    //  toast.success("Sponsor type deleted successfully!");
+      setShowConfirmation(false);
+      getSponrorTypeData(); // Refresh the list after deletion
+    } catch (error) {
+      console.log("Error deleting the SponserType : ", error);
+    //  toast.error("Failed to delete sponsor type. Please try again.");
+    }
+  };
+
+  const handleCancelDelete = () => {
+    setShowConfirmation(false);
+    setSelectedSponserId(null);
+  };
+
+
+    return (
+        <div className="">
+            <Header />
+            <Sidebar />
+            <div className="px-4 mt-3 sm:ml-64">
+                <div className="mx-auto my-4 max-w-7xl px-4 py-4 sm:px-6 lg:px-8 border-[1px] rounded-lg shadow-sm sticky top-20 bg-white z-9">
+                    <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6 ">
+                        <div className="sm:col-span-5">
+                            <h1 className='font-bold text-lg text-gray-600'>
+                                Sponser Types
+                            </h1>
+                        </div>
+                        <div className="flex items-center justify-end gap-x-6">
+                            <Link
+                                to={'/dashboard/sponsertypeform'}
+                                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            >
+                                ADD
+                            </Link>
+                        </div>
+                    </div>
+
+                    <table className="table">
+                        {/* head */}
+                        <thead className="sticky top-0 sm:top-[65px] bg-white z-10">
+                            <tr>
+                                <th>S No.</th>
+                                <th>Sponser Type</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           {user.length > 0 ? (
+                            user.map((userData , index) => (
+                                <tr className="hover" key={userData._id}>
+                                <th>{index + 1}</th>
+                                <td>{userData.sponsorType}</td>
+                               <td>
                       <button onClick={() => handleDeleteClick(userData._id)}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +98,7 @@ const SponsorTable = ({ sponsors, onDeleteClick }) => (
                           ></path>
                         </svg>
                       </button>
-                      <button onClick={() => handleEditClick(userData._id)}>
+                      <button>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           x="0px"
@@ -57,15 +120,15 @@ const SponsorTable = ({ sponsors, onDeleteClick }) => (
                           ></ellipse>
                           <path
                             fill="#fd3c4f"
-                            d="M48.965,24.451l3.32-3.32c1.172-1.172,1.172-3.071,0-4.243l-5.657-5.657	c-1.172-1.172-3.071-1.172-4.243,0l-3.32,3.32L48.965,24.451z"
+                            d="M48.965,24.451l3.32-3.32c1.172-1.172,1.172-3.071,0-4.243l-5.657-5.657        c-1.172-1.172-3.071-1.172-4.243,0l-3.32,3.32L48.965,24.451z"
                           ></path>
                           <path
                             fill="#a7b3c7"
-                            d="M49.577,26.129l-2.414,2.414c-1.172,1.172-3.071,1.172-4.243,0l-7.998-7.998	c-1.172-1.172-1.172-3.071,0-4.243l2.414-2.414c1.172-1.172,3.071-1.172,4.243,0l7.998,7.998	C50.749,23.058,50.749,24.958,49.577,26.129z"
+                            d="M49.577,26.129l-2.414,2.414c-1.172,1.172-3.071,1.172-4.243,0l-7.998-7.998        c-1.172-1.172-1.172-3.071,0-4.243l2.414-2.414c1.172-1.172,3.071-1.172,4.243,0l7.998,7.998        C50.749,23.058,50.749,24.958,49.577,26.129z"
                           ></path>
                           <path
                             fill="#ffce29"
-                            d="M20.959,52.189l-9.874-9.185c-0.209,0.425-0.38,0.871-0.483,1.338l-1.672,7.524	c-0.362,1.629,1.091,3.083,2.721,2.721l7.524-1.672C19.809,52.774,20.407,52.521,20.959,52.189z"
+                            d="M20.959,52.189l-9.874-9.185c-0.209,0.425-0.38,0.871-0.483,1.338l-1.672,7.524        c-0.362,1.629,1.091,3.083,2.721,2.721l7.524-1.672C19.809,52.774,20.407,52.521,20.959,52.189z"
                           ></path>
                           <path
                             fill="#9c34c2"
@@ -94,96 +157,52 @@ const SponsorTable = ({ sponsors, onDeleteClick }) => (
                         </svg>
                       </button>
                     </td>
-                    </tr>
+                  </tr>
                 ))
-            ) : (
+              ) : (
                 <tr>
-                    <td colSpan="3" className="text-center text-gray-500">
-                        No Sponsors Available
-                    </td>
+                  <td colSpan="5" className="text-center text-gray-500">
+                    No Sponsors Available
+                  </td>
                 </tr>
-            )}
-        </tbody>
-    </table>
-);
-
-export default function SType() {
-    const [user, setUser] = useState([]);
-    const [showConfirmation, setShowConfirmation] = useState(false);
-    const [selectedSponserId, setSelectedSponserId] = useState(null);
-
-    const getSponsorTypeData = async () => {
-        try {
-            const response = await getSponsorType();
-            setUser(response.data);
-        } catch (error) {
-            console.error("Error fetching sponsor types:", error);
-            // Optionally show a toast notification here
-        }
-    };
-
-    useEffect(() => {
-        getSponsorTypeData();
-    }, []);
-
-    const handleDeleteClick = (sponserId) => {
-        setSelectedSponserId(sponserId);
-        setShowConfirmation(true);
-    };
-
-    const handleConfirmDelete = async () => {
-        try {
-            await deleteSponsorType(selectedSponserId);
-            setShowConfirmation(false);
-            getSponsorTypeData(); // Refresh the list after deletion
-        } catch (error) {
-            console.error("Error deleting the Sponsor Type:", error);
-            // Optionally show a toast notification here
-        }
-    };
-
-    const handleCancelDelete = () => {
-        setShowConfirmation(false);
-        setSelectedSponserId(null);
-    };
-
-    return (
-        <div className="">
-            <Header />
-            <Sidebar />
-            <div className="px-4 mt-3 sm:ml-64">
-                <div className="mx-auto my-4 max-w-7xl px-4 py-4 sm:px-6 lg:px-8 border-[1px] rounded-lg shadow-sm sticky top-20 bg-white z-9">
-                    <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6 ">
-                        <div className="sm:col-span-5">
-                            <h1 className='font-bold text-lg text-gray-600'>Sponsor Types</h1>
-                        </div>
-                        <div className="flex items-center justify-end gap-x-6">
-                            <Link to={'/dashboard/sponsertypeform'} className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">
-                                ADD
-                            </Link>
-                        </div>
-                    </div>
-
-                    {/* Sponsor Table */}
-                    <SponsorTable sponsors={user} onDeleteClick={handleDeleteClick} />
-                </div>
-            </div>
-
-            {showConfirmation && (
-                <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-                    <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-                        <div className="mt-3 text-center">
-                            <h3 className="text-lg leading-6 font-medium text-gray-900">Delete Confirmation</h3>
-                            <p className="text-sm text-gray-500 mt-2">Are you sure you want to delete this sponsor type?</p>
-
-                            <div className="items-center px-4 py-3">
-                                <button onClick={handleConfirmDelete} className="px-4 py-2 bg-red-500 text-white rounded-md w-24 mr-2 hover:bg-red-600">Delete</button>
-                                <button onClick={handleCancelDelete} className="px-4 py-2 bg-gray-500 text-white rounded-md w-24 hover:bg-gray-600">Cancel</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
+              )}
+            </tbody>
+          </table>
         </div>
-    );
-}
+      </div>
+
+      {showConfirmation && (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div className="mt-3 text-center">
+              <h3 className="text-lg leading-6 font-medium text-gray-900">
+                Delete Confirmation
+              </h3>
+              <div className="mt-2 px-7 py-3">
+                <p className="text-sm text-gray-500">
+                  Are you sure you want to delete this sponsor type?
+                </p>
+              </div>
+              <div className="items-center px-4 py-3">
+                <button
+                  onClick={handleConfirmDelete}
+                  className="px-4 py-2 bg-red-500 text-white text-base font-medium rounded-md w-24 mr-2 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300"
+                >
+                  Delete
+                </button>
+                <button
+                  onClick={handleCancelDelete}
+                  className="px-4 py-2 bg-gray-500 text-white text-base font-medium rounded-md w-24 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
+
+
