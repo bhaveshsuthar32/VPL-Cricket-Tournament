@@ -57,6 +57,18 @@ export const getFoodSP = async () => {
   }
 };
 
+
+export const deleteFoodSpon = async (id)  => {
+  try {
+    return await axios.delete(`${URL}/food-sponser/${id}`);
+  } catch (error) {
+
+    console.log("Error : ", error);
+  }
+};
+
+
+
 export const addOtherSP = async(data) => {
   try {
     return await axios.post(`${URL}/addOtherSpon`, data);
@@ -73,6 +85,16 @@ export const getOtherSP = async () => {
     console.log("Error :- " , error);
   }
 };
+
+export const deleteOtherSpon = async (id) => {
+  try {
+    return await axios.delete(`${URL}/other-sponser/${id}`);
+  } catch (error){
+    console.log("Error : ", error);
+  }
+}
+
+
 
 export const addAdvertise = async(data) => {
   try {
@@ -115,3 +137,11 @@ export const getSponsorType = async () => {
     console.log("Error :- " , error);
   }
 };
+
+export const deleteSponsorType = async (id) => {
+  try {
+    return await axios.delete(`${URL}/deletesponsortype/${id}`);
+  } catch (error) {
+    console.log("Error : ", error);
+  }
+}
