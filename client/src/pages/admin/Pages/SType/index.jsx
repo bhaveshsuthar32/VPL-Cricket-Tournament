@@ -31,12 +31,12 @@ export default function SType() {
   const handleConfirmDelete = async () => {
     try {
       await deleteSponsorType(selectedSponserId);
-      toast.success("Sponsor type deleted successfully!");
+     // toast.success("Sponsor type deleted successfully!");
       setShowConfirmation(false);
       getSponrorTypeData(); // Refresh the list after deletion
     } catch (error) {
       console.log("Error deleting the SponserType : ", error);
-      toast.error("Failed to delete sponsor type. Please try again.");
+    //  toast.error("Failed to delete sponsor type. Please try again.");
     }
   };
 
