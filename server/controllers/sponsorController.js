@@ -1,5 +1,5 @@
 const spType = require("../models/sponsor");
-const { uploadFile } = require("../middlewares/upload");
+const { uploadFile , deleteFile} = require("../middlewares/upload");
 const foodSpon = require("../models/foodSponsor");
 const otherSpon = require("../models/otherSponsor") 
 
@@ -157,13 +157,41 @@ const getOtherSpon = async (req,res)=>{
 }
 
 
+const deleteOtherSpon = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const sponsor = await otherSpon.findById(id);
+
+        if (!sponsor) {
+            return res.status(404).json({ message: "Other sponsor not found" });
+        }
+
+        const publicId = sponsor.spOtherImage.split('/').pop().split('.')[0];
+        const cloudinaryResult = await deleteFile(publicId);
+
+        if (cloudinaryResult.result !== 'ok') {
+            throw new Error('Failed to delete image from Cloudinary');
+        }
+        await otherSpon.findByIdAndDelete(id);
+
+        res.status(200).json({ message: "Other sponsor and associated image deleted successfully" });
+    } catch (error) {
+        console.error("Error deleting other sponsor:", error);
+        res.status(500).json({ error: error.message });
+    }
+};
+
 
 
 module.exports = {
     addSponsorType,
     getSponsorType,
+deleteSponsorType,
     addFoodSpon,
     getFoodSpon,
+deleteFoodSpon,
     addOtherSpon,
     getOtherSpon,
+deleteOtherSpon
 };
