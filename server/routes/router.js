@@ -33,7 +33,7 @@ router.get('/getOtherSpon', getOtherSpon);
 
 router.post('/addAdvertise', upload.single('shopLogo'), addAdvertise);
 router.get('/getAdvertise',  getAdvertiser);
-router.delete('/advertiser/:id', deleteAdvertiser);
+router.delete("/advertiser/:id", deleteAdvertiser);
 
 
 
