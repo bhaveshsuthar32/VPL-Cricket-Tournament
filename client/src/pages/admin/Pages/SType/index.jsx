@@ -23,26 +23,28 @@ export default function SType() {
         getSponsorTypeData();
     }, []);
 
-    const handleDeleteClick = (sponserId) => {
-        setSelectedSponserId(sponserId);
-        setShowConfirmation(true);
-    };
+      const handleDeleteClick = (sponserId) => {
+    setSelectedSponserId(sponserId);
+    setShowConfirmation(true);
+  };
 
-    const handleConfirmDelete = async () => {
-        try {
-            await deleteSponsorType(selectedSponserId);
-            setShowConfirmation(false);
-            getSponsorTypeData(); // Refresh the list after deletion
-        } catch (error) {
-            console.error("Error deleting the Sponsor Type:", error);
-            // Optionally show a toast notification here
-        }
-    };
+  const handleConfirmDelete = async () => {
+    try {
+      await deleteSponsorType(selectedSponserId);
+      toast.success("Sponsor type deleted successfully!");
+      setShowConfirmation(false);
+      getSponrorTypeData(); // Refresh the list after deletion
+    } catch (error) {
+      console.log("Error deleting the SponserType : ", error);
+      toast.error("Failed to delete sponsor type. Please try again.");
+    }
+  };
 
-    const handleCancelDelete = () => {
-        setShowConfirmation(false);
-        setSelectedSponserId(null);
-    };
+  const handleCancelDelete = () => {
+    setShowConfirmation(false);
+    setSelectedSponserId(null);
+  };
+
 
     return (
       <div className="">
