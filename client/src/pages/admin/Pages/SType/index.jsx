@@ -31,12 +31,12 @@ const handleDeleteClick = (sponserId) => {
       const handleConfirmDelete = async () => {
     try {
       await deleteSponsorType(selectedSponserId);
-   //   toast.success("Sponsor type deleted successfully!");
+   
       setShowConfirmation(false);
       getSponrorTypeData(); // Refresh the list after deletion
     } catch (error) {
       console.log("Error deleting the SponserType : ", error);
-     // toast.error("Failed to delete sponsor type. Please try again.");
+   
     }
   };
 
@@ -59,7 +59,7 @@ const handleDeleteClick = (sponserId) => {
             </div>
             <div className="flex items-center justify-end gap-x-6">
               <Link
-                to={"/admin/sponsertypeform"}
+                to={"/dashboard/sponsertype"}
                 className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 ADD
