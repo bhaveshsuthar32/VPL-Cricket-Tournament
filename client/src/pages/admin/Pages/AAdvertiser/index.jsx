@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Header from "../../Layouts/Header";
-import Sidebar from "../../Layouts/Sidebar";
-import { getAdvertiser, deleteAdvertiser } from "../../../../api";
-import { ToastContainer, toast } from "react-toastify";
+import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+import Header from '../../Layouts/Header';
+import Sidebar from '../../Layouts/Sidebar';
+import { getAdvertiser, deleteAdvertiser } from '../../../../api';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function AAdvertiser() {
   const [user, setUser] = useState([]);
   const [selectedAdvertiserId, setSelectedAdvertiserId] = useState(null);
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const navigate = useNavigate(); 
 
   const getAdvertiseData = async () => {
     try {
@@ -22,7 +21,6 @@ export default function AAdvertiser() {
       }
     } catch (error) {
       console.error("Error :- ", error);
-      toast.error("Failed to fetch advertiser data.");
     }
   };
 
@@ -43,17 +41,13 @@ export default function AAdvertiser() {
       getAdvertiseData(); // Refresh the list after deletion
     } catch (error) {
       console.log("Error deleting the Advertiser: ", error);
-      toast.error("Failed to delete advertiser. Please try again.");
+      toast.error("Failed to delete Advertiser. Please try again.");
     }
   };
 
   const handleCancelDelete = () => {
     setShowConfirmation(false);
     setSelectedAdvertiserId(null);
-  };
-
-  const handleEditClick = (userId) => {
-    navigate(`/dashboard/advertiserform/${userId}`); // Use navigate for redirection
   };
 
   return (
@@ -112,7 +106,7 @@ export default function AAdvertiser() {
                       <td>{userInfo.shopName}</td>
                       <td>{userInfo.amount}</td>
                       <td>
-                        <button onClick={() => handleDeleteClick(userInfo._id)}>
+                        <button >
                                <svg
                             xmlns="http://www.w3.org/2000/svg"
                             x="0px"
@@ -232,6 +226,7 @@ export default function AAdvertiser() {
         </div>
       )}
 
+     
       <ToastContainer />
     </div>
   );
