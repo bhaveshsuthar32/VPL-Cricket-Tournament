@@ -86,15 +86,6 @@ export const getOtherSP = async () => {
   }
 };
 
-export const deleteOtherSpon = async (id) => {
-  try {
-    return await axios.delete(`${URL}/other-sponser/${id}`);
-  } catch (error){
-    console.log("Error : ", error);
-  }
-}
-
-
 
 export const addAdvertise = async(data) => {
   try {
@@ -122,6 +113,53 @@ export const deleteAdvertiser = async (id) => {
 }
 
 
+export const deleteOtherSpon = async (id) => {
+  try {
+    return await axios.delete(`${URL}/other-sponser/${id}`);
+  } catch (error){
+    console.log("Error : ", error);
+  }
+}
+
+
+export const editAdvertiser = async (id, data) => {
+  try {
+    console.log("Sending data to update:", data); // Add this line
+    const response = await axios.patch(`${URL}/advertiser/${id}`, data);
+    console.log("Update response:", response); // Add this line
+    return response;
+  } catch (error) {
+    console.error("Error in editAdvertiser:", error);
+    throw error;
+  }
+};
+
+// export const addAdvertise = async(data) => {
+//   try {
+//     return await axios.post(`${URL}/addAdvertise`, data);
+//   } catch (error) {
+//     console.log("Error :- ", error);
+//   }
+// }
+
+
+// export const getAdvertiser = async () => {
+//   try {
+//     return await axios.get(`${URL}/getAdvertise`);   
+//   } catch (error) {
+//     console.log("Error :- " , error);
+//   }
+// };
+
+// export const deleteAdvertiser = async (id) => {
+//   try {
+//     return await axios.delete(`${URL}/advertiser/${id}`);
+//   } catch (error){
+//     console.log("Error : ", error);
+//   }
+// }
+
+
 export const addSponsorType = async(data) => {
   try {
     return await axios.post(`${URL}/sponsorType`, data);
@@ -147,23 +185,23 @@ export const deleteSponsorType = async (id) => {
 }
 
 
-export const editAdvertiser = async (id, data) => {
-  try {
-    console.log("Sending data to update:", data); // Add this line
-    const response = await axios.patch(`${URL}/advertiser/${id}`, data);
-    console.log("Update response:", response); // Add this line
-    return response;
-  } catch (error) {
-    console.error("Error in editAdvertiser:", error);
-    throw error;
-  }
-};
+// export const editAdvertiser = async (id, data) => {
+//   try {
+//     console.log("Sending data to update:", data); // Add this line
+//     const response = await axios.patch(`${URL}/advertiser/${id}`, data);
+//     console.log("Update response:", response); // Add this line
+//     return response;
+//   } catch (error) {
+//     console.error("Error in editAdvertiser:", error);
+//     throw error;
+//   }
+// };
 
-export const getAdvertiserById = async (id) => {
-  try {
-    return await axios.get(`${URL}/getAdvertise/${id}`);   
-  } catch (error) {
-    console.log("Error :- " , error);
-  }
-};
+// export const getAdvertiserById = async (id) => {
+//   try {
+//     return await axios.get(`${URL}/getAdvertise/${id}`);   
+//   } catch (error) {
+//     console.log("Error :- " , error);
+//   }
+// };
 
