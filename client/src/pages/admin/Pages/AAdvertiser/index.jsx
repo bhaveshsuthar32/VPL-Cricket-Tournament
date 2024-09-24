@@ -3,8 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "../../Layouts/Header";
 import Sidebar from "../../Layouts/Sidebar";
 import { getAdvertiser, deleteAdvertiser } from "../../../../api";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 export default function AAdvertiser() {
   const [user, setUser] = useState([]);
@@ -22,7 +20,7 @@ export default function AAdvertiser() {
       }
     } catch (error) {
       console.error("Error :- ", error);
-      toast.error("Failed to fetch advertiser data.");
+      alert("Failed to fetch advertiser data."); // Changed to alert
     }
   };
 
@@ -38,12 +36,12 @@ export default function AAdvertiser() {
   const handleConfirmDelete = async () => {
     try {
       await deleteAdvertiser(selectedAdvertiserId);
-      toast.success("Advertiser deleted successfully!");
+      alert("Advertiser deleted successfully!"); // Changed to alert
       setShowConfirmation(false);
       getAdvertiseData(); // Refresh the list after deletion
     } catch (error) {
       console.log("Error deleting the Advertiser: ", error);
-      toast.error("Failed to delete advertiser. Please try again.");
+      alert("Failed to delete advertiser. Please try again."); // Changed to alert
     }
   };
 
