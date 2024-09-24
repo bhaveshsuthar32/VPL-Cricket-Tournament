@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "../../Layouts/Header";
 import Sidebar from "../../Layouts/Sidebar";
 import { getAdvertiser, deleteAdvertiser } from "../../../../api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function AAdvertiser() {
   const [user, setUser] = useState([]);
@@ -20,7 +22,7 @@ export default function AAdvertiser() {
       }
     } catch (error) {
       console.error("Error :- ", error);
-      alert("Failed to fetch advertiser data."); // Changed to alert
+      toast.error("Failed to fetch advertiser data.");
     }
   };
 
@@ -36,12 +38,12 @@ export default function AAdvertiser() {
   const handleConfirmDelete = async () => {
     try {
       await deleteAdvertiser(selectedAdvertiserId);
-      alert("Advertiser deleted successfully!"); // Changed to alert
+      toast.success("Advertiser deleted successfully!");
       setShowConfirmation(false);
       getAdvertiseData(); // Refresh the list after deletion
     } catch (error) {
       console.log("Error deleting the Advertiser: ", error);
-      alert("Failed to delete advertiser. Please try again."); // Changed to alert
+      toast.error("Failed to delete advertiser. Please try again.");
     }
   };
 
@@ -50,9 +52,9 @@ export default function AAdvertiser() {
     setSelectedAdvertiserId(null);
   };
 
-  // const handleEditClick = (userId) => {
-  //   navigate(`/dashboard/advertiserform/${userId}`); // Use navigate for redirection
-  // };
+  const handleEditClick = (userId) => {
+    navigate(`/dashboard/advertiserform/${userId}`); // Use navigate for redirection
+  };
 
   return (
     <div>
@@ -127,7 +129,7 @@ export default function AAdvertiser() {
                             ></path>
                           </svg>
                         </button>
-                        <button >
+                        <button onClick={() => handleEditClick(userInfo._id)}>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             x="0px"
@@ -232,7 +234,7 @@ export default function AAdvertiser() {
         </div>
       )}
 
-
+      <ToastContainer />
     </div>
   );
 }
