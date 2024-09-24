@@ -17,8 +17,17 @@ const upload = multer({
   
 
 const { signUser, loginUser, getUser, editUserCaptain } = require('../controllers/userController');
-const { addSponsorType, getSponsorType, addFoodSpon, addOtherSpon,getFoodSpon,getOtherSpon ,deleteSponsorType,deleteFoodSpon,deleteOtherSpon} = require('../controllers/sponsorController');
-const { addAdvertise, getAdvertiser,  deleteAdvertiser, getAdvertiserById, editAdvertiser } = require('../controllers/advertiserCont');
+const { addSponsorType, getSponsorType, addFoodSpon, addOtherSpon,getFoodSpon,getOtherSpon ,deleteSponsorType,deleteFoodSpon,deleteOtherSpon} = require('../controllers/advertiserCont');
+// const { addAdvertise, getAdvertiser,  deleteAdvertiser, getAdvertiserById, editAdvertiser } = require('../controllers/advertiserCont');
+
+const {
+  addAdvertise,
+  getAdvertiser,
+  deleteAdvertiser,
+  editAdvertiser,
+  getAdvertiserById,
+} = require("../controllers/advertiserCont");
+
 
 router.post("/sign", signUser);
 router.post("/login", loginUser);
@@ -45,12 +54,18 @@ router.delete("/other-sponser/:id", deleteOtherSpon);
 // router.delete("/advertiser/:id", deleteAdvertiser);
 
 
-router.post('/addAdvertise', upload.single('shopLogo'), addAdvertise);
-router.get('/getAdvertise',  getAdvertiser);
+// router.post('/addAdvertise', upload.single('shopLogo'), addAdvertise);
+// router.get('/getAdvertise',  getAdvertiser);
+// router.get("/getAdvertise/:id", getAdvertiserById);
+// router.delete("/advertiser/:id", deleteAdvertiser);
+// router.patch("/advertiser/:id", upload.single("shopLogo"), editAdvertiser);
+
+// Advertiser Routes -----------------
+router.post("/addAdvertise", upload.single("shopLogo"), addAdvertise);
+router.get("/getAdvertise", getAdvertiser);
 router.get("/getAdvertise/:id", getAdvertiserById);
 router.delete("/advertiser/:id", deleteAdvertiser);
 router.patch("/advertiser/:id", upload.single("shopLogo"), editAdvertiser);
-
 
 
 
