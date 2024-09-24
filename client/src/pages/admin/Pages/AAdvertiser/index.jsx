@@ -50,9 +50,9 @@ export default function AAdvertiser() {
     setSelectedAdvertiserId(null);
   };
 
-  const handleEditClick = (userId) => {
-    navigate(`/dashboard/advertiserform/${userId}`); // Use navigate for redirection
-  };
+  // const handleEditClick = (userId) => {
+  //   navigate(`/dashboard/advertiserform/${userId}`); // Use navigate for redirection
+  // };
 
   return (
     <div>
@@ -127,7 +127,7 @@ export default function AAdvertiser() {
                             ></path>
                           </svg>
                         </button>
-                        <button onClick={() => handleEditClick(userInfo._id)}>
+                        <button >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             x="0px"
@@ -232,7 +232,7 @@ export default function AAdvertiser() {
         </div>
       )}
 
-      <ToastContainer />
+
     </div>
   );
 }
