@@ -4,13 +4,13 @@ import Header from "../../Layouts/Header";
 import Sidebar from "../../Layouts/Sidebar";
 import { getAdvertiser, deleteAdvertiser } from "../../../../api";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 export default function AAdvertiser() {
   const [user, setUser] = useState([]);
   const [selectedAdvertiserId, setSelectedAdvertiserId] = useState(null);
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const getAdvertiseData = async () => {
     try {
@@ -102,7 +102,9 @@ export default function AAdvertiser() {
                             </div>
                           </div>
                           <div>
-                            <div className="font-bold">{userInfo.ownerName}</div>
+                            <div className="font-bold">
+                              {userInfo.ownerName}
+                            </div>
                             <div className="text-sm opacity-50">
                               {userInfo.village}
                             </div>
@@ -113,7 +115,7 @@ export default function AAdvertiser() {
                       <td>{userInfo.amount}</td>
                       <td>
                         <button onClick={() => handleDeleteClick(userInfo._id)}>
-                               <svg
+                          <svg
                             xmlns="http://www.w3.org/2000/svg"
                             x="0px"
                             y="0px"
@@ -128,7 +130,7 @@ export default function AAdvertiser() {
                           </svg>
                         </button>
                         <button onClick={() => handleEditClick(userInfo._id)}>
-                        <svg
+                          <svg
                             xmlns="http://www.w3.org/2000/svg"
                             x="0px"
                             y="0px"
