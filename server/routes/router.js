@@ -4,16 +4,16 @@ const multer = require('multer');
 
 
 
-// Configure multer for file handling
-// const upload = multer({ 
-//     storage: multer.diskStorage({}),
-//     limits: {fileSize: 500000}
-// }); // Temporary storage for uploaded files
+Configure multer for file handling
+const upload = multer({ 
+    storage: multer.diskStorage({}),
+    limits: {fileSize: 500000}
+}); // Temporary storage for uploaded files
 
-const upload = multer({
-    storage: multer.memoryStorage({}),
-    limits: { fileSize: 500000 },
-  });
+// const upload = multer({
+//     storage: multer.memoryStorage({}),
+//     limits: { fileSize: 500000 },
+//   });
   
 
 const { signUser, loginUser, getUser, editUserCaptain } = require('../controllers/userController');
