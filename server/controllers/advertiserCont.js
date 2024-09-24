@@ -1,5 +1,5 @@
 const advertiser = require("../models/advertiser") 
-const { uploadFile, deleteFile } = require("../utils/cloudinary");
+const { uploadFile , deleteFile} = require("../middlewares/upload");
 
 
 const addAdvertise = async (req, res) => {
