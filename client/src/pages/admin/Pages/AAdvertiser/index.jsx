@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "../../Layouts/Header";
 import Sidebar from "../../Layouts/Sidebar";
-import { getAdvertiser, deleteAdvertiser } from "../../../../api";
+import { deleteAdvertiser, getAdvertiser} from "../../../../api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
