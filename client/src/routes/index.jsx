@@ -33,7 +33,7 @@ import {
   Profile as AdminProfile,
   ProfileForm as AdminProfileForm,
   HallOfFameForm,
-} from "../pages/admin/Pages";
+} from "../pages/admin/pages";
 
 const userRoutes = [
   {
