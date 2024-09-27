@@ -21,7 +21,7 @@ const otherSponsor = new mongoose.Schema({
         type: String,
         required: false,
     },
-})
+},{ timestamps: true })
 
 const otherSpon = mongoose.model('otherSponsor', otherSponsor);
 

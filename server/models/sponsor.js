@@ -6,7 +6,7 @@ const sponsorTypeSchema = new mongoose.Schema({
         required: true,
         unique: true,
     }
-});
+},{ timestamps: true });
 
 const Sponsor = mongoose.model('SponsorType', sponsorTypeSchema); 
 

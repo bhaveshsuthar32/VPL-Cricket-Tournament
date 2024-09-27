@@ -2,7 +2,7 @@ const signSchema = require("../models/signUp");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const transporter = require('../utils/nodemailer');
-
+// const { uploadFile, deleteFile } = require("../utils/cloudinary");
 const JWT_SECRET = process.env.JWT_SECRET;
 
 const signUser = async (req, res) => {

@@ -21,7 +21,7 @@
             type : String,
             required : false,
         },
-    })
+    },{ timestamps: true })
 
     const foodSpon = mongoose.model('foodSponsor', foodSponsor);
 

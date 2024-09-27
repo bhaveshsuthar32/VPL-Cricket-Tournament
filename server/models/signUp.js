@@ -26,7 +26,7 @@ const signSchema = mongoose.Schema({
         required : false,
     }
 
-})
+},{ timestamps: true })
 
 
 const sign = mongoose.model('sign', signSchema);

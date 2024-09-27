@@ -1,6 +1,6 @@
-import React from 'react';
-import Sidebar from "../../Layouts/Sidebar";
-import Header from '../../Layouts/Header';
+// import React from 'react';
+import Sidebar from "../../components/Sidebar";
+import Header from '../../components/Header';
 
 export default function Dashboard() {
   return (
@@ -9,7 +9,7 @@ export default function Dashboard() {
         <Sidebar />
         <Header />
 <div>
-Dashboard
+Dashboard hello user
 </div>
       </div>
     </>
