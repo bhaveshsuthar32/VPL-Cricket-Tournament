@@ -95,6 +95,7 @@ const userRoutes = [
 
 ];
 
+// eslint-disable-next-line react-refresh/only-export-components
 function AdminLayout() {
   return (
     <div>
