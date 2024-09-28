@@ -1,11 +1,13 @@
 import  { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const [activeButton, setActiveButton] = useState(location.pathname);
   const sidebarRef = useRef(null);
+
+  const navigate = useNavigate()
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -31,6 +33,11 @@ export default function Sidebar() {
   const handleButtonClick = (path) => {
     setActiveButton(path); // Set the active button
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    navigate("/login")
+  }
 
   return (
     <>
@@ -324,7 +331,7 @@ export default function Sidebar() {
                     d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
                   />
                 </svg>
-                <span className="flex-1 ms-3 whitespace-nowrap">Logout</span>
+                <span className="flex-1 ms-3 whitespace-nowrap" onClick={handleLogout}>Logout</span>
               </a>
             </li>
             {/* Additional Sidebar Items */}
