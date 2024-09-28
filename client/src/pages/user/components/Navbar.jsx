@@ -1,7 +1,15 @@
-// import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Navbar() {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        // remove the token from localStorage (or sessionStorage)
+        localStorage.removeItem('token');
+
+        navigate("/login");
+    };
+
     return (
         <div className="navbar bg-slate-700 text-white sticky top-0 mx-auto w-[100%] rounded-b-sm z-10">
             <div className="flex-1">
@@ -61,7 +69,7 @@ export default function Navbar() {
                         <li>
                             <Link to={"/profile"} className="justify-between">Profile</Link>
                         </li>
-                        <li><Link to={"/admin"}>Logout</Link></li>
+                        <li><button onClick={handleLogout}>Logout</button></li> 
                     </ul>
                 </div>
             </div>
