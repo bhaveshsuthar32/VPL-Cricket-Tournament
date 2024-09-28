@@ -10,7 +10,7 @@ const signUser = async (req, res) => {
     try {
         const existingUser = await signSchema.findOne({ email: user.email });
         if (existingUser) {
-            return res.status(409).json({ error: "Email already exists" }); // Return 409 Conflict
+            return res.status(409).json({ error: "Email already exists" }); 
         }
 
         const hashPassword = await bcrypt.hash(user.password, 10);
@@ -24,7 +24,7 @@ const signUser = async (req, res) => {
         newUser.token = token;
         await newUser.save();
 
-        // Send welcome email using Nodemailer
+        // send email using Nodemailer
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: newUser.email,
@@ -42,23 +42,23 @@ const signUser = async (req, res) => {
 
         res.status(201).json(newUser);
     } catch (error) {
-        console.error(error); // Log the error for debugging
-        res.status(500).json({ error: "Internal server error" }); // Return 500 for server errors
+        console.error(error); 
+        res.status(500).json({ error: "Internal server error" }); 
     }
 };
 
 
 
 
-// Edit user captain status
+// edit user captain status
 const editUserCaptain = async (req, res) => {
   const { userId, captainStatus } = req.body;
 
   try {
       const user = await signSchema.findByIdAndUpdate(
           userId,
-          { captain: captainStatus }, // Update the captain field
-          { new: true } // Return the updated document
+          { captain: captainStatus }, // update the captain 
+          { new: true } // return the updated document
       );
 
       if (!user) {
@@ -87,14 +87,14 @@ const editUserCaptain = async (req, res) => {
         return res.status(401).json({ error: "Invalid password" });
       }
   
-      // Generate JWT token
+      // generate token
       const token = jwt.sign({ userId: user._id, username: user.username, email : user.email }, JWT_SECRET, {
         expiresIn: "30M",
       });
       user.token = token;
       await user.save();
       // console.log("login successfully");
-      res.status(200).json({ token, user });
+      res.status(200).json({ token, isAdmin: user.isAdmin });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
@@ -116,9 +116,23 @@ const editUserCaptain = async (req, res) => {
     }
   };
 
+  const logoutUser = async (req, res) => {
+    try {
+      const userId = req.user.userId;
+      await signSchema.findByIdAndUpdate(userId, { token: null });
+  
+      res.status(200).json({ message: "Logout successful, token removed." });
+    } catch (error) {
+      console.error('Logout error:', error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  };
+  
+
   module.exports = {
     signUser,
     loginUser,
     getUser,
     editUserCaptain,
+    logoutUser,
   }
