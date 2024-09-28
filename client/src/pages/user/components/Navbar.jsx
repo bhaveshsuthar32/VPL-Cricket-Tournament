@@ -18,7 +18,7 @@ export default function Navbar() {
                 </div>
                 <Link to={"/"} className="ms-5 md:text-xl font-semibold">
                     VPL Cricket Tournament</Link>
-            </div>
+            </div>  
             <div className="flex-none">
                 <div className="navbar-start">
                     <div className="dropdown dropdown-end">
