@@ -52,6 +52,10 @@ const {
     getUser,
     editUserCaptain,
     logoutUser,
+    getUserProfie,
+    addTeam,
+    getTeam,
+    deleteTeam,
   } = require("../controllers/userController");
   const {
     addSponsorType,
@@ -85,6 +89,7 @@ const {
   router.get("/user", getUser);
   router.patch("/editCaptain", editUserCaptain);
   router.post('/logout', logoutUser)
+  router.get('/user-profile', getUserProfie)
   
   // SponsorType Route ------------
   router.post("/sponsorType", addSponsorType);
@@ -122,5 +127,19 @@ const {
   router.patch("/hall-of-fame/:id", upload.single("hofImage"), editHallOfFame);
   
 
+  router.post(
+    "/addteam",
+    upload.fields([
+      { name: "logo", maxCount: 1 },
+      ...Array(14)
+        .fill()
+        .map((_, i) => ({ name: `player${i + 1}Image`, maxCount: 1 })),
+    ]),
+    addTeam
+  );
+  
+  router.get("/teams", getTeam);
+  router.delete("/teams/:id", deleteTeam);
+  
   
 module.exports = router;
