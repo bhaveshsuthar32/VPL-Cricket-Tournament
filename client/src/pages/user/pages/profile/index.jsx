@@ -1,14 +1,35 @@
-// import React from 'react'
-import { Link } from 'react-router-dom'
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer"
-
+import { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import { getUserProfile } from '../../../../api'; 
 
 export default function Profile() {
+    const [userData, setUserData] = useState(null);
+
+    useEffect(() => {
+        const token = localStorage.getItem('token'); // Check if the token exists in localStorage
+
+        if (token) {
+            // Fetch the user data
+            getUserProfile()
+                .then(response => {
+                    setUserData(response.data); // Set the user data
+                })
+                .catch(error => {
+                    console.log("Error fetching user data:", error); // Handle any errors
+                });
+        }
+    }, []);
+
+    if (!userData) {
+        return <div>Loading...</div>; // Display a loading message while fetching data
+    }
+
     return (
         <>
-        <Navbar />
-            <div className="md:tx-[200px] md:px-[350px] px-[100px]">
+            <Navbar />
+            <div className="md:tx-[200px] md:px-[350px] px-[100px] mb-[50px]">
                 <div className="bg-base-500">
                     <div className="grid grid-cols-3 border-[1px] shadow-lg rounded-md border-slat-200 mt-20 ">
                         {/* Left Side: Profile Image and Info */}
@@ -26,11 +47,11 @@ export default function Profile() {
                             <h1 className="md:text-4xl font-bold text-center">Profile</h1>  
                             
                             <div className="space-y-1 md:text-[15px] text-[11px]">
-                                <p className="font-semibold">Name: Demo</p>
-                                <p className="font-semibold">Age: 28</p>
-                                <p className="font-semibold">Location: New York</p>
-                                <p className="font-semibold">Occupation: Developer</p>
-                                <p className="font-semibold">Interests: Coding, Music, Travel</p>
+                            <h2 className="text-2xl font-bold text-gray-500">{userData.username || "User"}</h2>
+                            <p className="text-gray-600">Username : {userData.username || "Demo"}</p>
+                                <p className="text-gray-600 mb-5">Emsil : {userData.email || "demo123@gmail.com"}</p>
+                                <p className="text-gray-600">Authorization : {userData.isAdmin ? "Admin" : "User"}</p>
+                                <p className="text-gray-600">captain : {userData.captain ? "yes" : "No"}</p>
                             </div>
 
                             <div className="mt-6 text-center">
@@ -45,7 +66,12 @@ export default function Profile() {
                     </div>
                 </div>
             </div>
+
+
+
+
+          
             <Footer />
         </>
-    )
+    );
 }
