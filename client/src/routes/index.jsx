@@ -1,4 +1,5 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 import {
   Home,
@@ -34,6 +35,18 @@ import {
   ProfileForm as AdminProfileForm,
   HallOfFameForm,
 } from "../pages/admin/pages";
+
+// Protect routes with authentication check
+const ProtectedRoute = ({ children }) => {
+  const token = localStorage.getItem("token"); // Check if user is authenticated
+
+  if (!token) {
+    toast.error("You must be logged in to access this page.");
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
+};
 
 const userRoutes = [
   {
@@ -80,22 +93,35 @@ const userRoutes = [
     path: "/contactus",
     element: <ContactUs />,
   },
+
+  // Protected user routes
   {
     path: "/profile",
-    element: <Profile />,
+    element: (
+      <ProtectedRoute>
+        <Profile />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/editprofile",
-    element: <ProfileForm />,
+    element: (
+      <ProtectedRoute>
+        <ProfileForm />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/addteam",
-    element: <TeamForm />,
+    element: (
+      <ProtectedRoute>
+        <TeamForm />
+      </ProtectedRoute>
+    ),
   },
-
 ];
 
-// eslint-disable-next-line react-refresh/only-export-components
+// Admin Layout
 function AdminLayout() {
   return (
     <div>
@@ -104,11 +130,14 @@ function AdminLayout() {
   );
 }
 
-
 const adminRoutes = [
   {
     path: "/admin/",
-    element: <AdminLayout />,
+    element: (
+      <ProtectedRoute>
+        <AdminLayout />
+      </ProtectedRoute>
+    ),
     children: [
       { index: true, element: <Dashboard /> },
       { path: "users", element: <Users /> },
@@ -134,3 +163,4 @@ const adminRoutes = [
 ];
 
 export { userRoutes, adminRoutes };
+
