@@ -36,17 +36,33 @@ import {
   HallOfFameForm,
 } from "../pages/admin/pages";
 
-// Protect routes with authentication check
-const ProtectedRoute = ({ children }) => {
-  const token = localStorage.getItem("token"); // Check if user is authenticated
+const ProtectedRoute = ({ children, isAdmin }) => {
+  const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("user"));
 
-  if (!token) {
+  // Check if the user is authenticated
+  if (!token || !user) {
     toast.error("You must be logged in to access this page.");
     return <Navigate to="/login" replace />;
   }
 
+  // Check if user is trying to access admin routes without admin privileges
+  if (isAdmin && user?.isAdmin === false) {
+    toast.error("Unauthorized access to admin area.");
+    return <Navigate to="/" replace />;
+  }
+
+  // Check if admin is trying to access user routes
+  if (!isAdmin && user?.isAdmin === true) {
+    toast.error("Admins cannot access user pages.");
+    return <Navigate to="/admin/" replace />;
+  }
+
   return children;
 };
+
+
+
 
 const userRoutes = [
   {
@@ -98,7 +114,7 @@ const userRoutes = [
   {
     path: "/profile",
     element: (
-      <ProtectedRoute>
+      <ProtectedRoute isAdmin={false}>
         <Profile />
       </ProtectedRoute>
     ),
@@ -106,7 +122,7 @@ const userRoutes = [
   {
     path: "/editprofile",
     element: (
-      <ProtectedRoute>
+      <ProtectedRoute isAdmin={false}>
         <ProfileForm />
       </ProtectedRoute>
     ),
@@ -114,7 +130,7 @@ const userRoutes = [
   {
     path: "/addteam",
     element: (
-      <ProtectedRoute>
+      <ProtectedRoute isAdmin={false}>
         <TeamForm />
       </ProtectedRoute>
     ),
@@ -134,7 +150,7 @@ const adminRoutes = [
   {
     path: "/admin/",
     element: (
-      <ProtectedRoute>
+      <ProtectedRoute isAdmin={true}>
         <AdminLayout />
       </ProtectedRoute>
     ),
