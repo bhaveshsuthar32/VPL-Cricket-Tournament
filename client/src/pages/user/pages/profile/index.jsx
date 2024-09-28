@@ -1,10 +1,13 @@
 // import React from 'react'
 import { Link } from 'react-router-dom'
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer"
 
 
 export default function Profile() {
     return (
         <>
+        <Navbar />
             <div className="md:tx-[200px] md:px-[350px] px-[100px]">
                 <div className="bg-base-500">
                     <div className="grid grid-cols-3 border-[1px] shadow-lg rounded-md border-slat-200 mt-20 ">
@@ -42,6 +45,7 @@ export default function Profile() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
