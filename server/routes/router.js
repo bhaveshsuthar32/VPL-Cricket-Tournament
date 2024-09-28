@@ -51,6 +51,7 @@ const {
     loginUser,
     getUser,
     editUserCaptain,
+    logoutUser,
   } = require("../controllers/userController");
   const {
     addSponsorType,
@@ -83,6 +84,7 @@ const {
   router.post("/login", loginUser);
   router.get("/user", getUser);
   router.patch("/editCaptain", editUserCaptain);
+  router.post('/logout', logoutUser)
   
   // SponsorType Route ------------
   router.post("/sponsorType", addSponsorType);
