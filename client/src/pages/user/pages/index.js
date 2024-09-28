@@ -7,7 +7,7 @@ import Advertiser from './advertiser';
 import Rules from './rules';
 import AboutUs from './aboutus';
 import ContactUs from './contactus';
-import Profile from './abc';
+import Profile from './profile';
 import ProfileForm from './profile_form';
 import TeamForm from './team_form';
 
