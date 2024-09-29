@@ -24,7 +24,7 @@ const BackgroundSlider = () => {
     <>
 
     <div
-      className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out sm:h-[600px] h-[530px]"
+      className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out sm:h-[600px] h-[570px]"
       style={{
         backgroundImage: `url(${backgroundImages[currentImageIndex]})`,
       }}

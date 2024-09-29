@@ -20,8 +20,8 @@ function Home() {
     <>
       <BackgroundSlider />
       <Navbar />
-      <section className='main page h-[400px] sm:h-[570px]'>
-        <div className="absolute lg:bottom-20 sm:bottom-[500px] bottom-[300px] left-4 lg:left-8 text-slate-200 sm:text-white">
+      <section className='main page h-[440px] sm:h-[570px]'>
+        <div className="absolute lg:bottom-20 sm:bottom-[500px] bottom-[360px] left-4 lg:left-8 text-slate-200 sm:text-white">
           <p className="sm:text-[80px] text-[40px] font-bold p-0">VPL SEASON-3</p>
           <div className='sm:ms-[20px] ms-[8px]'>
             <h3 className='text-[20px] sm:[30px] font-bold'>VENUE - BAGRA</h3>
