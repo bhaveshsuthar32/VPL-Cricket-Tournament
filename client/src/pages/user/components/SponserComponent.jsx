@@ -9,7 +9,7 @@ import { getFoodSP } from '../../../api'
 
 export default function SponserComponent() {
 
-    const [user, setUser] = useState();
+    const [user, setUser] = useState([]);
 
     const getFoodData = async () => {
         try {
