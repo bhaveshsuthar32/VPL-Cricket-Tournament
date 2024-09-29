@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 
 const backgroundImages = [
   "https://wallpapers.com/images/hd/cricket-ground-background-g14rvtnuqhdd23pl.jpg",
@@ -24,7 +24,7 @@ const BackgroundSlider = () => {
     <>
 
     <div
-      className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out sm:h-[600px] h-[470px]"
+      className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out sm:h-[600px] h-[530px]"
       style={{
         backgroundImage: `url(${backgroundImages[currentImageIndex]})`,
       }}

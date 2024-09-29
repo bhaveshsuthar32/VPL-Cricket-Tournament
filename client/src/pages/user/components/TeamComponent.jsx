@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 
@@ -53,11 +53,13 @@ export default function TeamComponent() {
             <div className="card card-compact bg-base-100 lg:w-[300px] w-60 sm:35 shadow-lg rounded-lg">
               <figure>
                 <img
-                  src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                  alt="Img" />
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT70GjUXYF6x2SqqYix7Vo55cIahtINhrZWZg&s"
+                  alt="Img"
+                  className="w-[280px] h-[140px] sm:h-[170px]"
+                />
               </figure>
               <div className="p-2  md:p-6 leading-4 h-[70px] lg:h-[90px] my-0">
-                <h2 className="lg:card-title font-semibold text-[14px] lg:text-[18px] mt-0">Mandan Suthar</h2>
+                <h2 className="lg:card-title font-semibold text-[14px] lg:text-[18px] mt-0">M Dhandhar 11</h2>
                 <p className='text-[14px]  lg:text-[17px]'>Bagra</p>
               </div>
             </div>
@@ -67,11 +69,61 @@ export default function TeamComponent() {
             <div className="card card-compact bg-base-100 lg:w-[300px] w-60 sm:35 shadow-lg rounded-lg">
               <figure>
                 <img
-                  src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                  alt="Img" />
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUkVu5yEkHS1vzcumLcdiUQrzaVQ7jFxfjEg&s"
+                  alt="Img"
+                  className="w-[280px] h-[140px] sm:h-[170px]"
+                />
               </figure>
               <div className="p-2  md:p-6 leading-4 h-[70px] lg:h-[90px] my-0">
-                <h2 className="lg:card-title font-semibold text-[14px] lg:text-[18px] mt-0">Mandan Suthar</h2>
+                <h2 className="lg:card-title font-semibold text-[14px] lg:text-[18px] mt-0">ABS Chandna</h2>
+                <p className='text-[14px]  lg:text-[17px]'>Chandna</p>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide className=''>
+            <div className="card card-compact bg-base-100 lg:w-[300px] w-60 sm:35 shadow-lg rounded-lg">
+              <figure>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-MZUXIKvSC2-tWQtfoslJQElx8d85oBn1EQ&s"
+                  alt="Img"
+                  className="w-[280px] h-[140px] sm:h-[170px]"
+                />
+              </figure>
+              <div className="p-2  md:p-6 leading-4 h-[70px] lg:h-[90px] my-0">
+                <h2 className="lg:card-title font-semibold text-[14px] lg:text-[18px] mt-0">Apeswar Adwara</h2>
+                <p className='text-[14px]  lg:text-[17px]'>Adwara</p>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide className=''>
+            <div className="card card-compact bg-base-100 lg:w-[300px] w-60 sm:35 shadow-lg rounded-lg">
+              <figure>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL-glU_v4h1PR9jzM449zBPIc46CXTsqQA8g&s"
+                  alt="Img"
+                  className="w-[280px] h-[140px] sm:h-[170px]"
+                />
+              </figure>
+              <div className="p-2  md:p-6 leading-4 h-[70px] lg:h-[90px] my-0">
+                <h2 className="lg:card-title font-semibold text-[14px] lg:text-[18px] mt-0">Suthar Challenger Akoli</h2>
+                <p className='text-[14px]  lg:text-[17px]'>Akoli</p>
+              </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide className=''>
+            <div className="card card-compact bg-base-100 lg:w-[300px] w-60 sm:35 shadow-lg rounded-lg">
+              <figure>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT70GjUXYF6x2SqqYix7Vo55cIahtINhrZWZg&s"
+                  alt="Img"
+                  className="w-[280px] h-[140px] sm:h-[170px]"
+                />
+              </figure>
+              <div className="p-2  md:p-6 leading-4 h-[70px] lg:h-[90px] my-0">
+                <h2 className="lg:card-title font-semibold text-[14px] lg:text-[18px] mt-0">M Dhandhar 11</h2>
                 <p className='text-[14px]  lg:text-[17px]'>Bagra</p>
               </div>
             </div>
@@ -81,12 +133,14 @@ export default function TeamComponent() {
             <div className="card card-compact bg-base-100 lg:w-[300px] w-60 sm:35 shadow-lg rounded-lg">
               <figure>
                 <img
-                  src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                  alt="Img" />
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUkVu5yEkHS1vzcumLcdiUQrzaVQ7jFxfjEg&s"
+                  alt="Img"
+                  className="w-[280px] h-[140px] sm:h-[170px]"
+                />
               </figure>
               <div className="p-2  md:p-6 leading-4 h-[70px] lg:h-[90px] my-0">
-                <h2 className="lg:card-title font-semibold text-[14px] lg:text-[18px] mt-0">Mandan Suthar</h2>
-                <p className='text-[14px]  lg:text-[17px]'>Bagra</p>
+                <h2 className="lg:card-title font-semibold text-[14px] lg:text-[18px] mt-0">ABS Chandna</h2>
+                <p className='text-[14px]  lg:text-[17px]'>Chandna</p>
               </div>
             </div>
           </SwiperSlide>
@@ -95,12 +149,14 @@ export default function TeamComponent() {
             <div className="card card-compact bg-base-100 lg:w-[300px] w-60 sm:35 shadow-lg rounded-lg">
               <figure>
                 <img
-                  src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                  alt="Img" />
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-MZUXIKvSC2-tWQtfoslJQElx8d85oBn1EQ&s"
+                  alt="Img"
+                  className="w-[280px] h-[140px] sm:h-[170px]"
+                />
               </figure>
               <div className="p-2  md:p-6 leading-4 h-[70px] lg:h-[90px] my-0">
-                <h2 className="lg:card-title font-semibold text-[14px] lg:text-[18px] mt-0">Mandan Suthar</h2>
-                <p className='text-[14px]  lg:text-[17px]'>Bagra</p>
+                <h2 className="lg:card-title font-semibold text-[14px] lg:text-[18px] mt-0">Apeswar Adwara</h2>
+                <p className='text-[14px]  lg:text-[17px]'>Adwara</p>
               </div>
             </div>
           </SwiperSlide>
@@ -109,18 +165,17 @@ export default function TeamComponent() {
             <div className="card card-compact bg-base-100 lg:w-[300px] w-60 sm:35 shadow-lg rounded-lg">
               <figure>
                 <img
-                  src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                  alt="Img" />
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL-glU_v4h1PR9jzM449zBPIc46CXTsqQA8g&s"
+                  alt="Img"
+                  className="w-[280px] h-[140px] sm:h-[170px]"
+                />
               </figure>
               <div className="p-2  md:p-6 leading-4 h-[70px] lg:h-[90px] my-0">
-                <h2 className="lg:card-title font-semibold text-[14px] lg:text-[18px] mt-0">Mandan Suthar</h2>
-                <p className='text-[14px]  lg:text-[17px]'>Bagra</p>
+                <h2 className="lg:card-title font-semibold text-[14px] lg:text-[18px] mt-0">Suthar Challenger Akoli</h2>
+                <p className='text-[14px]  lg:text-[17px]'>Akoli</p>
               </div>
             </div>
           </SwiperSlide>
-
-
-
 
 
           {/* <SwiperSlide>

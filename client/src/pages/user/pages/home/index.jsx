@@ -20,28 +20,8 @@ function Home() {
     <>
       <BackgroundSlider />
       <Navbar />
-      <section className='main page h-[320px] sm:h-[570px]'>
-        {/* <div
-          className="hero min-h-screen relative"
-          style={{
-            zIndex: 1,
-            position: "relative",
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          <div className="hero-overlay mt-[-15px] bg-opacity-50"></div>
-          <div className="hero-content text-neutral-content text-center">
-            <div className="max-w-xl">
-              <h1 className="mb-5 sm:text-5xl text-3xl font-bold">Vishwakarma Premier League</h1>
-              <h1 className="mb-5 sm:text-xl text-lg font-bold">Start from 02-11-24 to 06-11-24</h1>
-            </div>
-          </div>
-          <div className="absolute bottom-8 left-8 text-white">
-            <h2 className="text-4xl font-bold">VPL</h2>
-          </div>
-        </div> */}
-        <div className="absolute lg:bottom-20 sm:bottom-[500px] bottom-[460px] lg:left-8 text-slate-200 sm:text-white">
+      <section className='main page h-[400px] sm:h-[570px]'>
+        <div className="absolute lg:bottom-20 sm:bottom-[500px] bottom-[200px] left-4 lg:left-8 text-slate-200 sm:text-white">
           <p className="sm:text-[80px] text-[40px] font-bold p-0">VPL SEASON-3</p>
           <div className='sm:ms-[20px] ms-[8px]'>
             <h3 className='text-[20px] sm:[30px] font-bold'>VENUE - BAGRA</h3>
