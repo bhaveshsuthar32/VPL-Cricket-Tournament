@@ -45,19 +45,24 @@ export default function SponserComponent() {
                         }}
                         className="mySwiper"
                         breakpoints={{
-                            640: {
-                                slidesPerView: 1,
-                                slidesPerGroup: 3,
-                                spaceBetween: 20,
-                            },
-                            768: {
+                            340: {
                                 slidesPerView: 2,
                                 slidesPerGroup: 3,
                                 spaceBetween: 20,
                             },
-                            1024: {
-                                slidesPerView: 3,
+                            640: {
+                                slidesPerView: 2,
                                 slidesPerGroup: 3,
+                                spaceBetween: 20,
+                            },
+                            768: {
+                                slidesPerView: 3,
+                                slidesPerGroup: 4,
+                                spaceBetween: 20,
+                            },
+                            1024: {
+                                slidesPerView: 5,
+                                slidesPerGroup: 6,
                                 spaceBetween: 20,
                             },
                         }}
@@ -65,17 +70,17 @@ export default function SponserComponent() {
                         <div className="mx-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
                             {user.map((userinfo) => (
                                 <SwiperSlide className='' key={userinfo._id}>
-                                    <div className="card card-compact bg-transparent md:w-40 w-[140px]">
+                                    <div className="card card-compact bg-transparent w-[150px] w-[150px]">
                                         <figure>
                                             <img
                                                 src={userinfo.spImage}
                                                 alt="Img"
-                                                className="rounded-full w-full h-auto"
+                                                className="rounded-full w-[120px] h-[120px] md:w-[150px] md:h-[150px]"
                                             />
                                         </figure>
                                         <div className="card-body text-center">
                                             <h3 className="font-bold">{userinfo.fullName}</h3>
-                                            <p className="text-gray-400">{userinfo.village}</p>
+                                            <p className="text-gray-200">{userinfo.village}</p>
                                         </div>
                                     </div>  
                                 </SwiperSlide>

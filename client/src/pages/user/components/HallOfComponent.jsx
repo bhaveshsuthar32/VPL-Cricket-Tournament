@@ -46,7 +46,7 @@ export default function HallOfComponent() {
             <div className='sm:h-[282px] h-[200px] '>
               <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
-                spaceBetween={0}
+                spaceBetween={-24}
                 speed={2000}
                 autoplay={{
                   delay: 2000,
