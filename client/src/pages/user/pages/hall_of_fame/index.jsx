@@ -1,8 +1,26 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { getHallOfFame } from "../../../../api";
 
 export default function HallOfFame() {
+
+  const [user, setUser] = useState([]);
+
+  const getHallData = async() =>{
+    try {
+      const response = await getHallOfFame();
+      setUser(response.data);
+    } catch (error) {
+      console.log("Error :- ",error);
+    }
+  }
+
+  useEffect(()=>{
+    getHallData();
+  },[])
+
+
   return (
     <>
       <Navbar />
@@ -18,84 +36,26 @@ export default function HallOfFame() {
               Heroes of 2023
             </h1>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-              <div className="card card-compact bg-transparent md:w-40">
+
+              {user.map((userinfo)=>( 
+                <div className="card card-compact bg-transparent md:w-[200px] w-[150px]" key={userinfo._id}>
                 <figure>
                   <img
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                    src={userinfo.hofImage}
                     alt="Img"
-                    className="rounded-full w-full h-auto"
+                    className="rounded-full md:w-[200px] md:h-[190px] w-[150px] h-[150px]"
                   />
                 </figure>
                 <div className="card-body text-center">
-                  <h3 className="font-bold">Dinesh Suthar</h3>
-                  <p className="text-gray-500">Man of The Series</p>
+                  <h3 className="font-bold">{userinfo.name}</h3>
+                  <p className="text-gray-500">{userinfo.role}</p>
+                  <p className="text-gray-500">Score : {userinfo.score}</p>
                 </div>
               </div>
-              <div className="card card-compact bg-transparent md:w-40">
-                <figure>
-                  <img
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                    alt="Img"
-                    className="rounded-full w-full h-auto"
-                  />
-                </figure>
-                <div className="card-body text-center">
-                  <h3 className="font-bold">Dinesh Suthar P</h3>
-                  <p className="text-gray-500">Best Batsman</p>
-                </div>
-              </div>
-              <div className="card card-compact bg-transparent md:w-40">
-                <figure>
-                  <img
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                    alt="Img"
-                    className="rounded-full w-full h-auto"
-                  />
-                </figure>
-                <div className="card-body text-center">
-                  <h3 className="font-bold">Arjun Suthar</h3>
-                  <p className="text-gray-500">Best Bowler</p>
-                </div>
-              </div>
-              <div className="card card-compact bg-transparent md:w-40">
-                <figure>
-                  <img
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                    alt="Img"
-                    className="rounded-full w-full h-auto"
-                  />
-                </figure>
-                <div className="card-body text-center">
-                  <h3 className="font-bold">Dilip Suthar</h3>
-                  <p className="text-gray-500">Best Fielder</p>
-                </div>
-              </div>
-              <div className="card card-compact bg-transparent md:w-40">
-                <figure>
-                  <img
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                    alt="Img"
-                    className="rounded-full w-full h-auto"
-                  />
-                </figure>
-                <div className="card-body text-center">
-                  <h3 className="font-bold">Dilip Suthar</h3>
-                  <p className="text-gray-500">Best Fielder</p>
-                </div>
-              </div>
-              <div className="card card-compact bg-transparent md:w-40">
-                <figure>
-                  <img
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                    alt="Img"
-                    className="rounded-full w-full h-auto"
-                  />
-                </figure>
-                <div className="card-body text-center">
-                  <h3 className="font-bold">Dilip Suthar</h3>
-                  <p className="text-gray-500">Best Fielder</p>
-                </div>
-              </div>
+              ))}
+
+
+          
             </div>
           </div>
         </div>
