@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-// import Navbar from "../../components/Navbar";
-// import Footer from "../../components/Footer";
+ import Navbar from "../../components/Navbar";
+ import Footer from "../../components/Footer";
 import { getTeam, getTeamById } from "../../../../api";
 
 export default function TeamView() {
@@ -51,7 +51,7 @@ export default function TeamView() {
   
   return (
     <>
-      
+      <Navbar />
        <div className="flex relative bg-white">
         {/* Sidebar for Mobile */}
         {isVisible && (
@@ -168,7 +168,7 @@ export default function TeamView() {
         </div>
       </div>
 
-      
+      <Footer />
     </>
   );
 }
