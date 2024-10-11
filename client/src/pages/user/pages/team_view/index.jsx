@@ -96,18 +96,18 @@ export default function TeamView() {
 >
   <h2 className="text-4xl font-bold mb-4">VPL-3 Teams</h2>
   <ul>
-    {teams.map((team) => (
-      <Link to={`/teamview/${team._id}`} key={team._id}>
+    {teams.map((teaminfo) => (
+      <Link to={`/teamview/${teaminfo._id}`} key={teaminfo._id}>
         <li className="mb-2 border-[1px] rounded-2xl px-[2px] align-middle text-[15px] font-semibold flex py-[2px] hover:bg-slate-800">
                     <img
                       src={
-                        team.logo ||
+                        teaminfo.logo ||
                         "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
                       }
-                      alt="team"
+                      alt="teaminfo"
                       className="w-[28px] mr-[10px] rounded-full h-[28px] object-cover"
                     />
-                  <span className="mt-[2px]">  {team.team_name}</span>
+                  <span className="mt-[2px]">  {teaminfo.team_name}</span>
                   </li>
       </Link>
     ))}
@@ -130,7 +130,7 @@ export default function TeamView() {
               <div className="mx-8">
                 <div className="mx-auto pb-12 max-w-4xl">
                   <h1 className="md:text-[40px] text-xl font-bold text-center">
-                    {team.team_name} - {team.village}
+                    {teaminfo.team_name} - {teaminfo.village}
                   </h1>
                 </div>
                 <div>
