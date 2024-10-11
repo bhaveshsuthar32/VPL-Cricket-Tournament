@@ -325,6 +325,14 @@ export const getTeam = async() => {
   }
 }
 
+export const getTeamById = async(id) => {
+  try {
+    return await axios.get(`${URL}/teams/${id}`);
+  } catch(error){
+    console.log("Error :- ", error);
+  }
+}
+
 export const deleteTeam = async (id) => {
   try {
     return await axios.delete(`${URL}/teams/${id}`);
