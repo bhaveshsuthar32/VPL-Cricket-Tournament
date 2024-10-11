@@ -124,7 +124,7 @@ export default function TeamForm() {
         });
 
         try {
-            const response = await fetch("http://localhost:4000/addTeam", {
+            const response = await fetch("https://vpl-cricket-tournament-server.vercel.app/addTeam", {
                 method: "POST",
                 body: formData,
             });
