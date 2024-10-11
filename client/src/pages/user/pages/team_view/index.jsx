@@ -37,7 +37,7 @@ export default function TeamView() {
     fetchTeam();
   }, [id]);
 
-  if (!team) return <div>Loading...</div>;
+ // if (!team) return <div>Loading...</div>;
 
   // Function to toggle visibility
   const toggleVisibility = () => {
