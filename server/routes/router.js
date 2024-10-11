@@ -1,48 +1,7 @@
 const express = require('express');
 const router = express.Router();
-// const multer = require('multer');
+/// const multer = require('multer');
 const upload = require("../middlewares/upload");
-
-
-
-// Configure multer for file handling
-// const upload = multer({ 
-//     storage: multer.diskStorage({}),
-//     limits: {fileSize: 500000}
-// }); // Temporary storage for uploaded files
-
-
-// const { signUser, loginUser, getUser, editUserCaptain } = require('../controllers/userController');
-// const { addSponsorType, getSponsorType, addFoodSpon, addOtherSpon,getFoodSpon,getOtherSpon ,deleteSponsorType,deleteFoodSpon,deleteOtherSpon} = require('../controllers/sponsorController');
-// const { addAdvertise, getAdvertiser,  deleteAdvertiser } = require('../controllers/advertiserCont');
-
-// router.post("/sign", signUser);
-// router.post("/login", loginUser);
-// router.get("/user", getUser);
-// router.patch('/editCaptain', editUserCaptain);
-
-
-// router.post("/sponsorType", addSponsorType); 
-// router.get("/getSponsorType", getSponsorType)
-// router.delete("/deletesponsortype/:id", deleteSponsorType);
-
-
-
-// router.post('/addFoodSpon', upload.single('spImage'), addFoodSpon);
-// router.get('/getFoodSpon', getFoodSpon);
-// router.delete("/food-sponser/:id", deleteFoodSpon);
-
-// router.post('/addOtherSpon', upload.single('spOtherImage'), addOtherSpon);
-// router.get('/getOtherSpon', getOtherSpon);
-// router.delete("/other-sponser/:id", deleteOtherSpon);
-
-// router.post('/addAdvertise', upload.single('shopLogo'), addAdvertise);
-// router.get('/getAdvertise',  getAdvertiser);
-// router.delete("/advertiser/:id", deleteAdvertiser);
-
-
-
-// module.exports = router;
 
 
 
@@ -55,6 +14,7 @@ const {
     getUserProfie,
     addTeam,
     getTeam,
+    getTeamById,
     deleteTeam,
   } = require("../controllers/userController");
   const {
@@ -139,6 +99,7 @@ const {
   );
   
   router.get("/teams", getTeam);
+  router.get("/teams/:id", getTeamById);
   router.delete("/teams/:id", deleteTeam);
   
   
