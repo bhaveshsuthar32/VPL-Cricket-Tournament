@@ -1,119 +1,61 @@
-// import React from 'react'
-// import { Table } from "flowbite-react";
-// import { Link } from 'react-router-dom';
-import Header from '../../components/Navbar';
-import Footer from '../../components/Footer';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import { getTeam } from "../../../../api";
 
 export default function Team() {
-    return (
-        <div className="">
-            <Header />
-            <div className="px-4 mt-3 sm:ml-64">
-                <div className="mx-auto my-4 max-w-7xl px-4 py-2 sm:px-6 lg:px-8 border-[1px] rounded-lg shadow-sm sticky top-20 bg-white z-9">
-                    <div className="grid grid-cols-9 border-b-[1px]">
-                        <h1 className="text-gray-600 font-bold text-lg mb-3 col-span-7 md:col-span-8">
-                            Teams
-                        </h1>
+  const [teams, setTeams] = useState([]);
+
+  useEffect(() => {
+    const fetchTeams = async () => {
+      try {
+        const response = await getTeam();
+        setTeams(response.data);
+      } catch (err) {
+        console.error("Error fetching teams:", err);
+      }
+    };
+
+    fetchTeams();
+  }, []);
+
+  return (
+    <>
+      <Navbar />
+      <section className="bg-base-100 h-auto py-16">
+        <div className="mx-16">
+          <div className="mx-auto pb-16 max-w-4xl">
+            <h1 className="md:text-[40px] text-xl font-bold text-center">
+              VPL - {teams.length} Teams
+            </h1>
+          </div>
+          <div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {teams.map((team) => (
+                <Link to={`/teamview/${team._id}`} key={team._id}>
+                  <div className="card card-compact bg-base-100 w-full sm:w-full lg:w-94 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                    <figure>
+                      <img
+                        src={
+                          team.logo ||
+                          "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                        }
+                        alt={team.team_name}
+                      />
+                    </figure>
+                    <div className="card-body">
+                      <h2 className="card-title">{team.team_name}</h2>
+                      <p>{team.village}</p>
                     </div>
-                    <table className="table">
-                        {/* head */}
-                        <thead className=" sticky sm:top-[65px] top-[0px] bg-slate-100 z-10 ">
-                            <tr>
-                                <th></th>
-                                <th>Team Name</th>
-                                <th>Village</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {/* row 1 */}
-                            <tr className="hover">
-                                <th>1</th>
-                                <td className='font-bold'>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td><button className="btn btn-sm btn-outline">View</button></td>
-                            </tr>
-                            <tr className="hover">
-                                <th>1</th>
-                                <td className='font-bold'>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td><button className="btn btn-sm btn-outline">View</button></td>
-                            </tr>
-                            <tr className="hover">
-                                <th>1</th>
-                                <td className='font-bold'>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td><button className="btn btn-sm btn-outline">View</button></td>
-                            </tr>
-                            <tr className="hover">
-                                <th>1</th>
-                                <td className='font-bold'>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td><button className="btn btn-sm btn-outline">View</button></td>
-                            </tr>
-                            <tr className="hover">
-                                <th>1</th>
-                                <td className='font-bold'>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td><button className="btn btn-sm btn-outline">View</button></td>
-                            </tr>
-                            <tr className="hover">
-                                <th>1</th>
-                                <td className='font-bold'>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td><button className="btn btn-sm btn-outline">View</button></td>
-                            </tr>
-                            <tr className="hover">
-                                <th>1</th>
-                                <td className='font-bold'>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td><button className="btn btn-sm btn-outline">View</button></td>
-                            </tr>
-                            <tr className="hover">
-                                <th>1</th>
-                                <td className='font-bold'>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td><button className="btn btn-sm btn-outline">View</button></td>
-                            </tr>
-                            <tr className="hover">
-                                <th>1</th>
-                                <td className='font-bold'>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td><button className="btn btn-sm btn-outline">View</button></td>
-                            </tr>
-                            <tr className="hover">
-                                <th>1</th>
-                                <td className='font-bold'>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td><button className="btn btn-sm btn-outline">View</button></td>
-                            </tr>
-                            <tr className="hover">
-                                <th>1</th>
-                                <td className='font-bold'>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td><button className="btn btn-sm btn-outline">View</button></td>
-                            </tr>
-                            {/* row 2 */}
-                            <tr className="hover">
-                                <th>2</th>
-                                <td className='font-bold'>Hart Hagerty</td>
-                                <td>Desktop Support Technician</td>
-                                <td><button className="btn btn-sm btn-outline">View</button></td>
-                            </tr>
-                            <tr className="hover">
-                                <th>3</th>
-                                <td className='font-bold'>Hart Hagerty</td>
-                                <td>Desktop Support Technician</td>
-                                <td><button className="btn btn-sm btn-outline">View</button></td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
+                  </div>
+                </Link>
+              ))}
             </div>
-            <Footer />
+          </div>
         </div>
-    )
+      </section>
+      <Footer />
+    </>
+  );
 }
-
-
