@@ -333,6 +333,7 @@ export const getTeamById = async(id) => {
   }
 }
 
+
 export const deleteTeam = async (id) => {
   try {
     return await axios.delete(`${URL}/teams/${id}`);
