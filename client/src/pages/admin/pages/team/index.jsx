@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { getTeam, getTeamById } from "../../../../api";
 
+
 export default function TeamView() {
   const [team, setTeam] = useState(null);
   const [teams, setTeams] = useState([]);
@@ -36,6 +37,8 @@ export default function TeamView() {
     fetchTeam();
   }, [id]);
 
+  if (!team) return <div>Loading...</div>;
+
   // Function to toggle visibility
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
@@ -45,10 +48,7 @@ export default function TeamView() {
   const hideSidebar = () => {
     setIsVisible(false);
   };
-
-  // Loading state
-  if (!team) return <div>Loading...</div>;
-
+  
   return (
     <>
       <Navbar />
@@ -65,6 +65,7 @@ export default function TeamView() {
                 X
               </button>
             </p>
+
             <ul>
               {teams.map((team) => (
                 <Link to={`/teamview/${team._id}`} key={team._id}>
@@ -85,34 +86,34 @@ export default function TeamView() {
           </aside>
         )}
 
-        {/* Sidebar for Desktop */}
-        <aside
-          className="w-1/4 bg-slate-100 p-4 hidden md:block border-[1px] border-slate-400 m-4 rounded-md text-base-200 sticky h-screen"
-          style={{
-            background: "radial-gradient(circle, #4d79d1 0%, rgb(47 56 71) 64%)",
-            top: "82px", // Adjust the top value as needed
-          }}
-        >
-          <h2 className="text-4xl font-bold mb-4">VPL-3 Teams</h2>
-          <ul>
-            {teams.map((teaminfo) => (
-              <Link to={`/teamview/${teaminfo._id}`} key={teaminfo._id}>
-                <li className="mb-2 border-[1px] rounded-2xl px-[2px] align-middle text-[15px] font-semibold flex py-[2px] hover:bg-slate-800">
-                  <img
-                    src={
-                      teaminfo.logo ||
-                      "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                    }
-                    alt="teaminfo"
-                    className="w-[28px] mr-[10px] rounded-full h-[28px] object-cover"
-                  />
-                  <span className="mt-[2px]"> {teaminfo.team_name}</span>
-                </li>
-              </Link>
-            ))}
-          </ul>
-        </aside>
-
+                {/* Sidebar for Desktop */}
+<aside
+  className="w-1/4 bg-slate-100 p-4 hidden md:block border-[1px] border-slate-400 m-4 rounded-md text-base-200 sticky h-screen"
+  style={{
+    background: 'radial-gradient(circle, #4d79d1 0%, rgb(47 56 71) 64%)',
+    top: '82px', // Adjust the top value as needed
+  }}
+>
+  <h2 className="text-4xl font-bold mb-4">VPL-3 Teams</h2>
+  <ul>
+    {teams.map((team) => (
+      <Link to={`/teamview/${team._id}`} key={team._id}>
+        <li className="mb-2 border-[1px] rounded-2xl px-[2px] align-middle text-[15px] font-semibold flex py-[2px] hover:bg-slate-800">
+                    <img
+                      src={
+                        team.logo ||
+                        "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                      }
+                      alt="team"
+                      className="w-[28px] mr-[10px] rounded-full h-[28px] object-cover"
+                    />
+                  <span className="mt-[2px]">  {team.team_name}</span>
+                  </li>
+      </Link>
+    ))}
+  </ul>
+</aside>
+        
         <div className="flex-grow">
           <button
             onClick={toggleVisibility}
@@ -121,14 +122,10 @@ export default function TeamView() {
             {isVisible ? "" : "Teams"}
           </button>
 
-          {/* Main content */}
-          <main className="w-full p-4">
-            <section
-              className="bg-slate-100 border-[1px] border-slate-400 text-gray-100 h-auto py-8 md:py-16 rounded-md"
-              style={{
-                background: "radial-gradient(circle, #4d79d1 0%, rgb(47 56 71) 64%)",
-              }}
-            >
+          {/* Main content bg-blue-950*/}
+          <main className="w-full p-4 ">
+            <section className="bg-slate-100 border-[1px] border-slate-400
+             text-gray-100 h-auto py-8 md:py-16 rounded-md" style={{ background: 'radial-gradient(circle, #4d79d1 0%, rgb(47 56 71) 64%)' }}>
               <div className="mx-8">
                 <div className="mx-auto pb-12 max-w-4xl">
                   <h1 className="md:text-[40px] text-xl font-bold text-center">
@@ -169,6 +166,7 @@ export default function TeamView() {
           </main>
         </div>
       </div>
+        
 
       <Footer />
     </>
