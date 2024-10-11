@@ -51,7 +51,7 @@ export default function TeamView() {
   
   return (
     <>
-      <Navbar />
+      <Navbar/>
        <div className="flex relative bg-white">
         {/* Sidebar for Mobile */}
         {isVisible && (
