@@ -168,7 +168,7 @@ export default function TeamView() {
         </div>
       </div>
 
-      <Footer />
+      <Footer/>
     </>
   );
 }
