@@ -40,7 +40,7 @@ export default function Navbar() {
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-slate-600 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             <li><Link to={'/'}>Home</Link></li>
-                            <li><Link to={'/team'}>Teams</Link></li>
+                            <li><Link to={'/teamview'}>Teams</Link></li>
                             <li><Link to={'/sponsor'}>Sponsers</Link></li>
                             <li><Link to={'/halloffame'}>Hall Of Fame</Link></li>
                             <li><Link to={'/advertiser'}>Advertisers</Link></li>
