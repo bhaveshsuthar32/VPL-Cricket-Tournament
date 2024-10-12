@@ -24,18 +24,20 @@ export default function TeamView() {
   }, []);
 
   useEffect(() => {
-    const fetchTeam = async () => {
-      try {
-        const response = await getTeamById(id);
-        setTeam(response.data);
-      } catch (err) {
-        console.error("Error fetching team:", err);
-      }
-    };
+  const fetchTeam = async () => {
+    try {
+      const response = await getTeamById(id);
+      console.log("Fetched team data:", response.data); // Log team data
+      setTeam(response.data);
+    } catch (err) {
+      console.error("Error fetching team:", err);
+    }
+  };
 
-    fetchTeam();
-  }, [id]);
+  fetchTeam();
+}, [id]);
 
+  
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
   };
@@ -134,35 +136,35 @@ export default function TeamView() {
                 </div>
                 <div>
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-6">
-                    {team && team.players ? (
-                      team.players.map((player) => (
-                        <div
-                          key={player._id}
-                          className="card card-compact bg-transparent w-full"
-                        >
-                          <div className="md:w-40 md:h-40 w-28 h-28 mx-auto overflow-hidden rounded-full border-4 border-gray-200">
-                            <img
-                              src={
-                                player.image ||
-                                "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                              }
-                              alt={player.name}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                          <div className="card-body text-center">
-                            <p className="font-bold md:text-[14px] text-[9px] leading-3">
-                              {player.name}
-                            </p>
-                            <p className="text-gray-300 md:text-[14px] text-[9px] mt-[-5px] md:mt-0 leading-3">
-                              {player.role}
-                            </p>
-                          </div>
-                        </div>
-                      ))
-                    ) : (
-                      <p>Loading players...</p>
-                    )}
+                    {team && team.players && team.players.length > 0 ? (
+  team.players.map((player) => (
+    <div
+      key={player._id}
+      className="card card-compact bg-transparent w-full"
+    >
+      <div className="md:w-40 md:h-40 w-28 h-28 mx-auto overflow-hidden rounded-full border-4 border-gray-200">
+        <img
+          src={
+            player.image ||
+            "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+          }
+          alt={player.name}
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="card-body text-center">
+        <p className="font-bold md:text-[14px] text-[9px] leading-3">
+          {player.name}
+        </p>
+        <p className="text-gray-300 md:text-[14px] text-[9px] mt-[-5px] md:mt-0 leading-3">
+          {player.role}
+        </p>
+      </div>
+    </div>
+  ))
+) : (
+  <p>No players available</p>
+)}
                   </div>
                 </div>
               </div>
