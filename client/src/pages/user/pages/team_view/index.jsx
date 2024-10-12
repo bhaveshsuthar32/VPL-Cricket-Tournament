@@ -36,8 +36,6 @@ export default function TeamView() {
     fetchTeam();
   }, [id]);
 
-  // if (!team) return <div>Loading...</div>; // Ensures loading state is shown until team data is available
-
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
   };
@@ -131,36 +129,40 @@ export default function TeamView() {
                 <div className="mx-auto pb-12 max-w-4xl">
                   {/* Ensure team data exists before rendering */}
                   <h1 className="md:text-[40px] text-xl font-bold text-center">
-                    {team.team_name} - {team.village}
+                    {team ? `${team.team_name} - ${team.village}` : "Loading..."}
                   </h1>
                 </div>
                 <div>
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-6">
-                    {team.players.map((player) => (
-                      <div
-                        key={player._id}
-                        className="card card-compact bg-transparent w-full"
-                      >
-                        <div className="md:w-40 md:h-40 w-28 h-28 mx-auto overflow-hidden rounded-full border-4 border-gray-200">
-                          <img
-                            src={
-                              player.image ||
-                              "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                            }
-                            alt={player.name}
-                            className="w-full h-full object-cover"
-                          />
+                    {team && team.players ? (
+                      team.players.map((player) => (
+                        <div
+                          key={player._id}
+                          className="card card-compact bg-transparent w-full"
+                        >
+                          <div className="md:w-40 md:h-40 w-28 h-28 mx-auto overflow-hidden rounded-full border-4 border-gray-200">
+                            <img
+                              src={
+                                player.image ||
+                                "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                              }
+                              alt={player.name}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <div className="card-body text-center">
+                            <p className="font-bold md:text-[14px] text-[9px] leading-3">
+                              {player.name}
+                            </p>
+                            <p className="text-gray-300 md:text-[14px] text-[9px] mt-[-5px] md:mt-0 leading-3">
+                              {player.role}
+                            </p>
+                          </div>
                         </div>
-                        <div className="card-body text-center">
-                          <p className="font-bold md:text-[14px] text-[9px] leading-3">
-                            {player.name}
-                          </p>
-                          <p className="text-gray-300 md:text-[14px] text-[9px] mt-[-5px] md:mt-0 leading-3">
-                            {player.role}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
+                      ))
+                    ) : (
+                      <p>Loading players...</p>
+                    )}
                   </div>
                 </div>
               </div>
