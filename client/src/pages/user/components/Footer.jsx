@@ -40,7 +40,7 @@ export default function Footer() {
                         <ul className='text-slate-600'>
                             <li><Link to={"/addteam"} className="link link-hover">Add Team</Link></li>
                             <li><Link to={"/team"} className="link link-hover">Team Profile</Link></li>
-                            <li><Link to={"/teamview"} className="link link-hover">Team View</Link></li>
+                            {/* <li><Link to={"/teamview"} className="link link-hover">Team View</Link></li> */}
                             {/* <li><Link to={"/"} className="link link-hover">Press kit</Link></li> */}
                         </ul>
                     </div>
