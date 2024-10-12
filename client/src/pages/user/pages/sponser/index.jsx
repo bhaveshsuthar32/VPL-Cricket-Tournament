@@ -55,7 +55,7 @@ export default function Sponser() {
                           "https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
                     }
                     alt="Sponser"
-                    className=" lg:w-[130px] sm:w-[100px] w-[80px]  rounded-md "
+                    className=" lg:w-[130px] lg:h-[160px] sm:w-[100px] w-[80px] h-[120px]  rounded-md "
                   />
                 </figure>
                 <div className="card-body px-4 py-[2px] lg:py-[14px]">
@@ -89,7 +89,7 @@ export default function Sponser() {
                           "https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
                     }
                     alt="Sponser"
-                    className=" md:w-[130px] w-[80px]  rounded-md "
+                    className=" md:w-[130px] lg:h-[160px] w-[80px] h-[120px] rounded-md "
                   />
                 </figure>
                 <div className="card-body px-4 py-[2px] md:py-[14px]">
