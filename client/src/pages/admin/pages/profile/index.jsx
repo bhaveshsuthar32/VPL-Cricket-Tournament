@@ -22,7 +22,7 @@ export default function Profile() {
                         <div className="sm:col-span-4 sm:px-24 lg:px-10">
                             <div className="mt-6">
                                 {/* <h1 className="text-4xl font-bold text-gray-900">Profile</h1> */}
-                                <h2 className="text-2xl font-bold text-gray-500">Dilip Suthar</h2>
+                                <h2 className="text-2xl font-bold text-gray-500">Bhavesh Suthar</h2>
                                 <p className="text-gray-600">Admin</p>
                                 <p className="text-gray-600 mb-5">vplseason3@gmail.com</p>
                                 <Link
