@@ -6,63 +6,80 @@ export default function AboutUs() {
   return (
     <>
       <Navbar />
-      <section className="">
+      
+<section className="">
         <div className="py-16">
-          <div className="mx-auto max-w-6xl">
-            <h1 className="md:text-[40px] text-xl font-bold text-center">
+          <div className="mx-auto md:max-w-6xl md:px-0 px-4">
+            <h1 className="md:text-[40px] text-[30px] font-bold text-center">
               About Us
             </h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-10 border-t-[2px] mt-8">
               <div className="flex items-center justify-center">
                 <img
-                  className="object-cover w-full h-full rounded-lg shadow-lg"
+                  className="object-cover w-[280px] h-[320px] rounded-lg shadow-lg"
                   src="https://i.pinimg.com/736x/fa/fd/45/fafd454fd34b9eceed1feace0f86f752.jpg"
                   alt="Image"
                 />
               </div>
-              <div className="flex flex-col justify-center p-6">
-                <h2 className="text-2xl font-bold mb-2">
+              <div className="flex flex-col md:p-6 ">
+                <h2 className="text-3xl font-bold mb-2">
                   Vishwakarma Premier League
                 </h2>
-                <p className="text-gray-600 mb-4">
-                  The Vishwakarma Premier League (VPL) is a professional T10
-                  cricket tournament held in Saint Vincent and the Grenadines.
-                  Launched in 2020, the league has quickly gained popularity due
-                  to its fast-paced format and competitive spirit. The
-                  tournament features a limited number of teams, each
-                  representing different communities within the country, and is
-                  played in a round-robin format followed by playoffs.
+                <p className="mb-3 mt-4 text-[16px]">
+                Vishwakarma Premier League (VPL) 🏏 is a premier cricket tournament registration platform that leverages modern web technologies to offer an unparalleled experience for cricket enthusiasts and organizers.
                 </p>
-                <p className="text-gray-600 mb-4">
-                  The VPL is known for showcasing local talent, providing a
-                  platform for cricketers from the region to display their
-                  skills. Matches are typically held at the Arnos Vale Sporting
-                  Complex, a venue that can accommodate a vibrant crowd,
-                  enhancing the overall atmosphere of the games. The league has
-                  attracted attention not only from local fans but also from
-                  cricket enthusiasts worldwide, thanks to its engaging matches
-                  and the involvement of international players.
-                </p>
+               
                 <p>
-                  Each season of the VPL consists of several matches, where
-                  teams compete for the championship title. The format allows
-                  for exciting gameplay, with each match lasting about two
-                  hours, making it accessible for fans of all ages. The
-                  tournament also emphasizes community engagement, with various
-                  initiatives aimed at promoting cricket among the youth.
+                With VPL, we aim to bring cricket tournaments to the next level, providing a dynamic platform that keeps everyone engaged and informed throughout the event.
                 </p>
-                <p>
-                  Broadcasting of the VPL matches has expanded its reach,
-                  allowing fans to follow the action live through various media
-                  platforms. This exposure has contributed to the growth of
-                  cricket in the Caribbean and has helped in nurturing future
-                  talents. Overall, the Vincy Premier League stands out as a
-                  significant event in the cricket calendar, combining
-                  entertainment with local culture and sportsmanship.
-                </p>
+                <ul className="mt-2 space-y-2">
+              <li className="flex items-center"><img src={"https://image.shutterstock.com/image-vector/calander-vector-icon-white-islolated-260nw-1525448534.jpg"} alt="" className="w-[20px] mr-2" />  4 Days of Intense Cricket</li>
+              <li className="flex items-center"> <img src={"https://img.icons8.com/?size=50&id=7880&format=png"} alt="" className="w-[20px] mr-2" /> Local Village Grounds</li>
+              <li className="flex items-center"><img src={"https://img.icons8.com/?size=50&id=11168&format=png"} alt="" className="w-[20px] mr-2" />  Organized by Suthar Samaj</li>
+             
+            </ul>
               </div>
+             
             </div>
           </div>
+          <div className=" bg-slate-200 py-10 px-4 md:px-16 mt-10">
+          <h1 className="md:text-[40px] text-xl font-bold text-center mb-6 text-slate-700 border-b-[1px] border-slate-500 py-4">
+          Tournament Highlights
+            </h1>
+            <div className="grid grid-cols-3 gap-14 py-6 sm:px-0 px-4">
+              <div className="sm:col-span-1 col-span-3 bg-white border-2 rounded-md shadow-md">
+                <div className="text-center py-4 border-b-[1px] h-[140px]">
+                  <img src={"https://img.icons8.com/?size=48&id=kuU7I7uPlHfo&format=png"} alt="" className="mx-auto mt-4" />
+                <h1 className="text-[25px] font-semibold">Grand Prizes</h1>
+                </div>
+                <div className="py-3 px-2">
+                  <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              
+              <div className="sm:col-span-1 col-span-3 bg-white border-2 rounded-md shadow-md">
+                <div className="text-center py-4 border-b-[1px] h-[140px]">
+                  <img src={"https://img.icons8.com/?size=48&id=kuU7I7uPlHfo&format=png"} alt="" className="mx-auto mt-4" />
+                <h1 className="text-[25px] font-semibold">Grand Prizes</h1>
+                </div>
+                <div className="py-3 px-2">
+                  <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              
+              <div className="sm:col-span-1 col-span-3 bg-white border-2 rounded-md shadow-md">
+                <div className="text-center py-4 border-b-[1px] h-[140px]">
+                  <img src={"https://img.icons8.com/?size=48&id=kuU7I7uPlHfo&format=png"} alt="" className="mx-auto mt-4" />
+                <h1 className="text-[25px] font-semibold">Grand Prizes</h1>
+                </div>
+                <div className="py-3 px-2">
+                  <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+              </div>
+              
+              
+            </div>
+        </div>
         </div>
       </section>
 
