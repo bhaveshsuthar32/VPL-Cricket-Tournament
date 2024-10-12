@@ -82,7 +82,7 @@ const userRoutes = [
     element: <HallOfFame />,
   },
   {
-    path: "/teamview",
+    path: "/teamview/:id",
     element: <TeamView />,
   },
   {
