@@ -61,14 +61,7 @@ export default function Team() {
             <div className="sm:col-span-5 mb-5">
               <h1 className="font-bold text-lg text-gray-600">Teams</h1>
             </div>
-            <div className="flex items-center justify-end gap-x-6">
-              <Link
-                to={""}
-                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                ADD
-              </Link>
-            </div>
+            
           </div>
           <div className="overflow-x-auto ">
             <table className="table sm:w-full w-[600px]">
