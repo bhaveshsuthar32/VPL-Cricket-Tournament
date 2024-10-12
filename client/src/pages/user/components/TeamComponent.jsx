@@ -24,12 +24,12 @@ export default function TeamComponent() {
           breakpoints={{
             240: {
               slidesPerView: 1.25,
-              slidesPerGroup: 3,
+              slidesPerGroup: 1,
               spaceBetween: 20,
             },
             640: {
               slidesPerView: 1.25,
-              slidesPerGroup: 3,
+              slidesPerGroup: 1,
               spaceBetween: 20,
             },
             768: {
