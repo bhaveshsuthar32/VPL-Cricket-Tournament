@@ -36,7 +36,8 @@ export default function TeamView() {
 
   fetchTeam();
 }, [id]);
-
+  
+// if (!team) return <div></div>; // loading
   
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
@@ -85,7 +86,7 @@ export default function TeamView() {
 
         {/* Sidebar for Desktop */}
         <aside
-          className="w-1/4 bg-slate-100 p-4 hidden md:block border-[1px] border-slate-400 m-4 rounded-md text-base-200 sticky h-screen"
+          className="w-1/4 bg-slate-100 p-4 hidden md:block border-[1px] border-slate-400 m-4 rounded-md text-base-200 sticky h-full"
           style={{
             background: "radial-gradient(circle, #4d79d1 0%, rgb(47 56 71) 64%)",
             top: "82px", // Adjust the top value as needed
