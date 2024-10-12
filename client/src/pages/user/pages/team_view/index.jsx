@@ -36,7 +36,7 @@ export default function TeamView() {
     fetchTeam();
   }, [id]);
 
-  if (!team) return <div>Loading...</div>; // Ensures loading state is shown until team data is available
+  // if (!team) return <div>Loading...</div>; // Ensures loading state is shown until team data is available
 
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
