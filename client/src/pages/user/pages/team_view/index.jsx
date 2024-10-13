@@ -134,9 +134,7 @@ export default function TeamView() {
                 <div className="mx-auto pb-12 max-w-4xl">
                   {/* Ensure team data exists before rendering */}
                   <h1 className="md:text-[40px] text-xl font-bold text-center">
-                    {team ? `${team.team_name} - ${team.village}` :<div className="flex justify-center items-center h-64">
-                  <span className="loading loading-spinner loading-lg"></span>
-                </div> }
+                    {team ? `${team.team_name} - ${team.village}` : "loading..." }
                   </h1>
                 </div>
                 <div>
