@@ -23,7 +23,9 @@ export default function Profile() {
     }, []);
 
     if (!userData) {
-        return <div>Loading...</div>; // Display a loading message while fetching data
+        return <div className="flex justify-center items-center h-64">
+                  <span className="loading loading-spinner loading-lg"></span>
+                </div>; // Display a loading message while fetching data
     }
 
     return (
