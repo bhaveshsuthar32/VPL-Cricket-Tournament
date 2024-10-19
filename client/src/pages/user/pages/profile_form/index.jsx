@@ -6,7 +6,7 @@ export default function ProfileForm() {
   return (
     <>
     <Navbar />
-    <form className='w-[700px] p-20 mx-auto'>
+    <form className='md:w-[700px] w-[360px] md:p-20 p-4 py-12 mx-auto'>
       <div className="space-y-12">
 
 
