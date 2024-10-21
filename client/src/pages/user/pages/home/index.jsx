@@ -125,7 +125,7 @@ function Home() {
 
                 </div>
                 <Link
-                  to={'#'}
+                  to={'/rules'}
                   className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-black shadow-sm hover:bg-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-200"
                 >
                   View Rules & Regulation &#11166;
