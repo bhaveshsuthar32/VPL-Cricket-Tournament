@@ -78,7 +78,9 @@ export default function Sponser() {
               Other Sponsers
             </h1>
             {loading ? (
-              <p>Loading Other Sponsors...</p>
+              <div className="flex justify-center items-center h-64">
+                  <span className="loading loading-spinner loading-lg"></span>
+                </div>
             ) : (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {otherSponsors.map((sponsor, index) => (
