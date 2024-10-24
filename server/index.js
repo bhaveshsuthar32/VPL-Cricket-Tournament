@@ -116,7 +116,7 @@ mongodb();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["https://vpl-cricket-tournament.vercel.app", "https://vpl-cricket-tournament-server.vercel.app"],
+    origin: [ "https://vpl-cricket-tournament-server.vercel.app"],
     methods: ["GET", "POST"],
     credentials: true
   }
