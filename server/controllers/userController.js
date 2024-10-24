@@ -6,6 +6,8 @@ const Team = require("../models/addTeam");
 const { uploadFile, deleteFile } = require("../utils/cloudinary");
 const JWT_SECRET = process.env.JWT_SECRET;
 
+
+
 const signUser = async (req, res) => {
     const user = req.body;
     try {
@@ -41,6 +43,13 @@ const signUser = async (req, res) => {
             }
         });
 
+
+        req.io.emit('newUserSignUp', { 
+          message: `New user ${newUser.username} signed up successfully.`,
+          newUser
+        });
+
+        
         res.status(201).json(newUser);
     } catch (error) {
         console.error(error); 
@@ -74,33 +83,75 @@ const editUserCaptain = async (req, res) => {
 };
 
 
+    // const loginUser = async (req, res) => {
+    //   const { email, password } = req.body;
+    //   try {
+    //     const user = await signSchema.findOne({ email });
+    //     if (!user) {
+    //       return res.status(404).json({ error: "User not found" });
+    //     }
+    
+    //     const isPasswordValid = await bcrypt.compare(password, user.password);
+    //     if (!isPasswordValid) {
+    //       return res.status(401).json({ error: "Invalid password" });
+    //     }
+    
+    //     // generate token
+    //     const token = jwt.sign({ userId: user._id, username: user.username, email : user.email }, JWT_SECRET, {
+    //       expiresIn: "30M",
+    //     });
+    //     user.token = token;
+    //     await user.save();
 
-    const loginUser = async (req, res) => {
-      const { email, password } = req.body;
-      try {
-        const user = await signSchema.findOne({ email });
-        if (!user) {
+       
+    //     // console.log("login successfully");
+    //     res.status(200).json({ token, isAdmin: user.isAdmin });
+    //   } catch (error) {
+    //     res.status(500).json({ error: error.message });
+    //   }
+    // };              
+    
+
+
+  
+
+ 
+const loginUser = async (req, res, io) => {
+  const { email, password } = req.body;
+  try {
+      const user = await signSchema.findOne({ email });
+      if (!user) {
           return res.status(404).json({ error: "User not found" });
-        }
-    
-        const isPasswordValid = await bcrypt.compare(password, user.password);
-        if (!isPasswordValid) {
-          return res.status(401).json({ error: "Invalid password" });
-        }
-    
-        // generate token
-        const token = jwt.sign({ userId: user._id, username: user.username, email : user.email }, JWT_SECRET, {
-          expiresIn: "30M",
-        });
-        user.token = token;
-        await user.save();
-        // console.log("login successfully");
-        res.status(200).json({ token, isAdmin: user.isAdmin });
-      } catch (error) {
-        res.status(500).json({ error: error.message });
       }
-    };              
-    
+
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+      if (!isPasswordValid) {
+          return res.status(401).json({ error: "Invalid password" });
+      }
+
+      // Generate token
+      const token = jwt.sign({ userId: user._id, username: user.username, email: user.email }, JWT_SECRET, {
+          expiresIn: "30M",
+      });
+
+      user.token = token;
+      await user.save();
+
+      // Emit notification after successful login
+      //  req.io.emit('newLogin', { 
+      //   message: `Sponsor type ${deletedSponsor.sponsorType} deleted.`,
+      //   deletedSponsor
+      // });
+
+
+      res.status(200).json({ token, isAdmin: user.isAdmin });
+  } catch (error) {
+      res.status(500).json({ error: error.message });
+  }
+};
+
+
+
   const getUser = async (req, res) => {
 
     try {
