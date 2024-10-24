@@ -7,14 +7,10 @@ const Header = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false); // new state for dropdown visibility
 
   // const socket = io('http://localhost:4000'); // Initialize Socket.IO connection
-<<<<<<< HEAD
+
   // const socket = io('https://vpl-cricket-tournament-server.vercel.app'); 
   const socket = io('https://vpl-cricket-tournament-server.vercel.app');
 console.log('Socket connected:', socket.id);
-=======
-  // const socket = io("https://vpl-cricket-tournament-server.vercel.app"); 
-  const socket = io('https://vpl-cricket-tournament-server.vercel.app');
->>>>>>> 10de8bd3d23abb5c35d2d3c8693680e90963941d
 
 
   // Load notifications from localStorage on component mount
