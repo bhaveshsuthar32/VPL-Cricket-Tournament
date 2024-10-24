@@ -6,7 +6,8 @@ const Header = () => {
   const [notifications, setNotifications] = useState([]);
   const [isDropdownOpen, setDropdownOpen] = useState(false); // new state for dropdown visibility
 
-  const socket = io('http://localhost:4000'); // Initialize Socket.IO connection
+  // const socket = io('http://localhost:4000'); // Initialize Socket.IO connection
+  const socket = io('https://vpl-cricket-tournament-server.vercel.app');
 
   // Load notifications from localStorage on component mount
   useEffect(() => {
