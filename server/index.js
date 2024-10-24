@@ -60,13 +60,13 @@ const io = new Server(server, {
 });
 
 
-app.use(cors(
-    {
-        origin: ["https://vpl-cricket-tournament.vercel.app"]
-    }
- ))
+// app.use(cors(
+//     {
+//         origin: ["https://vpl-cricket-tournament.vercel.app"]
+//     }
+//  ))
 
-// app.use(cors());
+app.use(cors());
 
 app.use(express.json());
 
