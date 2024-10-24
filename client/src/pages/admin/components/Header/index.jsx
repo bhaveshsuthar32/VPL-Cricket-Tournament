@@ -144,10 +144,8 @@ const Header = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   // Initialize Socket.IO connection with polling fallback for compatibility
-  const socket = io('https://vpl-cricket-tournament-server.vercel.app', {
-    transports: ['websocket', 'polling'], // Fallback to polling if WebSocket fails
-    withCredentials: true // Ensure credentials are passed
-  });
+  const socket = io('https://vpl-cricket-tournament-server.vercel.app', { transports: ['websocket'] });
+
 
   // Log the socket ID for debugging
   console.log('Socket connected:', socket.id);
