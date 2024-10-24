@@ -117,7 +117,8 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: "https://vpl-cricket-tournament.vercel.app",
-    methods: ["GET", "POST"]
+    methods: ["GET", "POST"],
+    credentials: true // Enable credentials if needed
   }
 });
 
