@@ -97,6 +97,70 @@
 
 
 
+// const express = require('express');
+// const http = require('http');
+// const { Server } = require('socket.io');
+// const dotenv = require('dotenv');
+// const mongodb = require('./config/db');
+// const Route = require('./routes/router');
+// const cors = require('cors');
+
+// dotenv.config();
+
+// const app = express();
+// const port = process.env.PORT || 5000; 
+
+// mongodb();
+
+// // Set up CORS
+// const server = http.createServer(app);
+// const io = new Server(server, {
+//   cors: {
+//     origin: "https://vpl-cricket-tournament.vercel.app",
+//     methods: ["GET", "POST"]
+//   }
+// });
+
+
+
+// app.use(cors(
+//     {
+//         origin: ["https://vpl-cricket-tournament.vercel.app"]
+//     }
+//  ))
+
+// // app.use(cors());
+// app.use(express.json());
+
+// // add socket.io instance to req object
+// app.use((req, res, next) => {
+//   req.io = io;
+//   next();
+// });
+
+// // Socket.IO connection event
+// io.on('connection', (socket) => {
+//     console.log('New client connected');
+
+//     socket.on('disconnect', () => {
+//         console.log('Client disconnected');
+//     });
+// });
+
+// app.get("/checkserver", (req, res) => {
+//     res.send("Welcome to the backend page");
+// });
+
+// app.use('/', Route); 
+
+// server.listen(port, "localhost", () => {
+//     console.log(`Server started: http://localhost:${port}`);
+// });
+
+
+
+
+// server/index.js
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
@@ -108,51 +172,76 @@ const cors = require('cors');
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 5000; 
+const port = process.env.PORT || 5000;
 
 mongodb();
 
-// Set up CORS
 const server = http.createServer(app);
+
+// Updated Socket.IO configuration for Vercel
 const io = new Server(server, {
   cors: {
-    origin: "https://vpl-cricket-tournament.vercel.app",
-    methods: ["GET", "POST"]
-  }
+    origin: process.env.NODE_ENV === 'production' 
+      ? "https://vpl-cricket-tournament.vercel.app"
+      : "http://localhost:5173",
+    methods: ["GET", "POST"],
+    credentials: true,
+    transports: ['websocket', 'polling'] // Enable all transport methods
+  },
+  allowEIO3: true, // Enable compatibility mode
+  path: '/socket.io/' // Explicitly set socket.io path
 });
 
+// Updated CORS configuration
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' 
+    ? "https://vpl-cricket-tournament.vercel.app"
+    : "http://localhost:5173",
+  credentials: true
+}));
 
-
-app.use(cors(
-    {
-        origin: ["https://vpl-cricket-tournament.vercel.app"]
-    }
- ))
-
-// app.use(cors());
 app.use(express.json());
 
-// add socket.io instance to req object
+// Add socket.io instance to req object
 app.use((req, res, next) => {
   req.io = io;
   next();
 });
 
-// Socket.IO connection event
+// Enhanced Socket.IO connection handling
 io.on('connection', (socket) => {
-    console.log('New client connected');
+  console.log('Client connected:', socket.id);
 
-    socket.on('disconnect', () => {
-        console.log('Client disconnected');
-    });
+  // Add error handling
+  socket.on('error', (error) => {
+    console.error('Socket error:', error);
+  });
+
+  socket.on('disconnect', (reason) => {
+    console.log('Client disconnected:', socket.id, 'Reason:', reason);
+  });
 });
 
 app.get("/checkserver", (req, res) => {
-    res.send("Welcome to the backend page");
+  res.send("Welcome to the backend page");
 });
 
-app.use('/', Route); 
+app.use('/', Route);
 
-server.listen(port, "localhost", () => {
+// Modified server listen
+if (process.env.NODE_ENV === 'production') {
+  // In production, let Vercel handle the port
+  server.listen(port, () => {
+    console.log(`Server running in production mode`);
+  });
+} else {
+  // In development, use localhost
+  server.listen(port, "localhost", () => {
     console.log(`Server started: http://localhost:${port}`);
+  });
+}
+
+// Add error handling for the server
+server.on('error', (error) => {
+  console.error('Server error:', error);
 });
