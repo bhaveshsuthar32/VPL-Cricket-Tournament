@@ -10,11 +10,11 @@
 
 // mongodb();
 
-// // app.use(cors(
-// //     {
-// //         origin: ["https://vpl-cricket-tournament.vercel.app"]
-// //     }
-// //  ))
+// app.use(cors(
+//     {
+//         origin: ["https://vpl-cricket-tournament.vercel.app"]
+//     }
+//  ))
 
 // app.use(cors()); 
 
@@ -53,12 +53,21 @@ mongodb();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
+    // origin: "http://localhost:5173",
+    origin: "https://vpl-cricket-tournament.vercel.app",
     methods: ["GET", "POST"]
   }
 });
 
-app.use(cors());
+
+app.use(cors(
+    {
+        origin: ["https://vpl-cricket-tournament.vercel.app"]
+    }
+ ))
+
+// app.use(cors());
+
 app.use(express.json());
 
 // add socket.io instance to req object
