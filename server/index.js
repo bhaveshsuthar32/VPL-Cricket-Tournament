@@ -116,18 +116,23 @@ mongodb();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://vpl-cricket-tournament.vercel.app", // Update to match client-side URL
+    origin: "https://vpl-cricket-tournament.vercel.app",
     methods: ["GET", "POST"]
   }
 });
 
-app.use(cors({
-  origin: "https://vpl-cricket-tournament.vercel.app" // Ensure CORS is set for the client URL
-}));
 
+
+app.use(cors(
+    {
+        origin: ["https://vpl-cricket-tournament.vercel.app"]
+    }
+ ))
+
+// app.use(cors());
 app.use(express.json());
 
-// Add socket.io instance to req object
+// add socket.io instance to req object
 app.use((req, res, next) => {
   req.io = io;
   next();
@@ -135,20 +140,19 @@ app.use((req, res, next) => {
 
 // Socket.IO connection event
 io.on('connection', (socket) => {
-  console.log('New client connected');
+    console.log('New client connected');
 
-  socket.on('disconnect', () => {
-    console.log('Client disconnected');
-  });
+    socket.on('disconnect', () => {
+        console.log('Client disconnected');
+    });
 });
 
 app.get("/checkserver", (req, res) => {
-  res.send("Welcome to the backend page");
+    res.send("Welcome to the backend page");
 });
 
 app.use('/', Route); 
 
-// Listen on all IPs by removing the "localhost" restriction
-server.listen(port, () => {
-  console.log(`Server started on port ${port}`);
+server.listen(port, "localhost", () => {
+    console.log(`Server started: http://localhost:${port}`);
 });
