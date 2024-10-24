@@ -64,7 +64,7 @@ export default function ProfileForm() {
                                     </div>
                                 </div>
                                 <div className="mt-6 flex items-center justify-end gap-x-6">
-                                    <Link to={'/dashboard/profile'} className="text-sm font-semibold leading-6 text-gray-900">
+                                    <Link to={'/admin/profile'} className="text-sm font-semibold leading-6 text-gray-900">
                                         Cancel
                                     </Link>
                                     <button
