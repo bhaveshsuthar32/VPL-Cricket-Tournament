@@ -2,9 +2,30 @@ const Sponsor = require("../models/sponsor");
 const { uploadFile, deleteFile } = require("../utils/cloudinary");
 const foodSpon = require("../models/foodSponsor");
 const otherSpon = require("../models/otherSponsor");
-
+// const { io } = require('../index'); 
 
 // ----- Sponsor Type ------
+// const addSponsorType = async (req, res) => {
+//     const { sponsorType } = req.body;
+    
+//     try {
+//         const existingSponsorType = await Sponsor.findOne({ sponsorType });
+        
+//         if (existingSponsorType) {
+//             return res.status(400).json({ message: "This sponsor type already exists" });
+//         }
+
+//         const newSponType = new Sponsor({ sponsorType });   
+//         const saveSpon = await newSponType.save();
+
+//         res.status(201).json(saveSpon);
+//     } catch (error) {
+//         console.error("Error:", error);
+//         res.status(500).json({ error: error.message });
+//     }
+// };
+
+
 const addSponsorType = async (req, res) => {
     const { sponsorType } = req.body;
     
@@ -15,8 +36,14 @@ const addSponsorType = async (req, res) => {
             return res.status(400).json({ message: "This sponsor type already exists" });
         }
 
-        const newSponType = new Sponsor({ sponsorType });
+        const newSponType = new Sponsor({ sponsorType });   
         const saveSpon = await newSponType.save();
+
+        req.io.emit('newSponsorType', { 
+            message: `New sponsor type ${saveSpon.sponsorType} added.`,
+            saveSpon
+          });
+
 
         res.status(201).json(saveSpon);
     } catch (error) {
@@ -24,7 +51,6 @@ const addSponsorType = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
-
 
 const getSponsorType = async (req, res) => {
     try {
@@ -61,6 +87,13 @@ const deleteSponsorType = async (req, res) => {
             return res.status(404).json({ message: "Sponsor type not found" });
         }
         
+        req.io.emit('deleteSponsorType', { 
+            message: `Sponsor type ${deletedSponsor.sponsorType} deleted.`,
+            deletedSponsor
+          });
+
+
+
         res.status(200).json({ message: "Sponsor type deleted successfully", deletedSponsor });
     } catch (error) {
         console.error(error);
@@ -111,7 +144,45 @@ const editSponsorType = async (req, res) => {
 
                 // ----- Food Sponsor -----
 
-const addFoodSpon = async (req, res) => {
+// const addFoodSpon = async (req, res) => {
+//     try {
+//         const { sponDay, fullName, village, amount } = req.body;
+
+//         // Check if a file was uploaded
+//         if (!req.file) {
+//             return res.status(400).json({ error: 'No image file uploaded.' });
+//         }
+
+//         console.log("File received:", req.file);
+
+//         // Upload image to Cloudinary
+//         const result = await uploadFile(req.file);
+//         console.log("Cloudinary Upload Result:", result);
+
+//         const spImage = result;
+
+//         // Create a new food sponsor instance
+//         const newFoodSpon = new foodSpon({
+//             sponDay,
+//             fullName,
+//             village,
+//             amount,
+//             spImage
+//         });
+
+//         // Save the food sponsor information to the database
+//         const savedFoodSpon = await newFoodSpon.save();
+//         console.log('New Food Sponsor Added:', savedFoodSpon);
+
+//         res.status(201).json(savedFoodSpon);
+//     } catch (error) {
+//         console.error("Error adding food sponsor:", error);
+//         res.status(500).json({ error: error.message });
+//     }
+// };
+
+
+const addFoodSpon = async (req, res, io) => {
     try {
         const { sponDay, fullName, village, amount } = req.body;
 
@@ -134,12 +205,15 @@ const addFoodSpon = async (req, res) => {
             fullName,
             village,
             amount,
-            spImage
+            spImage,
         });
 
         // Save the food sponsor information to the database
         const savedFoodSpon = await newFoodSpon.save();
         console.log('New Food Sponsor Added:', savedFoodSpon);
+
+        // Emit notification after successfully adding a sponsor
+        io.emit('sendNotification', `New sponsor added: ${fullName}`);
 
         res.status(201).json(savedFoodSpon);
     } catch (error) {
