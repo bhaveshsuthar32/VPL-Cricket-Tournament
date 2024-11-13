@@ -2,8 +2,19 @@
   "version": 2,
   "builds": [{ "src": "./index.js", "use": "@vercel/node" }],
   "routes": [
-    { "src": "/socket.io", "dest": "/index.js" },
-    { "src": "/socket.io/(.*)", "dest": "/index.js" },
-    { "src": "/(.*)", "dest": "/index.js" }
+    {
+      "src": "/socket.io/(.*)",
+      "dest": "/index.js",
+      "headers": {
+        "Access-Control-Allow-Origin": "https://vpl-cricket-tournament.vercel.app",
+        "Access-Control-Allow-Methods": "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+        "Access-Control-Allow-Credentials": "true"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.js"
+    }
   ]
 }
