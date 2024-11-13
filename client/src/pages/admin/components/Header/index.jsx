@@ -9,7 +9,18 @@
     // const socket = io('http://localhost:4000'); // Initialize Socket.IO connection
 
     // const socket = io('https://vpl-cricket-tournament-server.vercel.app'); 
-    const socket = io('https://vpl-cricket-tournament-server.vercel.app');
+    // const socket = io('https://vpl-cricket-tournament-server.vercel.app');
+    // const socket = io(
+    //   process.env.NODE_ENV === 'production'
+    //     ? 'https://vpl-cricket-tournament-server.vercel.app'
+    //     : 'http://localhost:4000'
+    // );
+    const socket = io(
+      window.location.hostname === 'localhost'
+        ? 'http://localhost:4000'
+        : 'https://vpl-cricket-tournament-server.vercel.app'
+    );
+    
   console.log('Socket connected:', socket.id);
 
 
