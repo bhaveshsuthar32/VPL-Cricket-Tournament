@@ -257,7 +257,9 @@
 
 
 
+import { Link } from "react-router-dom";
 import { useEffect, useState, useCallback } from 'react';
+
 import { io } from 'socket.io-client';
 
 const Header = () => {
@@ -373,89 +375,58 @@ const Header = () => {
     };
 
     return (
-        <div>
-            {/* Notification Bell Icon */}
-            <div className="relative">
-                <button 
-                    onClick={toggleDropdown}
-                    className="p-2 relative"
-                >
-                    {/* Bell Icon */}
-                    <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        className="h-6 w-6" 
-                        fill="none" 
-                        viewBox="0 0 24 24" 
-                        stroke="currentColor"
-                    >
-                        <path 
-                            strokeLinecap="round" 
-                            strokeLinejoin="round" 
-                            strokeWidth={2} 
-                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" 
-                        />
-                    </svg>
-                    
-                    {/* Notification badge */}
-                    {notifications.length > 0 && (
-                        <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">
-                            {notifications.length}
-                        </span>
-                    )}
-                </button>
-
-                {/* Connection status indicator */}
-                <div className={`absolute top-0 right-0 h-2 w-2 rounded-full ${
-                    isConnected ? 'bg-green-500' : 'bg-red-500'
-                }`} />
-
-                {/* Notifications dropdown */}
-                {isDropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-80 bg-white rounded-md shadow-lg overflow-hidden z-50">
-                        <div className="p-2">
-                            <div className="border-b pb-2 mb-2 flex justify-between items-center">
-                                <h3 className="text-lg font-semibold">Notifications</h3>
-                                {notifications.length > 0 && (
-                                    <button 
-                                        onClick={() => setNotifications([])}
-                                        className="text-sm text-red-500 hover:text-red-700"
-                                    >
-                                        Clear all
-                                    </button>
-                                )}
-                            </div>
-                            
-                            {notifications.length === 0 ? (
-                                <p className="text-gray-500 text-center py-4">No notifications</p>
-                            ) : (
-                                <div className="max-h-80 overflow-y-auto">
-                                    {notifications.map(notification => (
-                                        <div 
-                                            key={notification.id}
-                                            className="p-2 hover:bg-gray-50 flex justify-between items-start border-b"
-                                        >
-                                            <div>
-                                                <p className="text-sm">{notification.message}</p>
-                                                <p className="text-xs text-gray-500">
-                                                    {new Date(notification.timestamp).toLocaleString()}
-                                                </p>
-                                            </div>
-                                            <button 
-                                                onClick={() => removeNotification(notification.id)}
-                                                className="text-gray-400 hover:text-red-500"
-                                            >
-                                                ×
-                                            </button>
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                )}
-            </div>
-        </div>
-    );
+      <header className="px-4 sm:ml-64 border-b sticky top-0 bg-white z-10 shadow-sm">
+          <div className="flex justify-between items-center py-3">
+              {/* Left side - Title */}
+              <div className="text-gray-800 font-semibold text-lg">
+                  <Link to="#" className="hover:text-blue-600">
+                      Vishwakarma Premier League
+                  </Link>
+              </div>
+              
+              {/* Right side - Notifications */}
+              <div className="relative">
+                  <button 
+                      className="relative btn btn-ghost btn-circle avatar hover:bg-gray-100 focus:outline-none" 
+                      onClick={toggleDropdown}
+                  >
+                      {notifications.length > 0 && (
+                          <span className="absolute top-0 right-0 badge badge-sm bg-red-500 text-white rounded-full">
+                              {notifications.length}
+                          </span>
+                      )}
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118.5 14V11a6.5 6.5 0 00-13 0v3c0 .414-.16.794-.405 1.095L4 17h5m1 0a3 3 0 006 0m-6 0v2a1 1 0 001 1h4a1 1 0 001-1v-2m-6 0h6" />
+                      </svg>
+                  </button>
+                  
+                  {/* Dropdown */}
+                  {isDropdownOpen && (
+                      <ul className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg z-10 overflow-hidden border border-gray-200">
+                          {notifications.length === 0 ? (
+                              <li className="p-3 text-gray-500 text-sm text-center">
+                                  No new notifications
+                              </li>
+                          ) : (
+                              notifications.map(notification => (
+                                  <li key={notification.id} className="flex justify-between items-center p-3 border-b border-gray-100 text-sm hover:bg-gray-100">
+                                      <span>{notification.message}</span>
+                                      <button
+                                          onClick={() => removeNotification(notification.id)}
+                                          className="text-white bg-red-500 hover:bg-red-600 p-1 rounded"
+                                      >
+                                          &#x2715;
+                                      </button>
+                                  </li>
+                              ))
+                          )}
+                      </ul>
+                  )}
+              </div>
+          </div>
+      </header>
+  );
+  
 };
 
 export default Header;
