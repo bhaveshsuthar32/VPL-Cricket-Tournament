@@ -18,7 +18,7 @@
     const socket = io(
       window.location.hostname === 'localhost'
         ? 'http://localhost:4000'
-        : 'https://new-websocket-server-url',  // Update with new WebSocket server URL if changed
+        : 'https://vpl-cricket-tournament-server.vercel.app',  // Update with new WebSocket server URL if changed
       {
         path: '/socket.io/',
         transports: ['websocket', 'polling'],
