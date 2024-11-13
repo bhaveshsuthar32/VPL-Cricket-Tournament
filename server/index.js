@@ -146,10 +146,10 @@ const io = new Server(server, {
     methods: ["GET", "POST"],
     credentials: true
   },
-  transports: ['websocket', 'polling'],
-  path: "/socket.io/", // Remove /api prefix
-  addTrailingSlash: false
+  transports: ["websocket", "polling"],
+  path: "/socket.io/"
 });
+
 
 // CORS configuration
 app.use(cors({
