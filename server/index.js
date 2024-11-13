@@ -72,12 +72,15 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: [
-      // "http://localhost:5173", // Local client
-      "https://vpl-cricket-tournament.vercel.app" // Production client
+      "http://localhost:5173",
+      "https://vpl-cricket-tournament.vercel.app"
     ],
-    methods: ["GET", "POST"]
-  }
+    methods: ["GET", "POST"],
+    credentials: true
+  },
+  transports: ['websocket', 'polling']
 });
+
 
 app.use(cors({
   origin: [
