@@ -50,7 +50,7 @@ const port = process.env.PORT || 5000;
 mongodb();
 
 // Set up CORS
-// const server = http.createServer(app);
+const server = http.createServer(app);
 // const io = new Server(server, {
 //   cors: {
 //     origin: "http://localhost:5173",
@@ -72,7 +72,7 @@ mongodb();
 const io = new Server(server, {
   cors: {
     origin: [
-      // "http://localhost:5173", // Local client
+      "http://localhost:5173", // Local client
       "https://vpl-cricket-tournament.vercel.app" // Production client
     ],
     methods: ["GET", "POST"]
@@ -81,7 +81,7 @@ const io = new Server(server, {
 
 app.use(cors({
   origin: [
-    // "http://localhost:5173",
+    "http://localhost:5173",
     "https://vpl-cricket-tournament.vercel.app"
   ]
 }));
