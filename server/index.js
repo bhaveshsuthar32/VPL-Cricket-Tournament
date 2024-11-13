@@ -115,10 +115,9 @@ app.get("/checkserver", (req, res) => {
 
 app.use('/', Route); 
 
-server.listen(port, "localhost", () => {
-    console.log(`Server started: http://localhost:${port}`);
+server.listen(port, () => {
+  console.log(`Server started on port ${port}`);
 });
-
 
 
 // const express = require('express');
